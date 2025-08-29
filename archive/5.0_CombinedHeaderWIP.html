@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NITRO Manual – Old-Format Sample (Corrected)</title>
+
+  <!-- EXACT OLD STYLE (from NITRO_Cheat_Sheet_OldGoodFormat.html) -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f4f9fc;
+    }
+    h1 {
+      color: #004b8d;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background-color: #0078d4;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f4f9fc;
+    }
+    .category-header {
+      font-size: 20px;
+      color: #0078d4;
+      margin-top: 2rem;
+      border-bottom: 2px solid #0078d4;
+      padding-bottom: 5px;
+    }
+    details summary {
+      cursor: pointer;
+      color: #0078d4;
+      font-weight: bold;
+    }
+    code {
+      background-color: #eef6fb;
+      padding: 2px 4px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .ctx-wf { color: #1f77b4; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-ca { color: #ff7f0e; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-f  { color: #2ca02c; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-e  { color: #d62728; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .css-preview {
+      margin-top: 5px;
+      background: #fffbe6;
+      padding: 10px;
+      border: 1px dashed #ccc;
+    }
+    a.anchor-link {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Minimal additions (moved inline → CSS):
+       Make Syntax/Example columns use monospace without changing others */
+    td.col-syntax, td.col-example {
+      font-family: Consolas, "Courier New", monospace;
+    }
+    td.col-example pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .source-note { font-size: 12px; margin: 6px 0 14px; }
+  </style>
+</head>
+<body>
+  <h1>Crow Canyon NITRO Manual – Sample (Old Format)</h1>
+
+  <input type="text" id="searchBox" placeholder="Search for a function...">
+  <div class="source-note">
+    Source: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank">NITRO Help Guide/Manual</a>
+  </div>
+
+  <!-- 🔤 String Functions -->
+  <div class="category-header">🔤 String Functions</div>
+  <details open>
+    <summary>Expand / Collapse</summary>
+    <table>
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+        <th>Syntax</th>
+        <th>Example</th>
+        <th>Source</th>
+      </tr>
+      <tr>
+        <td>
+          $strcat
+          <span class="ctx-wf">WF</span>
+        </td>
+        <td>Concatenate values to build text from literals and fields.</td>
+        <td class="col-syntax"><code>$strcat(value1, value2, ...)</code></td>
+        <td class="col-example">
+          <pre><code>$strcat("Hello ", [Requester|Title])</code></pre>
+        </td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank">Functions</a></div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          $regextract
+          <span class="ctx-wf">WF</span>
+        </td>
+        <td>Extract a substring that matches a regex; supports optional HTML modifiers.</td>
+        <td class="col-syntax"><code>$regextract(source, pattern, [modifier])</code></td>
+        <td class="col-example">
+          <pre><code>$regextract([Body|Body], @.*(Bob).*)</code></pre>
+        </td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank">Functions</a></div>
+          </details>
+        </td>
+      </tr>
+    </table>
+  </details>
+
+  <!-- 🧠 JavaScript Examples -->
+  <div class="category-header">🧠 JavaScript Examples</div>
+  <details>
+    <summary>Expand / Collapse</summary>
+    <table>
+      <tr>
+        <th>Example</th>
+        <th>Description</th>
+        <th>Source</th>
+      </tr>
+      <tr>
+        <td class="col-example">
+          <pre><code>// Hide a field on form load
+$(document).ready(function() {
+  CCS_Form.SetFieldVisible("SecretField", false);
+});</code></pre>
+        </td>
+        <td>Hide a form field when the form loads using the CCS_Form API.</td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html" target="_blank">Form Events</a></div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-example">
+          <pre><code>// Set a field value
+CCS_Form.SetFieldValue("Priority", "High");</code></pre>
+        </td>
+        <td>Set a form field’s value programmatically.</td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html" target="_blank">Form Scripting</a></div>
+          </details>
+        </td>
+      </tr>
+    </table>
+  </details>
+
+  <!-- 📎 Placeholders -->
+  <div class="category-header">📎 Placeholders</div>
+  <details>
+    <summary>Expand / Collapse</summary>
+    <table>
+      <tr>
+        <th>Placeholder</th>
+        <th>Description</th>
+        <th>Example</th>
+        <th>Source</th>
+      </tr>
+      <tr>
+        <td>[InternalName|Display Name]</td>
+        <td>Standard field token.</td>
+        <td class="col-example"><pre><code>[Requester|Title]</code></pre></td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank">Reference</a></div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td>%%txtVar##value%%</td>
+        <td>Email/workflow variable token.</td>
+        <td class="col-example"><pre><code>%%TicketID##12345%%</code></pre></td>
+        <td>
+          <details>
+            <summary>Show link</summary>
+            <div>Manual: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank">Email Templates</a></div>
+          </details>
+        </td>
+      </tr>
+    </table>
+  </details>
+
+  <!-- Search filter (leave behavior the same) -->
+  <script>
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll("table tr").forEach((row) => {
+        if (row.querySelector("th") || row.innerText.toLowerCase().includes(q)) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

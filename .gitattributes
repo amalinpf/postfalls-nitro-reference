@@ -1,0 +1,22 @@
+# Auto-detect text files and normalize to LF in the repo
+* text=auto eol=lf
+
+# Windows-specific scripts can keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Markdown, HTML, CSS, JS should always use LF in the repo
+*.md   text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+
+# Binary files - don't touch line endings
+*.docx binary
+*.xlsx binary
+*.zip  binary
+*.png  binary
+*.jpg  binary
+*.gif  binary
+*.pdf  binary

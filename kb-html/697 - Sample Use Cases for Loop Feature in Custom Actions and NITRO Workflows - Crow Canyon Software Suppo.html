@@ -1,0 +1,1656 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]> <html class="ie ie7" dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 8]> <html class="ie ie8" dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9" dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#" prefix="og: http://ogp.me/ns#">
+<!--<![endif]-->
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125428320-1"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125428320-1');
+
+</script>
+
+	<meta charset="UTF-8" />
+
+	<!-- Pingback -->
+	<link rel="pingback" href="https://www.crowcanyon.help/xmlrpc.php" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+	#top #navigation ul.sub-menu li a {
+    color: #fff!important;
+     }
+	</style>
+	
+	<title>Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows - Crow Canyon Software Support</title>
+<link crossorigin data-rocket-preconnect href="https://www.google-analytics.com" rel="preconnect">
+<link crossorigin data-rocket-preconnect href="https://static.olark.com" rel="preconnect">
+<link crossorigin data-rocket-preconnect href="https://www.googletagmanager.com" rel="preconnect">
+<link crossorigin data-rocket-preconnect href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin data-rocket-preconnect href="https://cdn.crowcanyon.com" rel="preconnect"><link rel="preload" data-rocket-preload as="image" href="https://www.crowcanyon.help/wp-content/uploads/2018/08/new-bg2.png" fetchpriority="high">
+
+<!-- Custom JS (inline) -->
+<script type="text/javascript">
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onload = function () {
+    }
+    script.src = 'https://cdn.crowcanyon.com/NITROAI/Copilot/Scripts/NITROAICopilot_External.js';
+    head.appendChild(script);</script>
+
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+		<!-- All in One SEO 4.8.5 - aioseo.com -->
+	<meta name="description" content="Applies to: NITRO activated sites in SharePoint Online and On-Premises (2013/2016/2019 and SE) Description This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to this article for more details regarding the loop feature. Update items in a list from a web service response using variable collection loop" />
+	<meta name="robots" content="max-image-preview:large" />
+	<meta name="author" content="supportTeam"/>
+	<link rel="canonical" href="https://www.crowcanyon.help/article/697/" />
+	<meta name="generator" content="All in One SEO (AIOSEO) 4.8.5" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="Crow Canyon Software Support - Support for Crow Canyon Software Products" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows - Crow Canyon Software Support" />
+		<meta property="og:description" content="Applies to: NITRO activated sites in SharePoint Online and On-Premises (2013/2016/2019 and SE) Description This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to this article for more details regarding the loop feature. Update items in a list from a web service response using variable collection loop" />
+		<meta property="og:url" content="https://www.crowcanyon.help/article/697/" />
+		<meta property="article:published_time" content="2022-10-19T04:41:03+00:00" />
+		<meta property="article:modified_time" content="2022-10-20T04:40:04+00:00" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows - Crow Canyon Software Support" />
+		<meta name="twitter:description" content="Applies to: NITRO activated sites in SharePoint Online and On-Premises (2013/2016/2019 and SE) Description This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to this article for more details regarding the loop feature. Update items in a list from a web service response using variable collection loop" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.crowcanyon.help#listItem","position":1,"name":"Home","item":"https:\/\/www.crowcanyon.help","nextItem":{"@type":"ListItem","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#listItem","name":"Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows"}},{"@type":"ListItem","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#listItem","position":2,"name":"Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows","previousItem":{"@type":"ListItem","@id":"https:\/\/www.crowcanyon.help#listItem","name":"Home"}}]},{"@type":"Organization","@id":"https:\/\/www.crowcanyon.help\/#organization","name":"Crow Canyon Software Support","description":"Support for Crow Canyon Software Products","url":"https:\/\/www.crowcanyon.help\/","logo":{"@type":"ImageObject","url":"https:\/\/www.crowcanyon.help\/wp-content\/uploads\/2023\/06\/CCSNITRO-Logo-dual2023-260-height-.png","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#organizationLogo","width":4000,"height":260,"caption":"Crow Canyon Software | NITRO Studio"},"image":{"@id":"https:\/\/www.crowcanyon.help\/article\/697\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/www.crowcanyon.help\/author\/crow-canyon-support\/#author","url":"https:\/\/www.crowcanyon.help\/author\/crow-canyon-support\/","name":"supportTeam","image":{"@type":"ImageObject","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/d857c4ce6ac6f7b4b7472a727ead8a36f65aa66cad72cb92804be63337e158c6?s=96&d=mm&r=g","width":96,"height":96,"caption":"supportTeam"}},{"@type":"WebPage","@id":"https:\/\/www.crowcanyon.help\/article\/697\/#webpage","url":"https:\/\/www.crowcanyon.help\/article\/697\/","name":"Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows - Crow Canyon Software Support","description":"Applies to: NITRO activated sites in SharePoint Online and On-Premises (2013\/2016\/2019 and SE) Description This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to this article for more details regarding the loop feature. Update items in a list from a web service response using variable collection loop","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.crowcanyon.help\/#website"},"breadcrumb":{"@id":"https:\/\/www.crowcanyon.help\/article\/697\/#breadcrumblist"},"author":{"@id":"https:\/\/www.crowcanyon.help\/author\/crow-canyon-support\/#author"},"creator":{"@id":"https:\/\/www.crowcanyon.help\/author\/crow-canyon-support\/#author"},"datePublished":"2022-10-19T00:41:03-04:00","dateModified":"2022-10-20T00:40:04-04:00"},{"@type":"WebSite","@id":"https:\/\/www.crowcanyon.help\/#website","url":"https:\/\/www.crowcanyon.help\/","name":"Crow Canyon Software Support","description":"Support for Crow Canyon Software Products","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.crowcanyon.help\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+<link rel='dns-prefetch' href='//www.crowcanyon.help' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Crow Canyon Software Support &raquo; Feed" href="https://www.crowcanyon.help/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Crow Canyon Software Support &raquo; Comments Feed" href="https://www.crowcanyon.help/comments/feed/" />
+<link rel='stylesheet' id='jquery.prettyphoto-css' href='https://www.crowcanyon.help/wp-content/plugins/wp-video-lightbox/css/prettyPhoto.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<link rel='stylesheet' id='video-lightbox-css' href='https://www.crowcanyon.help/wp-content/plugins/wp-video-lightbox/wp-video-lightbox.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.crowcanyon.help/wp-includes/css/dist/block-library/style.min.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='af-fontawesome-css' href='https://www.crowcanyon.help/wp-content/plugins/asgaros-forum/libs/fontawesome/css/all.min.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='af-fontawesome-compat-v4-css' href='https://www.crowcanyon.help/wp-content/plugins/asgaros-forum/libs/fontawesome/css/v4-shims.min.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='af-widgets-css' href='https://www.crowcanyon.help/wp-content/plugins/asgaros-forum/skin/widgets.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='olark-wp-css' href='https://www.crowcanyon.help/wp-content/plugins/olark-live-chat/public/css/olark-wp-public.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='https://www.crowcanyon.help/wp-content/themes/flatbase/style.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<link rel='stylesheet' id='child-style-css' href='https://www.crowcanyon.help/wp-content/themes/flatbase-child/style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='nice-theme-fonts-css' href='//fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CNunito%3A300%2Cregular%2C700&#038;ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<link rel='stylesheet' id='nice-styles-css' href='https://www.crowcanyon.help/wp-content/themes/flatbase-child/style.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<style id='nice-styles-inline-css' type='text/css'>
+.entry blockquote { border-left-color:#1c5995; }
+.nice-infoboxes .item:hover a.read-more { border-bottom-color:#1c5995; }
+a, .entry a:visited, .entry a:hover, .wp-pagenavi span.current, #extended-footer a:hover, .liked i, .nice-knowledgebase ul li:hover i, span.required { color: #1c5995; }
+#navigation ul li a .bar, #navigation ul li a .bar:before, #navigation ul li a .bar:after, #navigation ul li a .bar, .nice-contact-form input[type="submit"]:hover, #commentform .button:hover, #respond input[type="submit"]:hover, .single .featured-image a, .post .featured-image a, .blog-masonry #posts-ajax-loader-button:hover, .nice-gallery .thumb a, #tabs .inside .tags a:hover { background-color: #1c5995; }
+::selection { background: #1c5995 }
+::-moz-selection { background: #1c5995 }
+#header { background-color: #35a49e !important; }
+#header { background-image: url(https://www.crowcanyon.help/wp-content/uploads/2018/08/new-bg2.png); }
+#header { background-repeat: no-repeat; }
+#header { background-position: center top; }
+#header { background-size: cover; }
+#header { background-attachment: fixed; }
+@media all and (min-width: 1024px) { #live-search { padding-top: 70px } }
+@media all and (min-width: 1024px) { #live-search { padding-bottom: 90px } }
+body, .bg-image { background-position : center top; }
+body, .bg-image { background-repeat : no-repeat; }
+#header #top #logo #default-logo, #header #top #logo #retina-logo { height : 65px; }
+.light #wrapper, #container .light { background-color:  !important; }
+#live-search.dark .welcome-message p { color: #222 !important; }
+@media only all and (min-width: 1024px) { 	#top #navigation .nav li:hover > a,	#top #navigation .nav li.current_page_item > a,	#top #navigation .nav li.current_page_parent > a,	#top #navigation .nav li.current-menu-ancestor > a,	#top #navigation .nav li.current-menu-item > a,	#top #navigation .nav li.sfHover { color: #fff !important; } } @media only all and (min-width: 1024px) { 	#navigation ul li a .bar,	#navigation ul li a .bar:before,	#navigation ul li a .bar:after,	#navigation ul li a .bar { background-color: #fff !important; } } /* Page Loader. */
+.pace .pace-progress { background: transparent !important; }
+
+/* Default button color. */
+body[data-btn-color="nice-black-color"] .btn:not(.btn-outline):not(.btn-cart), body[data-btn-color="nice-black-color"] .button:not(.btn-outline), body[data-btn-color="nice-black-color"] input[type="submit"]:not(.btn-outline), body[data-btn-color="nice-black-color"] input[type="button"]:not(.btn-outline), body[data-btn-color="nice-black-color"] .cta-button { background-color: #222; border-color: #222; }
+body[data-btn-color="nice-black-color"] .btn-default.btn-outline:not(.btn-cart), body[data-btn-color="nice-black-color"] .btn-outline.button:not(.btn-cart), body[data-btn-color="nice-black-color"] input.btn-outline[type="submit"], body[data-btn-color="nice-black-color"] input.btn-outline[type="button"] { color: #222 !important; border-color: #222 !important; }
+body[data-btn-color="nice-black-color"] .btn-default:hover:not(.btn-outline):not(.btn-disable-hover):not(.btn-cart), body[data-btn-color="nice-black-color"] .button:hover:not(.btn-outline):not(.btn-disable-hover):not(.btn-cart), body[data-btn-color="nice-black-color"] input[type="submit"]:hover:not(.btn-outline):not(.btn-disable-hover), body[data-btn-color="nice-black-color"] input[type="button"]:hover:not(.btn-outline):not(.btn-disable-hover), body[data-btn-color="nice-black-color"] .cta-button { background-color: #141414 !important; border-color: #141414 !important; }
+body[data-btn-color="nice-black-color"] .btn-default.btn-outline:hover:not(.btn-disable-hover):not(.btn-cart), body[data-btn-color="nice-black-color"] .btn-outline.button:hover:not(.btn-disable-hover):not(.btn-cart), body[data-btn-color="nice-black-color"] input.btn-outline[type="submit"]:hover:not(.btn-disable-hover), body[data-btn-color="nice-black-color"] input.btn-outline[type="button"]:hover:not(.btn-disable-hover), body[data-btn-color="nice-black-color"] .cta-button { border-color: #222 !important; background-color: #222 !important; }
+/* Accent Color. */
+.btn-accent-color, .btn-accent-color.btn-outline:hover, body[data-btn-color] [class].btn-accent-color:not(.btn-outline), body[data-btn-color] [class].btn-accent-color.btn-outline:hover, body[data-btn-color] input[type].btn-accent-color, body[data-btn-color] input[type].btn-accent-color.btn-outline:hover { color: #fff !important; background: #1c5995 !important; border-color: #1c5995 !important; }
+.btn-accent-color.btn-outline, body[data-btn-color] [class].btn-accent-color.btn-outline, body[data-btn-color] input[type].btn-accent-color.btn-outline  { color: #1c5995 !important; border-color: #1c5995 !important; background: transparent !important; }
+.btn-accent-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-accent-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-accent-color:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #184c80 !important; border-color: #184c80 !important; }
+.btn-accent-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-accent-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-accent-color.btn-outline:not(.btn-disable-hover):hover { background-color: #1c5995 !important; border-color: #1c5995 !important; }
+.text-accent-color { color: #1c5995 !important; }
+.background-accent-color { background-color: #1c5995 !important; }
+.background-accent-color.bottom_gradient { background: linear-gradient(rgba(28,89,149,0.25), #1c5995) !important; }
+.background-accent-color.top_gradient { background: linear-gradient(#1c5995, rgba(28,89,149,0.25) ) !important; }
+.border-accent-color { border-color: #1c5995 !important; }
+/* Complementary Color. */
+.btn-complementary-color, .btn-complementary-color.btn-outline:hover, body[data-btn-color] [class].btn-complementary-color:not(.btn-outline), body[data-btn-color] [class].btn-complementary-color.btn-outline:hover, body[data-btn-color] input[type].btn-complementary-color, body[data-btn-color] input[type].btn-complementary-color.btn-outline:hover { color: #fff !important; background: #35a49e !important; border-color: #35a49e !important; }
+.btn-complementary-color.btn-outline, body[data-btn-color] [class].btn-complementary-color.btn-outline, body[data-btn-color] input[type].btn-complementary-color.btn-outline  { color: #35a49e !important; border-color: #35a49e !important; background: transparent !important; }
+.btn-complementary-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-complementary-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-complementary-color:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #2f928c !important; border-color: #2f928c !important; }
+.btn-complementary-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-complementary-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-complementary-color.btn-outline:not(.btn-disable-hover):hover { background-color: #35a49e !important; border-color: #35a49e !important; }
+.text-complementary-color { color: #35a49e !important; }
+.background-complementary-color { background-color: #35a49e !important; }
+.background-complementary-color.bottom_gradient { background: linear-gradient(rgba(53,164,158,0.25), #35a49e) !important; }
+.background-complementary-color.top_gradient { background: linear-gradient(#35a49e, rgba(53,164,158,0.25) ) !important; }
+.border-complementary-color { border-color: #35a49e !important; }
+/* Black. */
+.btn-black-color, .btn-black-color.btn-outline:hover, body[data-btn-color] [class].btn-black-color:not(.btn-outline), body[data-btn-color] [class].btn-black-color.btn-outline:hover, body[data-btn-color] input[type].btn-black-color, body[data-btn-color] input[type].btn-black-color.btn-outline:hover { color: #fff !important; background: #222 !important; border-color: #222 !important; }
+.btn-black-color.btn-outline, body[data-btn-color] [class].btn-black-color.btn-outline, body[data-btn-color] input[type].btn-black-color.btn-outline  { color: #222 !important; border-color: #222 !important; background: transparent !important; }
+.btn-black-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-black-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-black-color:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #141414 !important; border-color: #141414 !important; }
+.btn-black-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-black-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-black-color.btn-outline:not(.btn-disable-hover):hover { background-color: #222 !important; border-color: #222 !important; }
+.text-black-color { color: #222 !important; }
+.background-black-color { background-color: #222 !important; }
+.background-black-color.bottom_gradient { background: linear-gradient(rgba(34,34,34,0.25), #222) !important; }
+.background-black-color.top_gradient { background: linear-gradient(#222, rgba(34,34,34,0.25) ) !important; }
+.border-black-color { border-color: #222 !important; }
+/* Dark 1. */
+.btn-dark-color-1, .btn-dark-color-1.btn-outline:hover, body[data-btn-color] [class].btn-dark-color-1:not(.btn-outline), body[data-btn-color] [class].btn-dark-color-1.btn-outline:hover, body[data-btn-color] input[type].btn-dark-color-1, body[data-btn-color] input[type].btn-dark-color-1.btn-outline:hover { color: #fff !important; background: #333 !important; border-color: #333 !important; }
+.btn-dark-color-1.btn-outline, body[data-btn-color] [class].btn-dark-color-1.btn-outline, body[data-btn-color] input[type].btn-dark-color-1.btn-outline  { color: #333 !important; border-color: #333 !important; background: transparent !important; }
+.btn-dark-color-1:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-1:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-1:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #262626 !important; border-color: #262626 !important; }
+.btn-dark-color-1.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-1.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-1.btn-outline:not(.btn-disable-hover):hover { background-color: #333 !important; border-color: #333 !important; }
+.text-dark-color-1 { color: #333 !important; }
+.background-dark-color-1 { background-color: #333 !important; }
+.background-dark-color-1.bottom_gradient { background: linear-gradient(rgba(51,51,51,0.25), #333) !important; }
+.background-dark-color-1.top_gradient { background: linear-gradient(#333, rgba(51,51,51,0.25) ) !important; }
+.border-dark-color-1 { border-color: #333 !important; }
+/* Dark 2. */
+.btn-dark-color-2, .btn-dark-color-2.btn-outline:hover, body[data-btn-color] [class].btn-dark-color-2:not(.btn-outline), body[data-btn-color] [class].btn-dark-color-2.btn-outline:hover, body[data-btn-color] input[type].btn-dark-color-2, body[data-btn-color] input[type].btn-dark-color-2.btn-outline:hover { color: #fff !important; background: #454545 !important; border-color: #454545 !important; }
+.btn-dark-color-2.btn-outline, body[data-btn-color] [class].btn-dark-color-2.btn-outline, body[data-btn-color] input[type].btn-dark-color-2.btn-outline  { color: #454545 !important; border-color: #454545 !important; background: transparent !important; }
+.btn-dark-color-2:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-2:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-2:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #383838 !important; border-color: #383838 !important; }
+.btn-dark-color-2.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-2.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-2.btn-outline:not(.btn-disable-hover):hover { background-color: #454545 !important; border-color: #454545 !important; }
+.text-dark-color-2 { color: #454545 !important; }
+.background-dark-color-2 { background-color: #454545 !important; }
+.background-dark-color-2.bottom_gradient { background: linear-gradient(rgba(69,69,69,0.25), #454545) !important; }
+.background-dark-color-2.top_gradient { background: linear-gradient(#454545, rgba(69,69,69,0.25) ) !important; }
+.border-dark-color-2 { border-color: #454545 !important; }
+/* Dark 3. */
+.btn-dark-color-3, .btn-dark-color-3.btn-outline:hover, body[data-btn-color] [class].btn-dark-color-3:not(.btn-outline), body[data-btn-color] [class].btn-dark-color-3.btn-outline:hover, body[data-btn-color] input[type].btn-dark-color-3, body[data-btn-color] input[type].btn-dark-color-3.btn-outline:hover { color: #fff !important; background: #686868 !important; border-color: #686868 !important; }
+.btn-dark-color-3.btn-outline, body[data-btn-color] [class].btn-dark-color-3.btn-outline, body[data-btn-color] input[type].btn-dark-color-3.btn-outline  { color: #686868 !important; border-color: #686868 !important; background: transparent !important; }
+.btn-dark-color-3:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-3:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-3:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #5b5b5b !important; border-color: #5b5b5b !important; }
+.btn-dark-color-3.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-dark-color-3.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-dark-color-3.btn-outline:not(.btn-disable-hover):hover { background-color: #686868 !important; border-color: #686868 !important; }
+.text-dark-color-3 { color: #686868 !important; }
+.background-dark-color-3 { background-color: #686868 !important; }
+.background-dark-color-3.bottom_gradient { background: linear-gradient(rgba(104,104,104,0.25), #686868) !important; }
+.background-dark-color-3.top_gradient { background: linear-gradient(#686868, rgba(104,104,104,0.25) ) !important; }
+.border-dark-color-3 { border-color: #686868 !important; }
+/* White. */
+.btn-white-color, .btn-white-color.btn-outline:hover, body[data-btn-color] [class].btn-white-color:not(.btn-outline), body[data-btn-color] [class].btn-white-color.btn-outline:hover, body[data-btn-color] input[type].btn-white-color, body[data-btn-color] input[type].btn-white-color.btn-outline:hover {  background: #fff !important; border-color: #fff !important; }
+.btn-white-color.btn-outline, body[data-btn-color] [class].btn-white-color.btn-outline, body[data-btn-color] input[type].btn-white-color.btn-outline  { color: #fff !important; border-color: #fff !important; background: transparent !important; }
+.btn-white-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-white-color:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-white-color:not(.btn-outline):not(.btn-disable-hover):hover {  background-color: #f2f2f2 !important; border-color: #f2f2f2 !important; }
+.btn-white-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-white-color.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-white-color.btn-outline:not(.btn-disable-hover):hover { background-color: #fff !important; border-color: #fff !important; }
+.text-white-color { color: #fff !important; }
+.background-white-color { background-color: #fff !important; }
+.background-white-color.bottom_gradient { background: linear-gradient(rgba(255,255,255,0.25), #fff) !important; }
+.background-white-color.top_gradient { background: linear-gradient(#fff, rgba(255,255,255,0.25) ) !important; }
+.border-white-color { border-color: #fff !important; }
+/* Light 1. */
+.btn-light-color-1, .btn-light-color-1.btn-outline:hover, body[data-btn-color] [class].btn-light-color-1:not(.btn-outline), body[data-btn-color] [class].btn-light-color-1.btn-outline:hover, body[data-btn-color] input[type].btn-light-color-1, body[data-btn-color] input[type].btn-light-color-1.btn-outline:hover { color: #fff !important; background: #eee !important; border-color: #eee !important; }
+.btn-light-color-1.btn-outline, body[data-btn-color] [class].btn-light-color-1.btn-outline, body[data-btn-color] input[type].btn-light-color-1.btn-outline  { color: #eee !important; border-color: #eee !important; background: transparent !important; }
+.btn-light-color-1:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-1:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-1:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #e0e0e0 !important; border-color: #e0e0e0 !important; }
+.btn-light-color-1.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-1.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-1.btn-outline:not(.btn-disable-hover):hover { background-color: #eee !important; border-color: #eee !important; }
+.text-light-color-1 { color: #eee !important; }
+.background-light-color-1 { background-color: #eee !important; }
+.background-light-color-1.bottom_gradient { background: linear-gradient(rgba(238,238,238,0.25), #eee) !important; }
+.background-light-color-1.top_gradient { background: linear-gradient(#eee, rgba(238,238,238,0.25) ) !important; }
+.border-light-color-1 { border-color: #eee !important; }
+/* Light 2. */
+.btn-light-color-2, .btn-light-color-2.btn-outline:hover, body[data-btn-color] [class].btn-light-color-2:not(.btn-outline), body[data-btn-color] [class].btn-light-color-2.btn-outline:hover, body[data-btn-color] input[type].btn-light-color-2, body[data-btn-color] input[type].btn-light-color-2.btn-outline:hover { color: #fff !important; background: #ddd !important; border-color: #ddd !important; }
+.btn-light-color-2.btn-outline, body[data-btn-color] [class].btn-light-color-2.btn-outline, body[data-btn-color] input[type].btn-light-color-2.btn-outline  { color: #ddd !important; border-color: #ddd !important; background: transparent !important; }
+.btn-light-color-2:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-2:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-2:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #d1d1d1 !important; border-color: #d1d1d1 !important; }
+.btn-light-color-2.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-2.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-2.btn-outline:not(.btn-disable-hover):hover { background-color: #ddd !important; border-color: #ddd !important; }
+.text-light-color-2 { color: #ddd !important; }
+.background-light-color-2 { background-color: #ddd !important; }
+.background-light-color-2.bottom_gradient { background: linear-gradient(rgba(221,221,221,0.25), #ddd) !important; }
+.background-light-color-2.top_gradient { background: linear-gradient(#ddd, rgba(221,221,221,0.25) ) !important; }
+.border-light-color-2 { border-color: #ddd !important; }
+/* Light 3. */
+.btn-light-color-3, .btn-light-color-3.btn-outline:hover, body[data-btn-color] [class].btn-light-color-3:not(.btn-outline), body[data-btn-color] [class].btn-light-color-3.btn-outline:hover, body[data-btn-color] input[type].btn-light-color-3, body[data-btn-color] input[type].btn-light-color-3.btn-outline:hover { color: #fff !important; background: #bbb !important; border-color: #bbb !important; }
+.btn-light-color-3.btn-outline, body[data-btn-color] [class].btn-light-color-3.btn-outline, body[data-btn-color] input[type].btn-light-color-3.btn-outline  { color: #bbb !important; border-color: #bbb !important; background: transparent !important; }
+.btn-light-color-3:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-3:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-3:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #adadad !important; border-color: #adadad !important; }
+.btn-light-color-3.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-light-color-3.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-light-color-3.btn-outline:not(.btn-disable-hover):hover { background-color: #bbb !important; border-color: #bbb !important; }
+.text-light-color-3 { color: #bbb !important; }
+.background-light-color-3 { background-color: #bbb !important; }
+.background-light-color-3.bottom_gradient { background: linear-gradient(rgba(187,187,187,0.25), #bbb) !important; }
+.background-light-color-3.top_gradient { background: linear-gradient(#bbb, rgba(187,187,187,0.25) ) !important; }
+.border-light-color-3 { border-color: #bbb !important; }
+/* CCS Navy Blue. */
+.btn-user-color-ccs-navy-blue, .btn-user-color-ccs-navy-blue.btn-outline:hover, body[data-btn-color] [class].btn-user-color-ccs-navy-blue:not(.btn-outline), body[data-btn-color] [class].btn-user-color-ccs-navy-blue.btn-outline:hover, body[data-btn-color] input[type].btn-user-color-ccs-navy-blue, body[data-btn-color] input[type].btn-user-color-ccs-navy-blue.btn-outline:hover { color: #fff !important; background: #1d4573 !important; border-color: #1d4573 !important; }
+.btn-user-color-ccs-navy-blue.btn-outline, body[data-btn-color] [class].btn-user-color-ccs-navy-blue.btn-outline, body[data-btn-color] input[type].btn-user-color-ccs-navy-blue.btn-outline  { color: #1d4573 !important; border-color: #1d4573 !important; background: transparent !important; }
+.btn-user-color-ccs-navy-blue:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-user-color-ccs-navy-blue:not(.btn-outline):not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-user-color-ccs-navy-blue:not(.btn-outline):not(.btn-disable-hover):hover { color: #fff !important; background-color: #17385d !important; border-color: #17385d !important; }
+.btn-user-color-ccs-navy-blue.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] [class].btn-user-color-ccs-navy-blue.btn-outline:not(.btn-disable-hover):hover, body[data-btn-color] input[type].btn-user-color-ccs-navy-blue.btn-outline:not(.btn-disable-hover):hover { background-color: #1d4573 !important; border-color: #1d4573 !important; }
+.text-user-color-ccs-navy-blue { color: #1d4573 !important; }
+.background-user-color-ccs-navy-blue { background-color: #1d4573 !important; }
+.background-user-color-ccs-navy-blue.bottom_gradient { background: linear-gradient(rgba(29,69,115,0.25), #1d4573) !important; }
+.background-user-color-ccs-navy-blue.top_gradient { background: linear-gradient(#1d4573, rgba(29,69,115,0.25) ) !important; }
+.border-user-color-ccs-navy-blue { border-color: #1d4573 !important; }
+
+/* Nice Custom Fonts */
+
+body { font-family: 'Lato', arial, sans-serif;font-size: 15px;font-style: normal;font-weight: normal;letter-spacing: inherit; }
+#top #navigation .nav > li a { font-family: 'Lato', arial, sans-serif;font-size: 15px;font-style: normal;font-weight: bold;letter-spacing: inherit; !important }
+#top #navigation .nav li ul li a { font-family: 'Lato', arial, sans-serif;font-size: 12px;font-style: normal;font-weight: normal;letter-spacing: inherit; !important }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, #call-to-action { font-family: 'Nunito', arial, sans-serif;font-style: normal;font-weight: normal;letter-spacing: inherit; !important; }
+.button-primary, .button-blue, .button-secondary, .header .nav li.current-page a, .header .nav-callout, .cta-button, input[type="submit"], button, #commentform .button, #respond input[type="submit"], .nice-contact-form input[type="submit"], .blog-masonry #posts-ajax-loader-button { font-family: 'Nunito', arial, sans-serif;font-style: normal;font-weight: normal;letter-spacing: inherit; }
+input, textarea, placeholder, #live-search .input label { font-family: 'Lato', arial, sans-serif;font-style: normal;font-weight: normal;letter-spacing: inherit;; }
+.nice-infoboxes .infobox-title { font-family: 'Nunito', arial, sans-serif;font-size: 21px;font-style: normal;font-weight: normal;letter-spacing: inherit; }
+.infobox .entry-excerpt{ font-family: 'Lato', arial, sans-serif;font-size: 15px;font-style: normal;font-weight: normal;letter-spacing: inherit; }
+.welcome-message h2 { font-family: 'Nunito', arial, sans-serif;font-size: 18px;font-style: normal;font-weight: normal;letter-spacing: inherit; }
+.welcome-message p, .welcome-message p a { font-family: 'Lato', arial, sans-serif;font-size: 18px;font-style: normal;font-weight: bold;letter-spacing: inherit; }
+
+/* Custom CSS */
+
+#top #navigation ul.sub-menu li a {
+    color: #fff!important;
+}
+</style>
+<link rel='stylesheet' id='nice-fancybox-styles-css' href='https://www.crowcanyon.help/wp-content/themes/flatbase/includes/assets/css/jquery.fancybox.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<link rel='stylesheet' id='nice-font-awesome-source-css' href='https://www.crowcanyon.help/wp-content/themes/flatbase/includes/assets/css/font-awesome.min.css?ver=8b9f9003a4e884fb7e86e7ada04cf680' type='text/css' media='all' />
+<meta name="generator" content="Flatbase 2.0.9" />
+<meta name="generator" content="Nice Framework 2.0.9.1" />
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/plugins/wp-video-lightbox/js/jquery.prettyPhoto.js?ver=3.1.6" id="jquery.prettyphoto-js"></script>
+<script type="text/javascript" id="video-lightbox-js-extra">
+/* <![CDATA[ */
+var vlpp_vars = {"prettyPhoto_rel":"wp-video-lightbox","animation_speed":"fast","slideshow":"5000","autoplay_slideshow":"false","opacity":"0.80","show_title":"true","allow_resize":"true","allow_expand":"true","default_width":"640","default_height":"480","counter_separator_label":"\/","theme":"pp_default","horizontal_padding":"20","hideflash":"false","wmode":"opaque","autoplay":"false","modal":"false","deeplinking":"false","overlay_gallery":"true","overlay_gallery_max":"30","keyboard_shortcuts":"true","ie6_fallback":"true"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/plugins/wp-video-lightbox/js/video-lightbox.js?ver=3.1.6" id="video-lightbox-js"></script>
+<script type="text/javascript" id="olark-wp-js-extra">
+/* <![CDATA[ */
+var olark_vars = {"site_ID":"8107-302-10-8606","expand":"0","float":"0","override_lang":"0","lang":"","api":"","mobile":"1","woocommerce":"","woocommerce_version":null,"enable_cartsaver":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/plugins/olark-live-chat/public/js/olark-wp-public.js?ver=1.0.0" id="olark-wp-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/themes/flatbase/includes/assets/js/jquery.livesearch.js?ver=8b9f9003a4e884fb7e86e7ada04cf680" id="nice-livesearch-js-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/themes/flatbase/includes/assets/js/min/pace.min.js?ver=1.0.2" id="nice-pace-source-js"></script>
+<link rel="https://api.w.org/" href="https://www.crowcanyon.help/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.crowcanyon.help/wp-json/wp/v2/article/27586" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.crowcanyon.help/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://www.crowcanyon.help/?p=27586' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.crowcanyon.help/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.crowcanyon.help%2Farticle%2F697%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.crowcanyon.help/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.crowcanyon.help%2Farticle%2F697%2F&#038;format=xml" />
+<script>
+            WP_VIDEO_LIGHTBOX_VERSION="1.9.12";
+            WP_VID_LIGHTBOX_URL="https://www.crowcanyon.help/wp-content/plugins/wp-video-lightbox";
+                        function wpvl_paramReplace(name, string, value) {
+                // Find the param with regex
+                // Grab the first character in the returned string (should be ? or &)
+                // Replace our href string with our new value, passing on the name and delimeter
+
+                var re = new RegExp("[\?&]" + name + "=([^&#]*)");
+                var matches = re.exec(string);
+                var newString;
+
+                if (matches === null) {
+                    // if there are no params, append the parameter
+                    newString = string + '?' + name + '=' + value;
+                } else {
+                    var delimeter = matches[0].charAt(0);
+                    newString = string.replace(re, delimeter + name + "=" + value);
+                }
+                return newString;
+            }
+            </script><meta property="og:type" content="article" />
+<meta property="og:title" content="Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows" />
+<meta property="og:url" content="https://www.crowcanyon.help/article/697/" />
+<meta property="og:description" content="Applies to: NITRO activated sites in SharePoint Online and On-Premises (2013/2016/2019 and SE) Description This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to this article for more details regarding the loop feature. Update items in a list from a web service response using variable collection loop [&hellip;]" />
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style>	<script type="text/javascript">
+	//<![CDATA[
+		jQuery( document ).ready( function() {
+			jQuery( '#live-search #s' ).liveSearch( { url: 'https://www.crowcanyon.help/?ajax=true&livesearch=true&s=' } );
+		});
+	//]]>
+	</script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		jQuery( document ).ready( function( $ ) {
+
+			nicethemes_likes_handler();
+
+		});
+		/* ]]> */
+	</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5YR9TWF0S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F5YR9TWF0S');
+</script><link rel="icon" href="https://www.crowcanyon.help/wp-content/uploads/2018/06/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.crowcanyon.help/wp-content/uploads/2018/06/favicon-32x32.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.crowcanyon.help/wp-content/uploads/2018/06/favicon-32x32.png" />
+<meta name="msapplication-TileImage" content="https://www.crowcanyon.help/wp-content/uploads/2018/06/favicon-32x32.png" />
+		<style type="text/css" id="wp-custom-css">
+			#content {
+  width: 100%!important;
+}
+		</style>
+		
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.19.3" data-wpr-features="wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_preload_links wpr_desktop" /></head>
+
+<body class="wp-singular article-template-default single single-article postid-27586 single-format-standard wp-custom-logo wp-theme-flatbase wp-child-theme-flatbase-child light-skin light has-sidebar sidebar-right unknown desktop" data-btn-shape="default" data-btn-color="nice-black-color" data-use-lazyload="true">
+
+
+<!-- BEGIN #wrapper -->
+<div  id="wrapper">
+
+	<!-- BEGIN #header -->
+	<header id="header" class="background-complementary-color header-dark submenu-dark nav-capitalize subnav-capitalize has-border clearfix" >
+
+		<!-- BEGIN #top -->
+		<div  id="top">
+
+			<div class="col-full">
+
+				<!-- BEGIN #logo -->
+	<div id="logo" class="fl"><h1><span id="default-logo-wrapper" class="header-logo-wrapper"><a href="https://www.crowcanyon.help/" title="Crow Canyon Software Support"><img src="https://www.crowcanyon.help/wp-content/uploads/2023/06/CCSNITRO-Logo-dual2023-130-height.png" id="default-logo" width="1000" height="65" alt="Crow Canyon Software Support" title="Crow Canyon Software Support" class="img-logo img-custom-logo" />
+<img src="https://www.crowcanyon.help/wp-content/uploads/2023/06/CCSNITRO-Logo-dual2023-260-height-.png" id="retina-logo" width="1000" height="65" alt="Crow Canyon Software Support" title="Crow Canyon Software Support" class="img-logo img-logo-retina img-custom-logo" />
+</a></span></h1></div>	<!-- END #logo -->
+	            <!--<span class ="custom_logo">
+            	<a href="https://www.nitro.studio/">
+            		<img src="/wp-content/uploads/2018/06/NITROlogo.png" />
+            	</a>
+            </span>-->
+				<a href="#" id="toggle-nav"><i class="fa fa-bars"></i></a>
+
+<nav id="navigation" class="menu-support-container"><ul id="main-nav" class="nav fr clearfix "><li id="nav-menu-item-20555" class="main-menu-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://www.crowcanyon.com/crow-canyon-support/" class="menu-link main-menu-link">Support Homepage<mark class="bar"></mark></a></li>
+<li id="nav-menu-item-21381" class="main-menu-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.crowcanyon.help/forum/" class="menu-link main-menu-link">Community Forum<mark class="bar"></mark></a></li>
+<li id="nav-menu-item-21614" class="main-menu-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.crowcanyon.com/submit-support-ticket/" class="menu-link main-menu-link">Submit a Support Ticket<mark class="bar"></mark></a></li>
+<li id="nav-menu-item-21386" class="main-menu-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.crowcanyon.com" class="menu-link main-menu-link">CrowCanyon.com Website<mark class="bar"></mark></a></li>
+<li id="nav-menu-item-26745" class="main-menu-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.crowcanyon.help/releasenotes/" class="menu-link main-menu-link">Version Release Notes<mark class="bar"></mark></a></li>
+</ul></nav>
+			</div>
+
+		<!-- END #top -->
+		</div>
+
+	
+	<!-- END #header -->
+	</header>
+
+<!-- BEGIN #container -->
+<div  id="container" class="clearfix"> 
+<!-- BEGIN #content -->
+<section  id="content" class="" role="main">
+
+	
+			<!-- BEGIN .post -->
+	<article id="post-27586" class="post-27586 article type-article status-publish format-standard hentry">
+
+				
+		
+		
+			<header class="entry-header">
+				<div class="breadcrumb breadcrumbs nice-breadcrumb"><div class="breadcrumb-trail"><a href="https://www.crowcanyon.help/" title="Crow Canyon Software Support" rel="home" class="trail-begin">Home</a> <span class="sep">/</span> <span class="trail-end">Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows</span></div></div><h1 class="page-title h1   breadcrumbs-before">Sample Use Cases for Loop Feature in Custom Actions and NITRO Workflows</h1>
+	<div class="entry-meta">
+
+				<span class="nice-views">
+						<i class="fa fa-bullseye"></i>1531 views		</span>
+		
+				<span class="nice-reading-time">
+			<i class="fa fa-bookmark"></i> 7 min , 25 sec read		</span>
+		
+				<a class="nice-like" data-id="27586" href="#" title="Like this">
+			<i class="fa fa-heart"></i>
+			<span class="like-count">
+				0			</span>
+		</a>
+		
+		
+	</div>
+			</header>
+
+		
+	
+			<!-- BEGIN .entry -->
+	<div class="entry">
+		
+		<!-- BEGIN .post-content -->
+		<div class="post-content">
+			
+<p><strong>Applies to</strong>: NITRO activated sites in SharePoint Online and On-Premises (2013/2016/2019 and SE)</p>
+
+
+
+<h2 class="wp-block-heading">Description</h2>
+
+
+
+<p>This article describes the sample use cases for loop feature in Custom Actions and NITRO Workflows. Refer to <a title="" href="https://www.crowcanyon.help/article/696" target="_blank" rel="noopener">this article</a> for more details regarding the loop feature.</p>
+
+
+
+<ol class="wp-block-list">
+<li><a href="#Usecase1">Update items in a list from a web service response using variable collection loop</a></li>
+<li><a href="#Usecase2">Replicate assets from asset type using number loop type</a></li>
+<li><a href="#Usecase3">Run send mail action for query list items using query list loop</a></li>
+<li><a href="#Usecase4">Close Tickets and Ticket tasks on resolving a problem</a></li>
+</ol>
+
+
+
+<p>In all sample use cases, column mappings are shown with expression builder and the old format. We can use any one of them though expression builder is the preferred option.</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>With expression builder (New format)
+<ol>
+<li>Expression builder is released for Custom Actions.</li>
+</ol>
+<ol>
+<li>For NITRO Workflows, expression builder will be released soon.</li>
+</ol>
+</li>
+<li>Without expression builder (Old format)</li>
+</ol>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading"><a name="Usecase1"></a>Use case 1: Update items in a list from a web service response using variable collection loop</h2>
+
+
+
+<p>In this sample use case, a custom list with title “Users” is being used to store details of the users.</p>
+
+
+
+<p>‘Users’ list in SharePoint site has below columns.</p>
+
+
+
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Column Name</strong></td>
+<td><strong>Column Type</strong></td>
+</tr>
+<tr>
+<td>User Id</td>
+<td>Single line of text</td>
+</tr>
+<tr>
+<td>First Name</td>
+<td>Single line of text</td>
+</tr>
+<tr>
+<td>Last Name</td>
+<td>Single line of text</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Single line of text</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Choice (Active, Inactive)</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<p><strong>Details</strong>:</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>Configure an invoke web service action and response of this action is stored in a variable. This variable collection will have user details like User Id, Email, First Name and Last Name</li>
+<li>Web Service used in this example is a publicly available REST API: <a title="" href="https://reqres.in/api/users" target="_blank" rel="noopener">https://reqres.in/api/users</a></li>
+<li>Response variable is then used in loop control configuration.</li>
+<li>Configure a query list action in the loop body. It will query the user from ‘Users’ list based on the email address extracted from the user data in current loop iteration.</li>
+<li>If user is found in the ‘Users’ list then update the details of the matching item in the ‘Users’ list.</li>
+<li>Otherwise, create a new item with details of the user in the ‘Users’ list.</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">Custom Action</h3>
+
+
+
+<figure class="wp-block-image size-large"><img class="wp-image-27587" data-original="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-65-1024x572.png" alt="" /></figure>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>Define below variables
+<ol>
+<li>VarUsers</li>
+<li>VarEmail</li>
+<li>VarCurrentUser</li>
+</ol>
+</li>
+</ol>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="940" height="380" class="wp-image-27588" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-300x121.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-768x310.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-480x194.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-730x295.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-580x234.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-66-665x269.png 665w" sizes="(max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 1: GetUsers</h5>
+
+
+
+<p>Configure Invoke Web Service action as shown below. Please note “Define Variable Mappings” section at the bottom. Service response is in JSON format and we need to extract the values as per the structure of the JSON and put it in variables for subsequent usage.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="940" height="973" class="wp-image-27589" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-290x300.png 290w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-768x795.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-464x480.png 464w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-327x338.png 327w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-391x405.png 391w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-67-275x285.png 275w" sizes="(max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Define variable mappings in Invoke Web Service Action:</strong></p>
+
+
+
+<p><strong>With expression builder:</strong></p>
+
+
+
+<p>Configure the JSON path function in expression builder as shown below to extract the response from invoke web service action and update it in a variable. This expression builder uses ‘CurrentAction’ as expression type as the response of web service is available in current action.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="940" height="451" class="wp-image-27590" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-704x338.png 704w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-68-594x285.png 594w" sizes="(max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without expression builder</strong>:</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="288" class="wp-image-27591" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-300x92.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-768x235.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-480x147.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-730x224.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-580x178.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-69-665x204.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Variable value used in above:</p>
+
+
+
+<p>$jsonpath2({CurrentAction}##Value,@$.data)</p>
+
+
+
+<p><strong>Web Service Response:</strong></p>
+
+
+
+<p>Response of invoke webservice action is given below. ‘VarUsers’ variable will have the highlighted part of response as it is the extracted ‘data’ element from the response: Please note that JSON path will be different as per the response format of your API.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="913" height="525" class="wp-image-27593" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70.png 913w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-300x173.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-768x442.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-480x276.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-588x338.png 588w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-580x334.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-70-496x285.png 496w" sizes="auto, (max-width: 913px) 100vw, 913px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 2: Loop all users</h5>
+
+
+
+<p>In above Web API action response, ‘data’ element contains an array (collection) of user data. This collection was stored in variable ‘VarUsers’. We will now configure a loop control to iterate over each user in the response:</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="517" class="wp-image-27594" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-300x165.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-768x422.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-480x264.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-615x338.png 615w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-580x319.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-71-518x285.png 518w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 3: Update VarEmail</h5>
+
+
+
+<p>We now want to store the email of the user in current iteration in a variable. This is done in a set variable action. These variables will be used in subsequent actions.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="496" class="wp-image-27595" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-300x158.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-768x405.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-480x253.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-641x338.png 641w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-580x306.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-72-540x285.png 540w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">VarCurrentUser:</h5>
+
+
+
+<p>This variable is used to save the current iteration value from a variable collection.</p>
+
+
+
+<p><strong>With expression builder</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="276" class="wp-image-27596" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-300x88.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-768x225.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-480x141.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-730x214.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-580x170.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-73-665x195.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="414" class="wp-image-27597" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-300x132.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-768x338.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-480x211.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-730x322.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-580x255.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-74-647x285.png 647w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without expression builder:</strong></p>
+
+
+
+<p>Value used in the expression: $GetIterationValue(Loop all users)</p>
+
+
+
+<p><strong>Note</strong>: ‘Loop all users’ is loop control name configured in ‘Action 2’ above</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="278" class="wp-image-27598" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-300x89.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-768x227.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-480x142.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-730x216.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-580x172.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-75-665x197.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Sample output:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="835" height="82" class="wp-image-27599" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76.png 835w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-300x29.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-768x75.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-480x47.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-730x72.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-580x57.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-76-665x65.png 665w" sizes="auto, (max-width: 835px) 100vw, 835px" /></figure>
+
+
+
+<h5 class="wp-block-heading">VarEmail</h5>
+
+
+
+<p>This variable is used to extract the email address from above variable ‘VarCurrentUser’.</p>
+
+
+
+<p><strong>Output: </strong><a href="mailto:george.bluth@reqres.in">george.bluth@reqres.in</a></p>
+
+
+
+<p><strong>With expression builder:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="279" class="wp-image-27600" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-300x89.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-768x228.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-480x142.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-730x217.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-580x172.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-77-665x197.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="450" class="wp-image-27601" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-706x338.png 706w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-78-595x285.png 595w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without expression builder:</strong></p>
+
+
+
+<p>Variable value used in the expression below:</p>
+
+
+
+<p>VarCurrentUser##email</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="277" class="wp-image-27602" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-300x88.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-768x226.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-480x141.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-730x215.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-580x171.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-79-665x196.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 4: GetUserFromSPList</h5>
+
+
+
+<p>Configure a query list action to query the user from ‘Users’ list based on the email address that we have extracted in the set variable action above. Note that user with this email address may not be there in the list yet.</p>
+
+
+
+<p><strong>Value used in the condition builder:</strong></p>
+
+
+
+<p>Email equal %%VarEmail##Value%%</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="872" class="wp-image-27603" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-300x278.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-768x712.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-480x445.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-364x338.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-437x405.png 437w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-80-307x285.png 307w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 5: Verify if user is found or not in the list</h5>
+
+
+
+<p>Configure gateway control to check if user is found in the ‘Users’ list. Gateway will allow us to execute different actions depending on whether user is found or not.</p>
+
+
+
+<p><strong>Value used in the condition builder:</strong> GetUserFromSPList##$count([ID|ID]),,0</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="618" class="wp-image-27604" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-300x197.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-768x505.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-480x316.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-514x338.png 514w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-580x381.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-81-433x285.png 433w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 6: Update user record</h5>
+
+
+
+<p>User record already exists in the list. We will use an update item action to update the user details based on the data we got in the Web API response for user with this email Id.</p>
+
+
+
+<p><strong>With expression builder:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="912" class="wp-image-27606" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-300x291.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-768x745.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-480x466.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-348x338.png 348w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-417x405.png 417w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-82-294x285.png 294w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Expression used in the column mapping:</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="450" class="wp-image-27607" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-706x338.png 706w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-83-595x285.png 595w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Property names used in above expression builder:</p>
+
+
+
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Column Name</strong></td>
+<td><strong>Value expression</strong></td>
+</tr>
+<tr>
+<td>Title</td>
+<td>id</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>email</td>
+</tr>
+<tr>
+<td>FirstName</td>
+<td>first_name</td>
+</tr>
+<tr>
+<td>LastName</td>
+<td>last_name</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Active</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<p><strong>Without expression builder:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="872" class="wp-image-27608" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-300x278.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-768x712.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-480x445.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-364x338.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-437x405.png 437w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-84-307x285.png 307w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Value expressions used in above column mappings:</p>
+
+
+
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Column Name</strong></td>
+<td><strong>Value expression</strong></td>
+</tr>
+<tr>
+<td>Title</td>
+<td>VarCurrentUser##id</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>VarCurrentUser##email</td>
+</tr>
+<tr>
+<td>FirstName</td>
+<td>VarCurrentUser##first_name</td>
+</tr>
+<tr>
+<td>LastName</td>
+<td>VarCurrentUser##last_name</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Active</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<h5 class="wp-block-heading">Action 7: Create user record</h5>
+
+
+
+<p>User does not exist in the ‘Users’ list. We will configure a create item action to create the user record based on the data in variable that has the user details from current loop iteration.</p>
+
+
+
+<p><strong>With expression builder:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="977" class="wp-image-27609" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-289x300.png 289w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-768x798.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-462x480.png 462w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-325x338.png 325w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-390x405.png 390w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-85-274x285.png 274w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Expression used in the column mapping:</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="450" class="wp-image-27610" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-706x338.png 706w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-86-595x285.png 595w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without expression builder:</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="875" class="wp-image-27611" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-300x279.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-768x715.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-480x447.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-363x338.png 363w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-435x405.png 435w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-87-306x285.png 306w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>Value expressions used in above column mappings:</p>
+
+
+
+<figure class="wp-block-table">
+<table>
+<tbody>
+<tr>
+<td><strong>Column Name</strong></td>
+<td><strong>Value expression</strong></td>
+</tr>
+<tr>
+<td>Title</td>
+<td>VarCurrentUser##id</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>VarCurrentUser##email</td>
+</tr>
+<tr>
+<td>FirstName</td>
+<td>VarCurrentUser##first_name</td>
+</tr>
+<tr>
+<td>LastName</td>
+<td>VarCurrentUser##last_name</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Active</td>
+</tr>
+</tbody>
+</table>
+</figure>
+
+
+
+<h2 class="wp-block-heading"><a name="Usecase2"></a>Use Case 2: Replicate assets from asset type using number loop type</h2>
+
+
+
+<p><strong>Details</strong>:</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>This custom action uses ‘Assets’ and ‘Asset Type’ lists.</li>
+<li>‘Assets’ list has a lookup column to ‘Asset Type’ list.</li>
+<li>For specified Asset Type(s), we need to create multiple assets in ‘Assets’ list.</li>
+<li>This action is configured on ‘Asset Type’ list.</li>
+<li>Prompt the user to enter required number of Assets that need to be created.</li>
+<li>Based on the user input, create assets in the ‘Assets’ list.</li>
+</ol>
+
+
+
+<p>This sample use case assumes that ‘Assets’ and ‘Asset Type’ lists already exist in the SharePoint site.</p>
+
+
+
+<p>Below steps explain above functionality on both single and multiple ‘Asset Type’.</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>Replicate Assets &#8211; Single Asset Type
+<ul>
+<li>This action runs on single ‘Asset Type’ and creates the required number of Assets.</li>
+</ul>
+</li>
+<li>Replicate Assets &#8211; Multiple Asset Types
+<ul>
+<li>This action will query multiple ‘Asset Type’ using query list action and run the above ‘Replicate Assets &#8211; Single Asset Type’ action for each item in the result of the query list action.</li>
+</ul>
+</li>
+</ol>
+
+
+
+<p>Replicate Assets &#8211; Single Asset Type</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="528" class="wp-image-27613" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-1024x528.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-1024x528.png 1024w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-300x155.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-768x396.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-480x248.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-655x338.png 655w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-580x299.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88-552x285.png 552w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-88.png 1246w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p><strong>Define a variable</strong></p>
+
+
+
+<p>Define a variable ‘VarNumberToReplicate’ with default value ‘0’ as shown below. This variable will be set based on the user input in next action and then used to create the specified number of assets in ‘Assets’ list.</p>
+
+
+
+<p><strong>Note</strong>: In NITRO Workflows, we cannot take the user input as they run in the backend servers, so directly specify the default user input value in variable ‘VarNumberToReplicate’.</p>
+
+
+
+<p><strong>Ex</strong>: VarNumberToReplicate = 5</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="274" class="wp-image-27614" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-300x87.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-768x224.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-480x140.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-730x213.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-580x169.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-89-665x194.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 1: How many to replicate?</h5>
+
+
+
+<p>Configure execute script action to take the user input for number of assets to be created.</p>
+
+
+
+<p><strong>Note</strong>: This action is not required for NITRO Workflows. We need to specify the input for number of assets to be created directly while defining the variable ‘VarNumberToReplicate’ above.</p>
+
+
+
+<p><strong>Script:</strong></p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>  var NumberToReplicate = prompt(&#8220;Please enter the number of Assets to create&#8221;, &#8220;0&#8221;);</p>
+<p>  NumberToReplicate = parseInt(NumberToReplicate);</p>
+<p>  if (NumberToReplicate &gt; 0){</p>
+<p>   ccs_setwfvariablevalue(&#8220;VarNumberToReplicate&#8221;, NumberToReplicate);</p>
+<p>  }</p>
+<p>  else {</p>
+<p>  ccs_setwfvariablevalue(&#8220;VarNumberToReplicate&#8221;, &#8220;0&#8221;);</p>
+<p>  alert(&#8220;Please enter valid number&#8221;);</p>
+<p>  }   functionCallback();</p>
+</blockquote>
+
+
+
+<p><strong>Note</strong>:</p>
+
+
+
+<p>In above script, use the same name for variable as used in previous step (“VarNumberToReplicate”).</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="540" class="wp-image-27617" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-300x172.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-768x441.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-480x276.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-588x338.png 588w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-580x333.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-90-496x285.png 496w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 2: Loop number to replicate</h5>
+
+
+
+<p>Configure loop control action to execute required number of times.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="583" class="wp-image-27618" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-300x186.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-768x476.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-480x298.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-545x338.png 545w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-580x360.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-91-460x285.png 460w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 3: Add to Assets list</h5>
+
+
+
+<p>Configure add list item action in the loop body to create item in ‘Assets’ list.</p>
+
+
+
+<p><strong>With expression builder (New format)</strong>:</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="810" height="1024" class="wp-image-27619" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-810x1024.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-810x1024.png 810w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-237x300.png 237w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-768x971.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-379x480.png 379w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-267x338.png 267w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-320x405.png 320w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92-225x285.png 225w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-92.png 940w" sizes="auto, (max-width: 810px) 100vw, 810px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="847" height="689" class="wp-image-27620" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93.png 847w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-300x244.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-768x625.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-480x390.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-416x338.png 416w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-498x405.png 498w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-93-350x285.png 350w" sizes="auto, (max-width: 847px) 100vw, 847px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="451" class="wp-image-27621" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-704x338.png 704w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-94-594x285.png 594w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without expression builder (Old format)</strong>:</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="776" height="1024" class="wp-image-27622" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-776x1024.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-776x1024.png 776w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-227x300.png 227w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-768x1014.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-364x480.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-256x338.png 256w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-307x405.png 307w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95-216x285.png 216w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-95.png 940w" sizes="auto, (max-width: 776px) 100vw, 776px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="832" height="603" class="wp-image-27623" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96.png 832w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-300x217.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-768x557.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-480x348.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-466x338.png 466w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-559x405.png 559w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-96-393x285.png 393w" sizes="auto, (max-width: 832px) 100vw, 832px" /></figure>
+
+
+
+<h4 class="wp-block-heading">Replicate Assets &#8211; Multiple Asset Types</h4>
+
+
+
+<p>This custom action can be used to create multiple Assets for each of the Asset Type. This action demonstrates two levels of loop. At first level the iteration is over ‘Asset Type’ items. Then there is a nested loop to create multiple assets for the Asset Type in current iteration of outer loop.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="589" class="wp-image-27624" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-1024x589.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-1024x589.png 1024w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-300x172.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-768x442.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-480x276.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-588x338.png 588w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-580x333.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97-496x285.png 496w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-97.png 1322w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 1: GetAssetTypes – Multiple</h5>
+
+
+
+<p>Configure query list action to get the required ‘Asset Type’ for creating assets.</p>
+
+
+
+<p><strong>Note</strong>: In this sample use case, we have configured query list action to get ‘Asset Type’ from all items list view. This query can be modified as per the requirement to fetch a subset of items.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="873" class="wp-image-27625" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-300x279.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-768x713.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-480x446.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-364x338.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-436x405.png 436w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-98-307x285.png 307w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 2: Run loop for Asset Type</h5>
+
+
+
+<p>Configure loop action with ‘Query List’ option. This is the outer loop that will be executed for each of the ‘Asset Type’ items.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="483" class="wp-image-27626" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-300x154.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-768x395.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-480x247.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-658x338.png 658w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-580x298.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-99-555x285.png 555w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Note</strong>: For all other action configurations, refer ‘Replicate Assets – Single Asset Type’ above.</p>
+
+
+
+<h2 class="wp-block-heading"><a name="Usecase3"></a>Use Case 3: Run send mail action for query list items using query list loop</h2>
+
+
+
+<p><strong>Details</strong>:</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>This action is configured on Tickets list.</li>
+<li>Tickets list has associated tasks. ‘Associated Tasks’ list has a lookup column pointing to Tickets list.</li>
+<li>Configure query list action to get open associated tasks for related Ticket.</li>
+<li>Configure a loop to iterate over open tasks.</li>
+<li>Send mail to assignee of the task.</li>
+</ol>
+
+
+
+<p>This sample use case assumes that ‘Tickets’ and ‘Associated Tasks’ lists already exist and ‘Associated Tasks’ list has a lookup column to ‘Tickets’ list.</p>
+
+
+
+<h4 class="wp-block-heading">Custom Action</h4>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="617" class="wp-image-27628" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-1024x617.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-1024x617.png 1024w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-300x181.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-768x463.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-480x289.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-561x338.png 561w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-580x349.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100-473x285.png 473w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-100.png 1162w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Define Variables</h5>
+
+
+
+<p>Define variables as shown below:</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>VarAssignedToEmail</li>
+<li>VarAssignedToUser</li>
+</ol>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="328" class="wp-image-27629" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-300x105.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-768x268.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-480x167.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-730x255.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-580x202.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-101-665x232.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 1: GetOpenTasks</h5>
+
+
+
+<p>Configure a query list action to get the open tasks for a Ticket. Conditions can be changed as per the requirement.</p>
+
+
+
+<p><strong>Value used in the condition builder:</strong></p>
+
+
+
+<p>Related Ticket ID equal ‘lookupid:%%[ID|ID]%%’</p>
+
+
+
+<p>Task Status not equal Completed</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="873" class="wp-image-27631" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-300x279.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-768x713.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-480x446.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-364x338.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-436x405.png 436w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-102-307x285.png 307w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 2: Loop query list items</h5>
+
+
+
+<p>Configure a loop control action for the above query list action as shown below:</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="573" class="wp-image-27632" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-300x183.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-768x468.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-480x293.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-554x338.png 554w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-580x354.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-103-468x285.png 468w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 3: Update VarAssignedToEmail</h5>
+
+
+
+<p>Configure set variable action to get the ‘Assigned To’ email address from the task item. For this we first need to get the user value from the list item column. We then get the email Id of the user.</p>
+
+
+
+<p><strong>Update variables with expression builder (New format):</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="524" class="wp-image-27633" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-300x167.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-768x428.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-480x268.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-606x338.png 606w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-580x323.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-104-511x285.png 511w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>VarAssignedToUser</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="280" class="wp-image-27634" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-300x89.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-768x229.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-480x143.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-730x217.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-580x173.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-105-665x198.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="411" class="wp-image-27635" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-300x131.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-768x336.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-480x210.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-730x319.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-580x254.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-106-652x285.png 652w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>VarAssignedToEmail</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="274" class="wp-image-27636" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-300x87.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-768x224.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-480x140.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-730x213.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-580x169.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-107-665x194.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="436" class="wp-image-27637" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-300x139.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-768x356.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-480x223.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-730x338.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-580x269.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-108-614x285.png 614w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Update variables without expression builder (Old format):</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="503" class="wp-image-27638" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-300x161.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-768x411.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-480x257.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-632x338.png 632w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-580x310.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-109-533x285.png 533w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>VarAssignedToUser:</strong></p>
+
+
+
+<p>This variable is used to save the ‘Assigned To’ column value of current iteration of query list item.</p>
+
+
+
+<p><strong>Value used in the expression:</strong></p>
+
+
+
+<p>$GetIterationValue(Loop query list items,[Assigned To|AssignedTo])</p>
+
+
+
+<p>In above expression,</p>
+
+
+
+<p>“Loop query list items” is loop control action name</p>
+
+
+
+<p>“[Assigned To|AssignedTo]” is a ‘Assigned To’ column placeholder from associated task list.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="319" class="wp-image-27639" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-300x102.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-768x261.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-480x163.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-730x248.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-580x197.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-110-665x226.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>VarAssignedToEmail:</strong></p>
+
+
+
+<p>This variable is used to save the email address of assigned to user saved in above variable <strong>‘</strong>VarAssignedToUser<strong>’</strong></p>
+
+
+
+<p><strong>Value used in the above expression:</strong></p>
+
+
+
+<p>$parsefieldvalue(VarAssignedToUser##Value,email)</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="276" class="wp-image-27640" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-300x88.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-768x225.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-480x141.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-730x214.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-580x170.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-111-665x195.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 4: Send mail to assignee</h5>
+
+
+
+<p>Configure send mail action to notify task assignee.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="876" class="wp-image-27641" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-300x280.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-768x716.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-480x447.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-363x338.png 363w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-435x405.png 435w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-112-306x285.png 306w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h2 class="wp-block-heading"><a name="Usecase4"></a>Use Case 4: Close Tickets and Ticket tasks on resolving a problem</h2>
+
+
+
+<p><strong>Details</strong>:</p>
+
+
+
+<ol class="wp-block-list" type="1">
+<li>A problem can have multiple associated Tickets and each Ticket can have multiple associated tasks. When a problem is resolved, we need to complete the tasks of each of the associated ticket. We need to close each of these Tickets and finally resolve the problem.</li>
+<li>This custom action uses below lists:
+<ol>
+<li>Problems</li>
+</ol>
+<ol>
+<li>Tickets</li>
+</ol>
+<ol>
+<li>Associated Tasks</li>
+</ol>
+</li>
+<li>Relation between these lists is given below.
+<ol>
+<li>Tickets list has a lookup to ‘Problems’ list.</li>
+</ol>
+<ol>
+<li>Associated Tasks list has a lookup to ‘Tickets’ list.</li>
+</ol>
+</li>
+<li>This custom action is configured on the Problems list.</li>
+<li>Configure query list action to get related Tickets of the Problem on which custom action is being executed.</li>
+<li>Run loop action to iterate over each of the Tickets</li>
+<li>Get open associated tasks for each of the related Tickets using query list action</li>
+<li>Complete all associated tasks fetched in #7. This is done with Update item action as it is a simple update process. For more complicated scenario a loop can be added here to go over each associated task.</li>
+<li>Close the Ticket for loop item in #6.</li>
+<li>Resolve the current Problem.</li>
+</ol>
+
+
+
+<p>This sample use case assumes that “Problems”, “Tickets” and “Associated Tasks” lists already exist.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Custom Action</strong></h3>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="578" class="wp-image-27643" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-1024x578.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-1024x578.png 1024w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-300x169.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-768x434.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-480x271.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-599x338.png 599w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-580x328.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113-505x285.png 505w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-113.png 1275w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Define variable</h5>
+
+
+
+<p>Define a variable ‘VarCurrentTicket’ with empty value as shown below.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="282" class="wp-image-27644" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-300x90.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-768x230.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-480x144.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-730x219.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-580x174.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-114-665x200.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 1: GetRelatedTickets</h5>
+
+
+
+<p>Configure query list action to get open Tickets from the ‘Tickets’ list that are related to the current Problem.</p>
+
+
+
+<p><strong>Value used in the condition builder:</strong></p>
+
+
+
+<p>Related Problem equal ‘lookupid:%%[ID|ID]%%’</p>
+
+
+
+<p>Request Status not equal ‘Closed’</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="869" class="wp-image-27645" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-300x277.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-768x710.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-480x444.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-366x338.png 366w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-438x405.png 438w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-115-308x285.png 308w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 2: Loop all related Tickets</h5>
+
+
+
+<p>For each Ticket we need to do some process. So we configure a loop to iterate over each Ticket fetched in above step.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="526" class="wp-image-27646" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-300x168.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-768x430.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-480x269.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-604x338.png 604w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-580x325.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-116-509x285.png 509w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 3: Update VarCurrentTicket</h5>
+
+
+
+<p>Configure a set variable action to store the Id of the Ticket from the current iteration. This variable is used in next query list action to find all the associated tasks for the Ticket.</p>
+
+
+
+<p><strong>With expression builder (New format)</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="452" class="wp-image-27647" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-768x369.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-480x231.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-703x338.png 703w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-580x279.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-117-593x285.png 593w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="279" class="wp-image-27648" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-300x89.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-768x228.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-480x142.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-730x217.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-580x172.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-118-665x197.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="451" class="wp-image-27649" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-300x144.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-768x368.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-480x230.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-704x338.png 704w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-580x278.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-119-594x285.png 594w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p><strong>Without Expression builder (Old format)</strong></p>
+
+
+
+<p>Variable value used in the expression:</p>
+
+
+
+<p>$GetIterationValue(Loop all related Tickets,[ID|ID])</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="454" class="wp-image-27650" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-300x145.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-768x371.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-480x232.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-700x338.png 700w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-580x280.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-120-590x285.png 590w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="277" class="wp-image-27651" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-300x88.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-768x226.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-480x141.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-730x215.png 730w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-580x171.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-121-665x196.png 665w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 4: Getallopentasks</h5>
+
+
+
+<p>Configure a query list action to get related tasks for the current Ticket Id stored in variable ‘VarCurrentTicket’.</p>
+
+
+
+<p><strong>Values used in the condition builder:</strong></p>
+
+
+
+<p>Related Ticket ID equal lookupid:%%VarCurrentTicket##Value%%</p>
+
+
+
+<p>Task Status not equal Completed</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="873" class="wp-image-27652" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-300x279.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-768x713.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-480x446.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-364x338.png 364w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-436x405.png 436w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-122-307x285.png 307w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 5: Complete all related ticket tasks</h5>
+
+
+
+<p>Configure update list item action as shown below to complete all the tasks.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="572" class="wp-image-27653" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-300x183.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-768x467.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-480x292.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-555x338.png 555w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-580x353.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-123-468x285.png 468w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 6: Close Ticket</h5>
+
+
+
+<p>Configure update list item action to close the Ticket.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="580" class="wp-image-27654" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-300x185.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-768x474.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-480x296.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-548x338.png 548w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-580x358.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-124-462x285.png 462w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<h5 class="wp-block-heading">Action 7: Resolve problem</h5>
+
+
+
+<p>Configure update list item action to resolve the problem.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="940" height="553" class="wp-image-27655" src="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125.png" alt="" srcset="https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125.png 940w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-300x176.png 300w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-768x452.png 768w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-480x282.png 480w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-575x338.png 575w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-580x341.png 580w, https://www.crowcanyon.help/wp-content/uploads/2022/10/image-125-484x285.png 484w" sizes="auto, (max-width: 940px) 100vw, 940px" /></figure>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+		</div><!-- END .post-content -->
+	</div><!-- END .entry -->
+
+	<footer class="entry-meta">
+
+		<span class="tag-links">
+					</span>
+		<span class="category-links">
+					</span>
+
+	</footer>
+
+		
+	</article><!-- END .post -->
+
+			<div id="post-author">
+		<div class="profile-image thumb"><img alt='' src='https://secure.gravatar.com/avatar/d857c4ce6ac6f7b4b7472a727ead8a36f65aa66cad72cb92804be63337e158c6?s=70&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/d857c4ce6ac6f7b4b7472a727ead8a36f65aa66cad72cb92804be63337e158c6?s=140&#038;d=mm&#038;r=g 2x' class='avatar avatar-70 photo' height='70' width='70' loading='lazy' decoding='async'/></div>
+			<div class="profile-content">
+				<h4 class="title">About supportTeam</h4>
+								<div class="profile-link">
+					<a href="https://www.crowcanyon.help/author/crow-canyon-support/">
+						View all posts by supportTeam <span class="meta-nav">&rarr;</span>					</a>
+				</div><!-- #profile-link	-->
+		</div><!-- .post-entries -->
+		<div class="fix"></div>
+	</div><!-- #post-author -->
+	
+		
+		
+	
+<!-- END #content -->
+</section>
+
+
+			<!-- END #container -->
+		</div>
+	
+			<!-- BEGIN #footer -->
+		<footer data-wpr-lazyrender="1" id="footer" class="site-footer light">
+			
+			
+	<div  id="extended-footer">
+		<div id="extended-footer-content" class="col-full">
+			<div class="grid">
+				<div class="columns-2">
+					<div id="copyright">© 2025 Crow Canyon Systems, Inc. All Rights Reserved</div>				</div>
+				<div class="columns-2">
+					<nav id="footer-navigation" class="menu-footer-menu-container"><ul id="footer-nav" class="nav fr clearfix"><li id="menu-item-21380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21380"><a href="https://www.crowcanyon.help/terms-of-service/">Terms of Service</a></li>
+<li id="menu-item-21385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-21385"><a rel="privacy-policy" href="https://www.crowcanyon.help/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-21393" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21393"><a href="https://www.crowcanyon.com">www.crowcanyon.com</a></li>
+</ul></nav>				</div>
+			</div>
+		</div>
+	</div>
+		</footer><!-- END #footer -->
+	
+	</div><!-- END #wrapper -->
+
+	
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/flatbase-child\/*","\/wp-content\/themes\/flatbase\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<a href="#wrapper" data-target="#wrapper" class="backtotop">
+			<i class="fa fa-angle-up"></i>
+		</a>
+		<script type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.crowcanyon.help","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/jquery/jquery.masonry.min.js?ver=3.1.2b" id="jquery-masonry-js"></script>
+<script type="text/javascript" id="nice-scripts-js-extra">
+/* <![CDATA[ */
+var generalData = {"homeURL":"https:\/\/www.crowcanyon.help","adminURL":"https:\/\/www.crowcanyon.help\/wp-admin\/","adminAjaxURL":"https:\/\/www.crowcanyon.help\/wp-admin\/admin-ajax.php","playNiceNonce":"f39dc4d3f6","headerFixed":"","headerShrink":"","AjaxCache":"1","lazyScripts":{"waypoints":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/jquery.waypoints.min.js","fancybox":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/jquery.fancybox.min.js","superfish":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/superfish.min.js","isotope":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/isotope.min.js","vimeoPlayer":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/player.min.js","scrollTo":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/jquery.scrollTo.min.js","lazyload":"https:\/\/www.crowcanyon.help\/wp-content\/themes\/flatbase\/includes\/assets\/js\/min\/lazyload.min.js"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-content/themes/flatbase/includes/assets/js/min/nice-scripts.min.js?ver=8b9f9003a4e884fb7e86e7ada04cf680" id="nice-scripts-js"></script>
+<script type="text/javascript" src="https://www.crowcanyon.help/wp-includes/js/comment-reply.min.js?ver=8b9f9003a4e884fb7e86e7ada04cf680" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+</body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1755715860 -->

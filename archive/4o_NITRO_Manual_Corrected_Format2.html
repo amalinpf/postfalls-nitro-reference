@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NITRO Manual - Final Corrected Format</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f4f9fc;
+    }
+    h1 {
+      color: #004b8d;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background-color: #0078d4;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f4f9fc;
+    }
+    .category-header {
+      font-size: 20px;
+      color: #0078d4;
+      margin-top: 2rem;
+      border-bottom: 2px solid #0078d4;
+      padding-bottom: 5px;
+    }
+    details summary {
+      cursor: pointer;
+      color: #0078d4;
+      font-weight: bold;
+    }
+    code {
+      background-color: #eef6fb;
+      padding: 2px 4px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .ctx-wf { color: #1f77b4; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-ca { color: #ff7f0e; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-f  { color: #2ca02c; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .ctx-e  { color: #d62728; font-size: 12px; line-height: 1.4; font-weight: bold; display: block; }
+    .css-preview {
+      margin-top: 5px;
+      background: #fffbe6;
+      padding: 10px;
+      border: 1px dashed #ccc;
+    }
+    a.anchor-link {
+      color: inherit;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NITRO Manual</h1>
+  <input type="text" id="searchBox" placeholder="🔍 Search for functions, syntax, or keywords...">
+
+  <!-- ⬇️ START MANUAL CONTENT (Paste full cheat sheet content here) -->
+  <!-- For demo purposes, a sample category block is shown -->
+  <details open>
+    <summary class="category-header">🔤 String Functions</summary>
+    <table>
+      <tr><th>Function</th><th>Description</th><th>Syntax</th><th>Example</th><th>More Info</th></tr>
+      <tr>
+        <td>$strcat</td>
+        <td>Concatenates values (Workflow Only)</td>
+        <td><code>$strcat(value1, value2, ...)</code></td>
+        <td><code>$strcat(Hello, [Name|Title])</code></td>
+        <td><details><summary>⚙️ WF</summary>Joins static and dynamic text. No quotes needed.<br><a href="https://www.crowcanyon.help/article/653/" target="_blank">Source</a></details></td>
+      </tr>
+      <tr>
+        <td>$regextract</td>
+        <td>Extract substring with regex (Workflow Only)</td>
+        <td><code>$regextract(source, pattern, [modifier])</code></td>
+        <td><code>$regextract([Body|Body],@.*(Bob).*)</code></td>
+        <td><details open><summary>⚙️ WF</summary>Modifiers: <code>HTMLDecode</code>, <code>HTMLStrip</code><br><a href="https://www.crowcanyon.help/article/653/" target="_blank">Source</a></details></td>
+      </tr>
+    </table>
+  </details>
+  <!-- ⬆️ END MANUAL CONTENT -->
+
+  <footer style="text-align:right;font-size:12px;color:#888; margin-top:40px;">
+    <em>Created with the assistance of Chatty Cathy</em>
+  </footer>
+
+  <script>
+    document.getElementById('searchBox').addEventListener('keyup', function () {
+      const search = this.value.toLowerCase();
+      document.querySelectorAll('table tr').forEach(row => {
+        if (row.innerText.toLowerCase().includes(search) || row.querySelector('th')) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

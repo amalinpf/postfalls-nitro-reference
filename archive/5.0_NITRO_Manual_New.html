@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NITRO Manual — 5.0 Sample (Requested Tweaks Only)</title>
+  <style>
+    /* Base layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f9fc;
+      color: #333;
+    }
+    header, footer {
+      background: #0b61d8;
+      color: #fff;
+      text-align: center;
+      padding: 16px 20px;
+    }
+    header h1 { color: #fff; margin: 0 0 6px 0; }
+
+    /* Dynamic main container (closer to edges) */
+    main {
+      width: calc(100% - 32px);
+      margin: 16px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+    }
+
+    /* Controls */
+    .top-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 12px 0 20px 0;
+    }
+    #searchBox {
+      width: min(100%, 54ch);  /* wide enough for the whole placeholder */
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .btn {
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    .source-note {
+      font-size: 12px;
+      color: #333;
+      margin: 8px 0 0 0;
+      text-align: center;
+    }
+    .source-note a { color: #004b8d; text-decoration: underline; }
+
+    /* SECTION HEADERS (triangle, border) — only for top-level sections */
+    details.section { margin-top: 1.25rem; }
+    details.section > summary {
+      cursor: pointer;
+      color: #0078d4;
+      font-weight: bold;
+      font-size: 16pt;
+      border-bottom: 2px solid #0078d4;
+      padding: 6px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    details.section > summary::before { content: "▶"; display: inline-block; transform: translateY(1px); }
+    details.section[open] > summary::before { content: "▼"; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      vertical-align: top;  /* keep cells top-aligned (prevents tall rows) */
+    }
+    th {
+      background-color: #0078d4;
+      color: #fff;
+    }
+    tr:nth-child(even) td { background-color: #f4f9fc; }
+
+    /* Monospace only where needed; code has no colored background */
+    td.col-syntax, td.col-example { font-family: Consolas, "Courier New", monospace; }
+    td.col-example pre { margin: 0; white-space: pre-wrap; }
+    code {
+      background-color: transparent; /* no blue bg */
+      padding: 0;
+      font-size: 14pt;               /* requested size for inline code */
+    }
+
+    /* Make cell-level details look simple (no borders/extra padding) */
+    table td details > summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #0078d4;
+      font-size: 14px;
+      padding: 0;
+      border: none;          /* remove the line that made rows look taller */
+      display: inline;       /* keep it inline like before */
+    }
+
+    a.anchor-link { color: inherit; text-decoration: underline; }
+    /* Triangles for per-row "More Info" summaries (cell-level) */
+table td details > summary {
+  list-style: none;       /* hide default marker */
+}
+table td details > summary::-webkit-details-marker {
+  display: none;          /* Safari/Chrome marker off */
+}
+table td details > summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 6px;
+  transform: translateY(1px);
+}
+table td details[open] > summary::before {
+  content: "▼";
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Crow Canyon NITRO Manual</h1>
+    <div style="opacity:.85">5.0 styling — minimal, requested tweaks only</div>
+  </header>
+
+  <main>
+    <div class="top-controls">
+      <input id="searchBox" type="text" placeholder="🔍 Search for functions, syntax, or keywords..." />
+      <button class="btn" id="expandAllBtn" type="button">Expand All</button>
+      <button class="btn" id="collapseAllBtn" type="button">Collapse All</button>
+    </div>
+
+    <div class="source-note">
+      Source: <a class="anchor-link" href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">NITRO Help Guide/Manual</a>
+    </div>
+
+    <!-- 🔤 String Functions -->
+    <details class="section" open>
+      <summary>🔤 String Functions</summary>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Description</th>
+          <th>Syntax</th>
+          <th>Example</th>
+          <th>More Info</th>
+        </tr>
+
+        <tr>
+          <td>$strcat</td>
+          <td>Concatenates values</td>
+          <td class="col-syntax"><code>$strcat(value1, value2, ...)</code></td>
+          <td class="col-example"><pre><code>$strcat("Hello ", [Requester|Title])</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Joins static and dynamic text. No quotes needed.<br/>
+              <a href="https://www.crowcanyon.help/article/653/" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$substring</td>
+          <td>Returns a portion of a string</td>
+          <td class="col-syntax"><code>$substring(source, startIndex, length)</code></td>
+          <td class="col-example"><pre><code>$substring([Title|Title], 0, 10)</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Use zero-based index for start position.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$tolower</td>
+          <td>Converts text to lowercase</td>
+          <td class="col-syntax"><code>$tolower(source)</code></td>
+          <td class="col-example"><pre><code>$tolower([Requester|Title])</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Applies only to string values.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$toupper</td>
+          <td>Converts text to uppercase</td>
+          <td class="col-syntax"><code>$toupper(source)</code></td>
+          <td class="col-example"><pre><code>$toupper([Requester|Title])</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Applies only to string values.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$replace</td>
+          <td>Replaces text in a string</td>
+          <td class="col-syntax"><code>$replace(source, oldValue, newValue)</code></td>
+          <td class="col-example"><pre><code>$replace([Title|Title], "Issue", "Request")</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Replaces all occurrences.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$regextract</td>
+          <td>Extracts substring by regex</td>
+          <td class="col-syntax"><code>$regextract(source, pattern, [modifier])</code></td>
+          <td class="col-example"><pre><code>$regextract([Body|Body], @.*(Bob).*)</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Supports modifiers like <code>HTMLDecode</code>, <code>HTMLStrip</code>.<br/>
+              <a href="https://www.crowcanyon.help/article/653/" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+
+        <tr>
+          <td>$length</td>
+          <td>Returns the length of a string</td>
+          <td class="col-syntax"><code>$length(source)</code></td>
+          <td class="col-example"><pre><code>$length([Title|Title])</code></pre></td>
+          <td>
+            <details>
+              <summary>WF</summary>
+              Character count only, not bytes.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?functions.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <!-- 🧠 JavaScript Examples -->
+    <details class="section">
+      <summary>🧠 JavaScript Examples</summary>
+      <table>
+        <tr>
+          <th>Example</th>
+          <th>Description</th>
+          <th>More Info</th>
+        </tr>
+        <tr>
+          <td class="col-example"><pre><code>// Hide a field on form load
+$(document).ready(function() {
+  CCS_Form.SetFieldVisible("SecretField", false);
+});</code></pre></td>
+          <td>Hide a form field when the form loads using the CCS_Form API.</td>
+          <td>
+            <details>
+              <summary>JS</summary>
+              NITRO Form scripting reference.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-example"><pre><code>// Set a field value
+CCS_Form.SetFieldValue("Priority", "High");</code></pre></td>
+          <td>Set a form field’s value programmatically.</td>
+          <td>
+            <details>
+              <summary>JS</summary>
+              NITRO Form scripting reference.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <!-- 📎 Placeholders -->
+    <details class="section">
+      <summary>📎 Placeholders</summary>
+      <table>
+        <tr>
+          <th>Placeholder</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>More Info</th>
+        </tr>
+        <tr>
+          <td>[InternalName|Display Name]</td>
+          <td>Standard field token for SharePoint/NITRO.</td>
+          <td class="col-example"><pre><code>[Requester|Title]</code></pre></td>
+          <td>
+            <details>
+              <summary>PL</summary>
+              Field token reference.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td>%%txtVar##value%%</td>
+          <td>Email/workflow variable token.</td>
+          <td class="col-example"><pre><code>%%TicketID##12345%%</code></pre></td>
+          <td>
+            <details>
+              <summary>PL</summary>
+              Variables in email/workflows.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <!-- 📬 Email Syntax -->
+    <details class="section">
+      <summary>📬 Email Syntax</summary>
+      <table>
+        <tr>
+          <th>Token</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>More Info</th>
+        </tr>
+        <tr>
+          <td>%%[FieldName|DisplayName]%%</td>
+          <td>Insert field value in an email template.</td>
+          <td class="col-example"><pre><code>%%[Requester|Title]%%</code></pre></td>
+          <td>
+            <details>
+              <summary>EM</summary>
+              Email template field tokens.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td>[[Field||Display]]</td>
+          <td>Alternate token syntax for display-friendly output.</td>
+          <td class="col-example"><pre><code>[[Title||Request Title]]</code></pre></td>
+          <td>
+            <details>
+              <summary>EM</summary>
+              Alternate templating syntax.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <!-- 🧩 Advanced Conditions -->
+    <details class="section">
+      <summary>🧩 Advanced Conditions</summary>
+      <table>
+        <tr>
+          <th>Pattern</th>
+          <th>Description</th>
+          <th>Example</th>
+          <th>More Info</th>
+        </tr>
+        <tr>
+          <td>[Field|Name],,value</td>
+          <td>Compare a field to a literal string/number.</td>
+          <td class="col-example"><pre><code>[Status|Status],,Closed</code></pre></td>
+          <td>
+            <details>
+              <summary>AC</summary>
+              Basic condition patterns.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td>$parsefieldvalue()</td>
+          <td>Use parsed value (e.g., from lookups) in comparisons.</td>
+          <td class="col-example"><pre><code>$parsefieldvalue([Category|Category])</code></pre></td>
+          <td>
+            <details>
+              <summary>AC</summary>
+              Parsing helpers in conditions.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+
+    <!-- 👤 People Field Handling -->
+    <details class="section">
+      <summary>👤 People Field Handling</summary>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Description</th>
+          <th>Syntax</th>
+          <th>Example</th>
+          <th>More Info</th>
+        </tr>
+        <tr>
+          <td>$getSPuserproperty</td>
+          <td>Get a user’s attribute (e.g., manager, email) from a Person column.</td>
+          <td class="col-syntax"><code>$getSPuserproperty(userField, propertyName)</code></td>
+          <td class="col-example"><pre><code>$getSPuserproperty([Requester|Requester], "Manager")</code></pre></td>
+          <td>
+            <details>
+              <summary>PF</summary>
+              Person-field utilities.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td>$getuserattr</td>
+          <td>Return email or display name from a user column.</td>
+          <td class="col-syntax"><code>$getuserattr(userField, "email"|"name")</code></td>
+          <td class="col-example"><pre><code>$getuserattr([AssignedTo|Assigned To], "email")</code></pre></td>
+          <td>
+            <details>
+              <summary>PF</summary>
+              User attribute extraction.<br/>
+              <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html" target="_blank" rel="noopener">Source</a>
+            </details>
+          </td>
+        </tr>
+      </table>
+    </details>
+  </main>
+
+  <footer>
+    NITRO Manual | Created with the assistance of Skynet
+  </footer>
+
+  <script>
+    // Search filter (row-level)
+    document.getElementById('searchBox').addEventListener('keyup', function () {
+      const search = this.value.toLowerCase();
+      document.querySelectorAll('table tr').forEach(row => {
+        if (row.querySelector('th')) { row.style.display = ''; return; }
+        row.style.display = row.innerText.toLowerCase().includes(search) ? '' : 'none';
+      });
+    });
+    // Expand/Collapse all sections
+    document.getElementById('expandAllBtn').addEventListener('click', () => {
+      document.querySelectorAll('details.section').forEach(d => d.open = true);
+    });
+    document.getElementById('collapseAllBtn').addEventListener('click', () => {
+      document.querySelectorAll('details.section').forEach(d => d.open = false);
+    });
+  </script>
+</body>
+</html>

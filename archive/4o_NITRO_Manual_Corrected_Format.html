@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>NITRO Manual – Detailed Sample</title>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        background-color: #f4f9fc;
+      }
+      h1 {
+        color: #004b8d;
+        text-align: center;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
+      th {
+        background-color: #0078d4;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f4f9fc;
+      }
+      .category-header {
+        font-size: 20px;
+        color: #0078d4;
+        margin-top: 2rem;
+        border-bottom: 2px solid #0078d4;
+        padding-bottom: 5px;
+      }
+      details summary {
+        cursor: pointer;
+        color: #0078d4;
+        font-weight: bold;
+      }
+      code {
+        background-color: #eef6fb;
+        padding: 2px 4px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .ctx-wf {
+        color: #1f77b4;
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: bold;
+        display: block;
+      }
+      .ctx-ca {
+        color: #ff7f0e;
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: bold;
+        display: block;
+      }
+      .ctx-f {
+        color: #2ca02c;
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: bold;
+        display: block;
+      }
+      .ctx-e {
+        color: #d62728;
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: bold;
+        display: block;
+      }
+      .css-preview {
+        margin-top: 5px;
+        background: #fffbe6;
+        padding: 10px;
+        border: 1px dashed #ccc;
+      }
+      a.anchor-link {
+        color: inherit;
+        text-decoration: underline;
+      }
+    </style>
+<script>
+      function toggleSection(id) {
+        var el = document.getElementById(id);
+        if (el.style.display === "none") {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
+        }
+      }
+    </script>
+</head>
+<body>
+<header>
+<h1>Crow Canyon NITRO – Detailed Sample</h1>
+<div style="opacity: 0.85">Generated 2025-08-21 19:06</div>
+</header>
+<main>
+<body>
+<h1>Crow Canyon NITRO Cheat Sheet (Beta)</h1>
+<input id="searchBox" placeholder="Search for a function..." type="text"/>
+<details open="">
+<summary class="category-header">🔤 String Functions</summary>
+<table>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Syntax</th>
+<th>Example</th>
+<th>More Info</th>
+</tr>
+<tr>
+<td>$strcat</td>
+<td>Concatenates values (Workflow Only)</td>
+<td><code>$strcat(value1, value2, ...)</code></td>
+<td><code>$strcat(Hello, [Name|Title])</code></td>
+<td>
+<details>
+<summary>⚙️ WF</summary>
+                  Joins static and dynamic text. No quotes needed. <br/><a href="https://www.crowcanyon.help/article/653/" target="_blank">Source</a>
+</details>
+</td>
+</tr>
+<tr>
+<td>$regextract</td>
+<td>Extract substring with regex (Workflow Only)</td>
+<td><code>$regextract(source, pattern, [modifier])</code></td>
+<td><code>$regextract([Body|Body],@.*(Bob).*)</code></td>
+<td>
+<details>
+<summary>⚙️ WF</summary>
+                  Modifiers: <code>HTMLDecode</code>, <code>HTMLStrip</code><br/><a href="https://www.crowcanyon.help/article/653/" target="_blank">Source</a>
+</details>
+</td>
+</tr>
+</table>
+</details>
+<details>
+<summary class="category-header">🧠 JavaScript Examples</summary>
+<div style="padding: 10px">
+<pre><code>// Set current user name
+$(document).ready(function() {
+  var user = _spPageContextInfo.userDisplayName;
+  window.ccs_g_FormUI.SetValue("RequestedBy", user);
+});</code></pre>
+<pre><code>// Show/hide TravelDetails
+window.ccs_g_FormUI.RegisterFieldChangeEvent("RequestType", function(val) {
+  $("#row_TravelDetails").toggle(val === "Travel");
+});</code></pre>
+</div>
+</details>
+<details>
+<summary class="category-header">📎 Placeholders</summary>
+<ul>
+<li><code>[InternalName|Display Name]</code></li>
+<li><code>%%txtVar##value%%</code></li>
+<li><code>[[Field||Display]]</code> (email templates)</li>
+</ul>
+</details>
+<details>
+<summary class="category-header">📬 Email Syntax</summary>
+<ul>
+<li><code>%%[FieldName|DisplayName]%%</code> – field value</li>
+<li><code>[[Field||Display]]</code> – alt format for templates</li>
+</ul>
+</details>
+<details>
+<summary class="category-header">🧩 Advanced Conditions</summary>
+<p>
+            Format: <code>[Field|Name],,value</code> or
+            <code>$parsefieldvalue()</code> where needed.
+          </p>
+<ul>
+<li><code>afterchange:Value</code></li>
+<li><code>variable##value</code></li>
+</ul>
+</details>
+<details>
+<summary class="category-header">👤 People Field Handling</summary>
+<ul>
+<li>
+<strong>$getSPuserproperty</strong>: Get manager or email from
+              people column.
+            </li>
+<li>
+<strong>$getuserattr</strong>: CA only – returns email or name
+              from user column.
+            </li>
+<li>
+<strong>$ParseUserValue</strong>: Assign or evaluate a person
+              field.
+            </li>
+</ul>
+</details>
+<script>
+          document
+            .getElementById("searchBox")
+            .addEventListener("keyup", function () {
+              const search = this.value.toLowerCase();
+              document.querySelectorAll("table tr").forEach((row) => {
+                if (
+                  row.innerText.toLowerCase().includes(search) ||
+                  row.querySelector("th")
+                ) {
+                  row.style.display = "";
+                } else {
+                  row.style.display = "none";
+                }
+              });
+            });
+        </script>
+</body>
+</main>
+<footer>
+      NITRO Manual — Detailed Sample | Formatting assistance by ChatGPT — Your
+      friendly neighborhood AI
+    </footer>
+</body>
+</html>

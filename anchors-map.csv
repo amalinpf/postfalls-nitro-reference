@@ -1,0 +1,4 @@
+Function,AnchorURL,Notes
+$getSPuserproperty,https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#getspuserproperty-displayvalue-joinchar-userfield,People Functions — uses Person/Group; property names must match SP/AD attributes.
+$getaduserproperty,https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#getaduserproperty,People Functions — returns AD attribute for a given user.
+$strcat,https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#strcat-textfield-textfieldsorvalues,String Functions — concatenates values; no quotes around placeholders.

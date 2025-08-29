@@ -1,0 +1,21 @@
+# VS Code / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Node / tooling (future-proofing)
+node_modules/
+
+# PowerShell scripts / zips / logs (keep repo light)
+*.ps1
+*.psm1
+*.zip
+*.log
+*.bak
+
+# Temp and caches
+.cache/
+dist/
+build/
+out/
+
