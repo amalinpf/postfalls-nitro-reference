@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NITRO Pages – Compact Index</title>
+<style>
+  :root { --blue:#1c5995; --accent:#0078d4; --bg:#ffffff; }
+  html, body { margin:0; padding:0; background:var(--bg); font-family: Segoe UI, Tahoma, sans-serif; }
+  header { padding:8px 10px; border-bottom:1px solid #e5e7eb; }
+  header h1 { font-size:14px; font-weight:700; color:#111; margin:0 0 2px; }
+  header .hint { font-size:11px; color:#666; margin:0; }
+  main { padding:8px 10px 18px; }
+  .controls { display:flex; gap:6px; align-items:center; margin:8px 0 10px; }
+  .controls input[type="search"] { flex:1; min-width:160px; padding:6px 8px; border:1px solid #cbd5e1; border-radius:8px; font-size:12px; }
+  .count { font-size:11px; color:#555; white-space:nowrap; }
+  .list { list-style:none; margin:0; padding:0; }
+  .row { font-size:12px; line-height:1.15; padding:2px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:8px; }
+  .row a.page { color:#0a0a0a; text-decoration:none; border-bottom:1px dotted #bbb; }
+  .row a.page:hover { color:#000; border-bottom-color:#888; }
+  .icon { font-size:12px; text-decoration:none; color:var(--accent); opacity:0.85; }
+  .icon:hover { opacity:1; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:11px; color:#666; }
+  footer { border-top:1px solid #e5e7eb; margin-top:10px; padding:6px 10px; color:#666; font-size:11px; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>NITRO Pages – Compact Index</h1>
+    <p class="hint">Tip: Use the search box; lines don’t wrap so you can flick through quickly.</p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Filter by filename…" autocomplete="off" />
+      <div class="count"><span id="shown">0</span>/<span id="total">0</span></div>
+    </div>
+    <ul id="list" class="list" role="list"></ul>
+  </main>
+
+  <footer>
+    <div>Compact scan view</div>
+    <div class="mono">Manual icon ↗ opens Crow Canyon NITRO manual search for the topic</div>
+  </footer>
+
+<script>
+(async () => {
+  const owner = "amalinpf";
+  const repo = "postfalls-nitro-reference";
+  const path = "kb-html";
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  const list = document.getElementById("list");
+  const q = document.getElementById("q");
+  const shown = document.getElementById("shown");
+  const total = document.getElementById("total");
+
+  // Build a Crow Canyon NITRO manual search URL for a given base name
+  function manualSearchUrl(base) {
+    // Use Google site search against the appmanual_v2 (NITRO) docs
+    const query = encodeURIComponent(base.replace(/[-_]/g, " "));
+    return `https://www.google.com/search?q=site%3Acrowcanyon.info%2Fnitro%2Fappmanual_v2+${query}`;
+  }
+
+  // Turn filename into a compact display title
+  function displayName(name) {
+    return name.replace(/\.html?$/i,"");
+  }
+
+  function render(files, filter="") {
+    list.innerHTML = "";
+    const needle = filter.trim().toLowerCase();
+    const filtered = files.filter(f => !needle || f.name.toLowerCase().includes(needle));
+    filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+    for (const f of filtered) {
+      const pagesUrl = `https://${owner}.github.io/${repo}/${path}/${f.name}`;
+      const base = displayName(f.name);
+
+      const li = document.createElement("li");
+      li.className = "row";
+      li.innerHTML = `
+        <a class="page" href="${pagesUrl}" target="_blank" rel="noopener">${base}</a>
+        <a class="icon" href="${manualSearchUrl(base)}" title="Search NITRO manual for this topic" target="_blank" rel="noopener">↗</a>
+      `;
+      list.appendChild(li);
+    }
+    shown.textContent = filtered.length;
+    total.textContent = files.length;
+  }
+
+  try {
+    const resp = await fetch(apiUrl);
+    if (!resp.ok) throw new Error("GitHub API error: " + resp.status);
+    const data = await resp.json();
+    const htmlFiles = data.filter(it => it.type === "file" && /\.html?$/i.test(it.name));
+    render(htmlFiles);
+    q.addEventListener("input", () => render(htmlFiles, q.value));
+  } catch (err) {
+    list.innerHTML = "<li class='row mono'>Could not load from GitHub API. Are you offline or rate-limited?</li>";
+    shown.textContent = "0";
+    total.textContent = "0";
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>

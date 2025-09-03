@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NITRO Pages – Compact Index</title>
+<style>
+  :root { --blue:#1c5995; --accent:#0078d4; --bg:#f0f4fb; --card:#ffffff; --row1:#ffffff; --row2:#f7fafc; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); font-family: Segoe UI, Tahoma, sans-serif; color:#1a1a1a; }
+  header { background: var(--blue); color:#fff; text-align:center; padding:16px 10px; }
+  header h1 { margin:0 0 6px; font-size:16px; font-weight:700; }
+  header p { margin:0; font-size:12px; opacity:.95; }
+  main { max-width: 1000px; margin: 18px auto 26px; padding: 0 14px; }
+  .card { background:var(--card); border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.08); padding:16px; }
+  h2 { font-size:14px; color:var(--blue); text-decoration: underline; text-underline-offset: 4px; margin: 6px 0 10px; }
+  .controls { display:flex; align-items:center; gap:8px; margin: 6px 0 10px; }
+  .controls input[type="search"] { width:200px; padding:6px 8px; border:1px solid #cbd5e1; border-radius:8px; font-size:12px; }
+  .count { margin-left:auto; font-size:11px; color:#555; white-space:nowrap; }
+  table { width:100%; border-collapse:collapse; table-layout:auto; }
+  thead th { text-align:left; font-size:11px; color:#444; padding:6px 8px; border-bottom:1px solid #e3e8ef; }
+  tbody td { font-size:12px; padding:6px 8px; vertical-align:top; }
+  tbody tr:nth-child(odd) { background: var(--row1); }
+  tbody tr:nth-child(even) { background: var(--row2); }
+  a { color:#0a0a0a; text-decoration:none; border-bottom:1px dotted #bbb; }
+  a:hover { border-bottom-color:#888; }
+  .title { white-space:nowrap; overflow:visible; }
+  .arrow { text-decoration:none; font-size:14px; padding:0 6px; color:var(--accent); }
+  .arrow:hover { color:#075a9e; }
+  footer { background: var(--blue); color:#fff; text-align:center; padding:10px; }
+  footer p { margin:4px 0; font-size:11px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Crow Canyon NITRO – Pages Index</h1>
+    <p>Compact scan/search view • Arrow opens NITRO’s original page</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Index</h2>
+      <div class="controls">
+        <input id="q" type="search" placeholder="Filter..." autocomplete="off" />
+        <div class="count"><span id="shown">0</span>/<span id="total">0</span></div>
+      </div>
+
+      <table aria-label="NITRO page index">
+        <thead>
+          <tr>
+            <th>Page (GitHub Pages)</th>
+            <th style="width:60px; text-align:center;">NITRO</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Note: ↗ arrow links to NITRO’s original article at crowcanyon.help</p>
+    <p>Formatting assistance by ChatGPT — Your friendly neighborhood AI</p>
+  </footer>
+
+<script>
+(async () => {
+  const owner = "amalinpf";
+  const repo = "postfalls-nitro-reference";
+  const path = "kb-html";
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  const rows = document.getElementById("rows");
+  const q = document.getElementById("q");
+  const shown = document.getElementById("shown");
+  const total = document.getElementById("total");
+
+  function extractKB(name) {
+    const m = name.match(/(\d{1,6})/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function pad3(n) {
+    return String(n).padStart(3, "0");
+  }
+
+  // Clean title: strip extension, replace separators, remove " - Crow Canyon..." suffix, and title-case words
+  function cleanTitle(name) {
+    const base = name.replace(/\.html?$/i, "");
+    let t = base.replace(/[\-_]+/g, " ");
+    t = t.replace(/\s*-\s*Crow\s*Canyon.*$/i, ""); // remove trailing " - Crow Canyon..."
+    t = t.replace(/\b\w/g, c => c.toUpperCase());
+    return t.trim();
+  }
+
+  function withNumberPrefix(name) {
+    const kb = extractKB(name);
+    const title = cleanTitle(name);
+    if (kb === null) return title; // no number found
+    // Remove any leading number already in the cleaned title
+    const t = title.replace(/^\d+\s*-\s*/,"").trim();
+    return `${pad3(kb)} - ${t}`;
+  }
+
+  function nitroUrlFromKB(kb) {
+    return `https://www.crowcanyon.help/article/${kb}/`;
+  }
+
+  function render(files, filter="") {
+    rows.innerHTML = "";
+    const needle = filter.trim().toLowerCase();
+
+    // Prepare augmented list with kb number for sorting
+    const augmented = files
+      .filter(f => !needle || f.name.toLowerCase().includes(needle))
+      .map(f => ({ f, kb: extractKB(f.name), display: withNumberPrefix(f.name) }));
+
+    // Sort numerically if kb present, else by display name
+    augmented.sort((a, b) => {
+      if (a.kb !== null && b.kb !== null) return a.kb - b.kb;
+      if (a.kb !== null) return -1;
+      if (b.kb !== null) return 1;
+      return a.display.localeCompare(b.display);
+    });
+
+    for (const item of augmented) {
+      const { f, kb, display } = item;
+      const pagesUrl = `https://${owner}.github.io/${repo}/${path}/${f.name}`;
+      const nitro = kb !== null ? nitroUrlFromKB(kb) : null;
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td class="title"><a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></td>
+        <td style="text-align:center;">${nitro ? `<a class="arrow" href="${nitro}" target="_blank" rel="noopener" title="Open NITRO original">↗</a>` : ``}</td>
+      `;
+      rows.appendChild(tr);
+    }
+
+    shown.textContent = augmented.length;
+    total.textContent = files.length;
+  }
+
+  try {
+    const resp = await fetch(apiUrl);
+    if (!resp.ok) throw new Error("GitHub API error: " + resp.status);
+    const data = await resp.json();
+    const htmlFiles = data.filter(it => it.type === "file" && /\.html?$/i.test(it.name));
+    render(htmlFiles);
+    q.addEventListener("input", () => render(htmlFiles, q.value));
+  } catch (err) {
+    rows.innerHTML = `<tr><td colspan="2" class="title">Could not load from GitHub API. Are you offline or rate-limited?</td></tr>`;
+    shown.textContent = "0";
+    total.textContent = "0";
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>

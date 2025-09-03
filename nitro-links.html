@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NITRO Pages – Link Index (postfalls-nitro-reference)</title>
+<style>
+  :root { --pf-blue:#1c5995; --pf-accent:#0078d4; --bg:#f5f7fb; --card:#ffffff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Segoe UI, Tahoma, sans-serif; background:var(--bg); color:#222; }
+  header { background: var(--pf-blue); color:#fff; padding: 28px 20px; text-align:center; }
+  header h1 { margin:0 0 6px; font-weight:700; letter-spacing:.3px; }
+  header p { margin:0; opacity:.9; }
+  main { max-width: 1100px; margin: 28px auto; padding: 0 18px 40px; }
+  .card { background:var(--card); border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.08); padding:22px; }
+  h2 { color:var(--pf-blue); text-decoration: underline; text-underline-offset: 4px; margin: 26px 0 12px; }
+  .controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 6px 0 18px; }
+  .controls input[type="search"] { flex:1; min-width:260px; padding:10px 12px; border:1px solid #cbd5e1; border-radius:12px; font-size:15px; }
+  .controls .note { font-size:13px; color:#555; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:12px; }
+  .tile { background:#fff; border:1px solid #e6e9ef; border-radius:14px; padding:14px 14px 12px; display:flex; flex-direction:column; gap:6px; }
+  .tile h3 { margin:0; font-size:16px; line-height:1.25; }
+  .tile .links { margin-top:4px; display:flex; gap:10px; flex-wrap:wrap; }
+  .btn { display:inline-block; padding:6px 10px; border-radius:10px; text-decoration:none; border:1px solid #d0d7e1; font-size:13px; }
+  .btn.primary { border-color: var(--pf-accent); color:#fff; background: var(--pf-accent); }
+  .btn.repo { color: var(--pf-blue); }
+  .meta { font-size:12px; color:#666; }
+  footer { margin-top: 22px; padding: 20px; background: var(--pf-blue); color:#fff; text-align:center; }
+  .small { font-size:12px; }
+  .list-empty { padding:18px; text-align:center; color:#666; }
+  .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#eef2f7; border-radius:8px; padding: 2px 6px; border:1px solid #dbe3f0; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Crow Canyon NITRO – Pages Index</h1>
+    <p>Auto-index of <strong>kb-html</strong> in <span class="kbd">amalinpf/postfalls-nitro-reference</span></p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Quick Links</h2>
+      <p class="small">
+        • Repo home: <a href="https://github.com/amalinpf/postfalls-nitro-reference" target="_blank" rel="noopener">GitHub</a> ·
+        • Main manual (GitHub Pages): <a href="https://amalinpf.github.io/postfalls-nitro-reference/" target="_blank" rel="noopener">index.html</a> ·
+        • Crow Canyon NITRO manual: <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html&utm_source=chatgpt.com" target="_blank" rel="noopener">appmanual_v2</a>
+      </p>
+
+      <h2>All NITRO Pages (from <code>kb-html/</code>)</h2>
+      <div class="controls">
+        <input id="q" type="search" placeholder="Filter pages by name…" autocomplete="off" />
+        <div class="note">Tip: type part of a filename, e.g. <span class="kbd">parse</span> or <span class="kbd">lookup</span>.</div>
+      </div>
+
+      <div id="grid" class="grid" role="list"></div>
+      <div id="empty" class="list-empty" style="display:none;">No matches. Try a different search.</div>
+      <p class="meta" id="stamp"></p>
+    </section>
+
+    <section class="card">
+      <h2>How this works</h2>
+      <p class="small">
+        This page calls the public GitHub API to list files in <code>kb-html/</code>. Each tile links to the GitHub Pages–rendered HTML and the file in the repo.
+        If you add/remove files, just refresh this page.
+      </p>
+      <p class="small">
+        If you prefer a static TOC, let me know and I’ll bake in a fixed list.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© City of Post Falls · NITRO Reference</div>
+    <div class="small">Formatting assistance by ChatGPT — Your friendly neighborhood AI</div>
+  </footer>
+
+<script>
+(async () => {
+  const owner = "amalinpf";
+  const repo = "postfalls-nitro-reference";
+  const path = "kb-html";
+
+  const grid = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  const stamp = document.getElementById("stamp");
+  const q = document.getElementById("q");
+
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+  function titleCase(s) {
+    return s.replace(/[-_]+/g, " ")
+            .replace(/\b\w/g, c => c.toUpperCase())
+            .replace(/\s+Html\b/i, " HTML");
+  }
+
+  function render(files, filter="") {
+    grid.innerHTML = "";
+    const needle = filter.trim().toLowerCase();
+    const filtered = files.filter(f => !needle || f.name.toLowerCase().includes(needle));
+    filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+    if (filtered.length === 0) { empty.style.display = ""; return; }
+    empty.style.display = "none";
+
+    for (const f of filtered) {
+      const baseName = f.name.replace(/\.html?$/i,"");
+      const display = titleCase(baseName);
+      const pagesUrl = `https://${owner}.github.io/${repo}/${path}/${f.name}`;
+      const repoUrl  = `https://github.com/${owner}/${repo}/blob/main/${path}/${f.name}`;
+
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.setAttribute("role","listitem");
+      tile.innerHTML = `
+        <h3>${display}</h3>
+        <div class="links">
+          <a class="btn primary" href="${pagesUrl}" target="_blank" rel="noopener">Open (Pages)</a>
+          <a class="btn repo" href="${repoUrl}" target="_blank" rel="noopener">View in Repo</a>
+        </div>
+        <div class="meta">${f.name}</div>
+      `;
+      grid.appendChild(tile);
+    }
+  }
+
+  try {
+    const resp = await fetch(apiUrl);
+    if (!resp.ok) throw new Error("GitHub API error: " + resp.status);
+    const data = await resp.json();
+    const htmlFiles = data.filter(it => it.type === "file" && /\.html?$/i.test(it.name));
+    render(htmlFiles);
+    const now = new Date();
+    stamp.textContent = `Loaded ${htmlFiles.length} page(s) • ${now.toLocaleString()}`;
+    q.addEventListener("input", () => render(htmlFiles, q.value));
+  } catch (err) {
+    grid.innerHTML = "";
+    empty.style.display = "";
+    stamp.textContent = "Could not load from GitHub API. Are you offline or rate-limited?";
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>
