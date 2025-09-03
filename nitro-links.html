@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Crow Canyon NITRO – Knowledge Base Index</title>
 <style>
-
   :root { --pf-blue:#1c5995; --pf-accent:#0078d4; --bg:#f5f7fb; --card:#ffffff; }
   * { box-sizing: border-box; }
   body { margin:0; font-family: Segoe UI, Tahoma, sans-serif; background:var(--bg); color:#222; }
@@ -18,18 +17,18 @@
   .controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 6px 0 18px; }
   .controls input[type="search"] { flex:1; min-width:240px; padding:10px 12px; border:1px solid #cbd5e1; border-radius:12px; font-size:15px; }
   .controls .note { font-size:13px; color:#555; }
-  .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#eef2f7; border-radius:6px; padding: 1px 5px; border:1px solid #dbe3f0; font-size:12px; }
-  .linksline a { margin-right: 14px; }
-  footer { margin-top: 22px; padding: 20px; background: var(--pf-blue); color:#fff; text-align:center; }
-  .small { font-size:12px; }
-
   .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:12px; }
   .tile { background:#fff; border:1px solid #e6e9ef; border-radius:14px; padding:14px 14px 12px; display:flex; flex-direction:column; gap:10px; }
   .tile h3 { margin:0; font-size:16px; line-height:1.25; color:#0a0a0a; }
+  .tile h3 .kbnum { color: var(--pf-accent); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; letter-spacing:.5px; margin-right:.35rem; }
   .tile .links { display:flex; gap:10px; flex-wrap:wrap; }
   .btn { display:inline-block; padding:6px 10px; border-radius:10px; text-decoration:none; border:1px solid #d0d7e1; font-size:13px; }
   .btn.primary { border-color: var(--pf-accent); color:#fff; background: var(--pf-accent); }
   .btn.repo { color: var(--pf-blue); }
+  footer { margin-top: 22px; padding: 20px; background: var(--pf-blue); color:#fff; text-align:center; }
+  .small { font-size:12px; }
+  .linksline a { margin-right: 14px; }
+  .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#eef2f7; border-radius:6px; padding: 1px 5px; border:1px solid #dbe3f0; font-size:12px; }
 </style>
 </head>
 <body>
@@ -80,17 +79,22 @@
   function extractKB(name) { const m = name.match(/(\d{1,6})/); return m ? parseInt(m[1], 10) : null; }
   function cleanTitle(name) {
     const base = name.replace(/\.html?$/i,"");
-    let t = base.replace(/[\-_]+/g, " ");
+    let t = base.replace(/[-_]+/g, " ");
     t = t.replace(/\s*-\s*Crow\s*Canyon.*$/i, "");
     t = t.replace(/^\d+\s*(?:-\s*)?/, "");
-    t = t.replace(/\b\w/g, c => c.toUpperCase());
+    t = t.replace(/\w/g, c => c.toUpperCase());
     return t.trim();
   }
   function nitroUrlFromKB(kb) { return `https://www.crowcanyon.help/article/${kb}/`; }
-  function makeDisplay(name) {
+
+  function makeDisplayHTML(name) {
     const kb = extractKB(name);
     const title = cleanTitle(name);
-    return kb !== null ? `${pad3(kb)} ${title}` : title;
+    if (kb !== null) {
+      const num = pad3(kb);
+      return `<span class="kbnum">${num}</span>${title}`;
+    }
+    return title;
   }
 
   function render(files, filter="") {
@@ -105,7 +109,7 @@
       return a.name.localeCompare(b.name);
     });
     for (const f of filtered) {
-      const display = makeDisplay(f.name);
+      const displayHTML = makeDisplayHTML(f.name);
       const pagesUrl = `https://${owner}.github.io/${repo}/${path}/${f.name}`;
       const kb = extractKB(f.name);
       const nitro = kb !== null ? nitroUrlFromKB(kb) : null;
@@ -114,14 +118,14 @@
       tile.setAttribute("role","listitem");
       if (/Comprehensive list of Functions in NITRO Studio/i.test(f.name)) {
         tile.innerHTML = `
-          <h3>${display}</h3>
+          <h3>${displayHTML}</h3>
           <div class="links">
             <a class="btn primary" href="${pagesUrl}" target="_blank" rel="noopener">Open</a>
             <a class="btn repo" href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">NITRO source</a>
           </div>`;
       } else {
         tile.innerHTML = `
-          <h3>${display}</h3>
+          <h3>${displayHTML}</h3>
           <div class="links">
             <a class="btn primary" href="${pagesUrl}" target="_blank" rel="noopener">Open</a>
             ${nitro ? `<a class="btn repo" href="${nitro}" target="_blank" rel="noopener">NITRO source</a>` : ""}
