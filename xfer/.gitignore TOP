@@ -1,0 +1,26 @@
+# VS Code / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Node / tooling (future-proofing)
+node_modules/
+
+# PowerShell scripts — track them under /scripts only
+# (still ignore random .ps1/.psm1 outside scripts/)
+*.ps1
+*.psm1
+!scripts/*.ps1
+!scripts/*.psm1
+
+# Ignore heavy artifacts
+*.zip
+*.log
+*.bak
+
+# Temp and caches
+.cache/
+dist/
+build/
+out/
+
