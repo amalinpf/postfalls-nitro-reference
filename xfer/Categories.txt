@@ -20,21 +20,29 @@ https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/Supplemental
 Here is a list of discovered Categories and subcategories, the results from actions will be added within the appropriate container. 
 New containers to be added as identified, please let me know if/when that happens so I can add them to this list.
 
-Top Level/Categories/Headings:
-🧠 JavaScript Examples
-📎 Placeholders
-📬 Email Syntax
-🧩 Advanced Conditions
-👥 People Field Handling
+-------------------------------------------------------------------------------------
+Top Level / Categories / Headings:
 
-📚 Functions
-    Grouped into subcategories based on function type
-    🔤 String Functions
-    🔢 Numeric Functions
-    📅 Date Functions
-    📊 Lookup & JSON
-    🔀 Conversion & Formatting
-    👥 People functions
-    ⚙️ Utility & Misc
-    - Others function groups as identified
-- Other categories as identified
+🧠 JavaScript Examples  
+📎 Placeholders  
+📬 Email Syntax  
+🧩 Advanced Conditions  
+👥 People Field Handling  
+
+📚 Functions  
+    🔤 String Functions  
+    🔢 Math & Calculation  
+    📅 Date & Time Functions  
+    📊 Lookup & JSON  
+    🔀 Conversion & Formatting  
+    👥 People Field Handling  
+    ⚙️ Utility & Misc  
+    🧮 Logical Functions  
+    ➕ Other Function Groups (to be added as identified)  
+
+🛠 Workflows  
+⚡ Custom Actions  
+💡 Tips & Tricks  
+🗂 Known Issues & Fixes  
+🔐 Admin / Advanced  
+➕ Other Categories (to be added as identified)  
