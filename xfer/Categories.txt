@@ -1,0 +1,38 @@
+Notes and categories for the NITRO Reference Guide, the working copy is at https://amalinpf.github.io/postfalls-nitro-reference/index.html.
+The page will use the existing format on that page.
+
+The source is "NITRO docs":
+GitHub Pages site:
+https://amalinpf.github.io/postfalls-nitro-reference/
+
+Crow Canyon official manual:
+https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html
+
+Repo ZIPs in /xfer/:
+
+https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/NITRO%20KB.zip
+
+https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/SupplementalReferenceDocs.zip
+
+
+Here is a list of discovered Categories and subcategories, the results from actions will be added within the appropriate container. 
+New containers to be added as identified, please let me know if/when that happens so I can add them to this list.
+
+Top Level Categories:
+🧠 JavaScript Examples
+📎 Placeholders
+📬 Email Syntax
+🧩 Advanced Conditions
+👥 People Field Handling
+
+📚 Functions
+    Grouped into subcategories based on function type
+    🔤 String Functions
+    🔢 Numeric Functions
+    📅 Date Functions
+    📊 Lookup & JSON
+    🔀 Conversion & Formatting
+    👥 People functions
+    ⚙️ Utility & Misc
+    - Others function groups as identified
+- Other categories as identified
