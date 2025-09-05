@@ -1,0 +1,27 @@
+---
+top_level:
+  - "🧠 JavaScript Examples"
+  - "📎 Placeholders"
+  - "📬 Email Syntax"
+  - "🧩 Advanced Conditions"
+  - "👥 People Field Handling"
+
+functions:
+  - "🔤 String Functions"
+  - "🔢 Math & Calculation"
+  - "📅 Date & Time Functions"
+  - "📊 Lookup & JSON"
+  - "🔀 Conversion & Formatting"
+  - "👥 People Field Handling"
+  - "⚙️ Utility & Misc"
+  - "🧮 Logical Functions"
+  - "➕ Other Function Groups (to be added as identified)"
+
+other:
+  - "🛠 Workflows"
+  - "⚡ Custom Actions"
+  - "💡 Tips & Tricks"
+  - "🗂 Known Issues & Fixes"
+  - "🔐 Admin / Advanced"
+  - "➕ Other Categories (to be added as identified)"
+...
