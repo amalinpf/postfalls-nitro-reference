@@ -1,3 +1,5 @@
+Link to this page: https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/Categories.txt
+
 Notes and categories for the NITRO Reference Guide, the working copy is at https://amalinpf.github.io/postfalls-nitro-reference/index.html.
 The page will use the existing format on that page.
 
@@ -18,7 +20,7 @@ https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/Supplemental
 Here is a list of discovered Categories and subcategories, the results from actions will be added within the appropriate container. 
 New containers to be added as identified, please let me know if/when that happens so I can add them to this list.
 
-Top Level Categories:
+Top Level/Categories/Headings:
 🧠 JavaScript Examples
 📎 Placeholders
 📬 Email Syntax
