@@ -1,227 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NITRO Reference Guide (Internal)</title>
+  <meta charset="UTF-8">
+  <title>4Darker NITRO Manual - Function Definitions</title>
   <link rel="stylesheet" href="https://amalinpf.github.io/postfalls-nitro-reference/css/4Darker.css">
 </head>
 <body>
-  <header>
-    <h1>NITRO Reference Guide (Internal)</h1>
-    <div class="controls">
-      <button class="btn primary" onclick="expandAll()">Expand All</button>
-      <button class="btn" onclick="collapseAll()">Collapse All</button>
-    </div>
-  </header>
 
-  <div class="card">
-    <h2 class="section-title" id="categories">Categories</h2>
+<h1>NITRO Manual</h1>
 
-    <!-- Top-level: Functions -->
-    <details id="cat-functions" open>
-      <summary>🛠️ Functions</summary>
+<div class="controls">
+  <button onclick="expandAll()">Expand All</button>
+  <button onclick="collapseAll()">Collapse All</button>
+</div>
 
-      <!-- 🔤 String Functions -->
-      <details class="group" id="grp-string">
-        <summary>🔤 String Functions</summary>
-        <table>
-          <thead>
-            <tr>
-              <th class="col-fn">Function</th>
-              <th class="col-desc">Description</th>
-              <th class="col-syn">Syntax</th>
-              <th class="col-ex">Example</th>
-              <th class="col-more">More Info</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="fn"><code>$Left</code></td>
-              <td class="desc">Leftmost characters of a string.</td>
-              <td><code>$Left([ColumnDisplayName|ColumnInternalName], number)</code></td>
-              <td><code>$Left([Type of Request|TypeofRequest], 3) ⟶ "INC"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Left" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio — Left</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Right</code></td>
-              <td class="desc">Rightmost characters of a string.</td>
-              <td><code>$Right([ColumnDisplayName|ColumnInternalName], number)</code></td>
-              <td><code>$Right([Type of Request|TypeofRequest], 3) ⟶ "ENT"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Right" target="_blank" rel="noopener">Comprehensive list — Right</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Substring</code></td>
-              <td class="desc">Substring from index for length.</td>
-              <td><code>$Substring([ColumnDisplayName|ColumnInternalName], start, length)</code></td>
-              <td><code>$Substring([Type of Request|TypeofRequest], 3, 5) ⟶ "IDENT"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Substring" target="_blank" rel="noopener">Comprehensive list — Substring</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$ToLowerCase</code></td>
-              <td class="desc">Lowercase conversion.</td>
-              <td><code>$ToLowerCase([ColumnDisplayName|ColumnInternalName])</code></td>
-              <td><code>$ToLowerCase([Title|Title]) ⟶ "incident"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#ToLowerCase" target="_blank" rel="noopener">Comprehensive list — ToLowerCase</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$ToUpperCase</code></td>
-              <td class="desc">Uppercase conversion.</td>
-              <td><code>$ToUpperCase([ColumnDisplayName|ColumnInternalName])</code></td>
-              <td><code>$ToUpperCase([Title|Title]) ⟶ "INCIDENT"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#ToUpperCase" target="_blank" rel="noopener">Comprehensive list — ToUpperCase</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Strcat</code></td>
-              <td class="desc">Concatenate values.</td>
-              <td><code>$Strcat(value1, value2, ...)</code></td>
-              <td><code>$Strcat("Crow Canyon ", "rocks") ⟶ "Crow Canyon rocks"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive list</a></li>
-                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">Manual — Functions</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#strcat" target="_blank" rel="noopener">Comprehensive list — strcat</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Strlen</code></td>
-              <td class="desc">Length of a string.</td>
-              <td><code>$Strlen([ColumnDisplayName|ColumnInternalName])</code></td>
-              <td><code>$Strlen([Title|Title]) ⟶ 9</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive list</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#strlen" target="_blank" rel="noopener">Comprehensive list — strlen</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Regextract</code></td>
-              <td class="desc">Regex extraction.</td>
-              <td><code>$Regextract([ColumnDisplayName|ColumnInternalName], @pattern)</code></td>
-              <td><code>$Regextract([Subject|Subject], @.*\[CaseId: (.+)\].*) ⟶ "2"</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive list</a></li>
-                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">Manual — Functions</a></li>
-                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#regextract" target="_blank" rel="noopener">Comprehensive list — regextract</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Regexreplace</code></td>
-              <td class="desc">Regex replace.</td>
-              <td><code>$Regexreplace([ColumnDisplayName|ColumnInternalName], @pattern, replacement, type)</code></td>
-              <td><code>$Regexreplace([Title|Title], @[0-9]+, "###", "global")</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive list</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Split</code></td>
-              <td class="desc">Split to array by separator.</td>
-              <td><code>$Split(separator, [ColumnDisplayName|ColumnInternalName])</code></td>
-              <td><code>$Split(:, [Title|Title]) ⟶ ["Re","Custom Actions NITRO Studio"]</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive list</a></li>
-                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">Manual — Functions</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-            <tr>
-              <td class="fn"><code>$Pad</code></td>
-              <td class="desc">Pad left/right to length.</td>
-              <td><code>$Pad([ColumnDisplayName|ColumnInternalName], length, padchar, left/right)</code></td>
-              <td><code>$Pad([ID|ID], 6, 0, left) ⟶ 000006</code></td>
-              <td>
-                <details class="mini"><summary>More Info</summary>
-                  <ul class="mini-list">
-                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">Function list (710)</a></li>
-                  </ul>
-                </details>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-
-      <!-- You can include the other function groups here as before (Math, Date/Time, Lookup & JSON, Conversion & Formatting, People, Utility)—omitted in this snippet for brevity, structure identical. -->
+<details open>
+  <summary class="category">🛠️ Functions</summary>
+  <div class="group">
+    <details open>
+      <summary class="group-title">🔤 String Functions</summary>
+      <table class="func-table">
+        <thead>
+          <tr>
+            <th class="col-fn">Function</th>
+            <th class="col-desc">Description</th>
+            <th class="col-syn">Syntax</th>
+            <th class="col-ex">Example</th>
+            <th class="col-more">More Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fn"><code>Left</code></td>
+            <td class="desc">Leftmost characters of a string.</td>
+            <td><code>Left(string, length)</code></td>
+            <td><code>Left('Hello', 2) → 'He'</code></td>
+            <td><details class="mini"><summary>More</summary><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/14%20-%20String%20Functions.html">String Functions</a></details></td>
+          </tr>
+          <tr>
+            <td class="fn"><code>Right</code></td>
+            <td class="desc">Rightmost characters of a string.</td>
+            <td><code>Right(string, length)</code></td>
+            <td><code>Right('World', 3) → 'rld'</code></td>
+            <td><details class="mini"><summary>More</summary><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/14%20-%20String%20Functions.html">String Functions</a></details></td>
+          </tr>
+        </tbody>
+      </table>
     </details>
-
-    <!-- Other top-level categories (single icon each) kept for parity with the Format Source structure -->
-    <details id="cat-javascript">
-      <summary>🧠 JavaScript Examples</summary>
-      <details id="cat-javascript-nested" class="group">
-        <summary>Examples</summary>
-        <div class="meta">Demo content for 🧠 JavaScript Examples — Examples.</div>
-      </details>
-    </details>
-
-    <details id="cat-placeholders">
-      <summary>📎 Placeholders</summary>
-      <details id="cat-placeholders-nested" class="group">
-        <summary>Overview</summary>
-        <div class="meta">Demo content for 📎 Placeholders — Overview.</div>
-      </details>
-    </details>
-
-    <!-- … other categories as in your Format Source … -->
-
   </div>
+</details>
 
-  <div class="footer"><em>Generated for Post Falls NITRO Reference — sources included per row</em></div>
-  <script>
-    function expandAll(){ document.querySelectorAll('details').forEach(d=>d.open=true); }
-    function collapseAll(){ document.querySelectorAll('details').forEach(d=>d.open=false); }
-  </script>
+<script>
+function expandAll() {
+  document.querySelectorAll("details").forEach(d => d.open = true);
+}
+function collapseAll() {
+  document.querySelectorAll("details").forEach(d => d.open = false);
+}
+</script>
+
 </body>
 </html>
