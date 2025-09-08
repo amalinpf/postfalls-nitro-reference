@@ -1,0 +1,65 @@
+Link to this page: https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/Categories.txt
+
+Notes and categories for the NITRO Reference Guide, the working copy is at https://amalinpf.github.io/postfalls-nitro-reference/index.html.
+The page will use the existing format on that page.
+
+Repo Root — source for all page links
+https://amalinpf.github.io/postfalls-nitro-reference
+
+⮑ KB naming pattern: /kb-html/<number> - <Title>.html (e.g., https://amalinpf.github.io/postfalls-nitro-reference/kb-html/1%20-%20Missing%20Attachments%20in%20SharePoint%20Tickets.html
+)
+
+Static Links (master list of KB URLs)
+https://amalinpf.github.io/postfalls-nitro-reference/test/nitro_static_links.html
+
+Format Source (WIP template; use in full for pages/tests)
+https://amalinpf.github.io/postfalls-nitro-reference/index.html
+
+KB ZIP (all KB articles in one file)
+https://amalinpf.github.io/postfalls-nitro-reference/xfer/NITRO_KB.zip
+
+Supplemental Reference ZIP (additional refs)
+https://amalinpf.github.io/postfalls-nitro-reference/xfer/SupplementalReferenceDocs.zip
+
+KB Index (dynamic links)
+https://amalinpf.github.io/postfalls-nitro-reference/nitro-links.html
+
+KB Compact Index (denser list)
+https://amalinpf.github.io/postfalls-nitro-reference/nitro-links-compact.html
+
+KB Article Root (all articles)
+https://amalinpf.github.io/postfalls-nitro-reference/kb-html/
+
+Crow Canyon Manual (NITRO user manual)
+https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html
+
+
+Here is a list of discovered Categories and subcategories, the results from actions will be added within the appropriate container. 
+New containers to be added as identified, please let me know if/when that happens so I can add them to this list.
+
+-------------------------------------------------------------------------------------
+Top Level / Categories / Headings:
+
+🧠 JavaScript Examples  
+📎 Placeholders  
+📬 Email Syntax  
+🧩 Advanced Conditions  
+👥 People Field Handling  
+
+📚 Functions  
+    🔤 String Functions  
+    🔢 Math & Calculation  
+    📅 Date & Time Functions  
+    📊 Lookup & JSON  
+    🔀 Conversion & Formatting  
+    👥 People Field Handling  
+    ⚙️ Utility & Misc  
+    🧮 Logical Functions  
+    ➕ Other Function Groups (to be added as identified)  
+
+🛠 Workflows  
+⚡ Custom Actions  
+💡 Tips & Tricks  
+🗂 Known Issues & Fixes  
+🔐 Admin / Advanced  
+➕ Other Categories (to be added as identified)  

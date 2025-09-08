@@ -1,13 +1,13 @@
-# VS Code / OS
+# VS Code / OS cruft
 .vscode/
+.idea/
 .DS_Store
 Thumbs.db
 
 # Node / tooling (future-proofing)
 node_modules/
 
-# PowerShell scripts — track them under /scripts only
-# (still ignore random .ps1/.psm1 outside scripts/)
+# PowerShell scripts — only track under /scripts
 *.ps1
 *.psm1
 !scripts/*.ps1
@@ -16,7 +16,6 @@ node_modules/
 # Ignore heavy artifacts
 *.zip
 *.log
-*.bak
 
 # Temp and caches
 .cache/
@@ -24,3 +23,12 @@ dist/
 build/
 out/
 
+# Allow ZIPs inside /xfer despite global ignore
+!xfer/
+!xfer/*.zip
+!xfer/**/*.zip
+
+# Temporary / backup
+*.tmp
+*.bak
+~$*

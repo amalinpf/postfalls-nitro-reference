@@ -1,0 +1,46 @@
+categories:
+- label: 🛠️ Functions
+  id: functions
+  groups:
+  - label: 🔤 String Functions
+    id: string-functions
+  - label: 🔢 Math & Calculation
+    id: math-calculation
+  - label: 📅 Date & Time Functions
+    id: date-time-functions
+  - label: 📊 Lookup & JSON
+    id: lookup-json
+  - label: 🔀 Conversion & Formatting
+    id: conversion-formatting
+  - label: 👥 People Field Handling
+    id: people-field-handling-funcs
+  - label: ⚙️ Utility & Misc
+    id: utility-misc
+  - label: 🧮 Logical Functions
+    id: logical-functions
+  - label: ➕ Other Function Groups (to be added as identified)
+    id: other-function-groups
+- label: 🧠 JavaScript Examples
+  id: javascript-examples
+- label: 📎 Placeholders
+  id: placeholders
+- label: 📬 Email Syntax
+  id: email-syntax
+- label: 🧩 Advanced Conditions
+  id: advanced-conditions
+- label: 👥 People Field Handling
+  id: people-field-handling
+- label: 🛠 Workflows
+  id: workflows
+- label: ⚡ Custom Actions
+  id: custom-actions
+- label: 💡 Tips & Tricks
+  id: tips-tricks
+- label: 🗂 Known Issues & Fixes
+  id: known-issues-fixes
+- label: 🔐 Admin / Advanced
+  id: admin-advanced
+- label: ➕ Other Categories (to be added as identified)
+  id: other-categories
+_meta:
+  yaml_layout_guide: https://amalinpf.github.io/postfalls-nitro-reference/test/Categories.yaml
