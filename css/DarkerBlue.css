@@ -1,0 +1,49 @@
+:root{ --blue:#0b5cab; --bg:#f7f9fc; --card:#fff; --line:#e5e7eb; --muted:#6b7280; }
+*{ box-sizing:border-box }
+
+body{ font-family:Segoe UI,Tahoma,Arial,sans-serif; background:var(--bg); margin:0; padding:24px; color:#111827; line-height:1.45 }
+
+/* Header + buttons */
+header{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap }
+h1{ margin:0; font-size:26px; color:var(--blue) }
+.controls{ display:flex; gap:8px }
+.btn{ border:0; border-radius:10px; padding:10px 14px; cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,.08); background:#e9f2fb; color:var(--blue); font-weight:600 }
+.btn.primary{ background:var(--blue); color:#fff }
+
+/* Cards / sections */
+.card{ background:var(--card); border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,.08); padding:14px; margin-bottom:16px }
+.section-title{ margin:0 0 8px 0; color:var(--blue); font-size:20px; text-decoration:underline; text-underline-offset:4px }
+
+/* Collapsible sections */
+details{ border:1px solid var(--line); border-radius:12px; margin:12px 0; background:#fff }
+summary{ cursor:pointer; list-style:none; padding:12px 14px; font-weight:700; color:var(--blue); border-bottom:1px solid var(--line) }
+summary::before{ content:'▸'; display:inline-block; margin-right:8px; transition:transform .2s ease }
+details[open] > summary::before{ transform:rotate(90deg) }
+
+/* Nested group indentation under categories (e.g., Function groups) */
+.group{ margin-left:24px }
+
+/* Tables */
+table{ width:100%; border-collapse:collapse; margin:12px 0 }
+thead th{ background:#f3f6fb; text-align:left; border-bottom:1px solid #d7e3f0; padding:10px }
+/* Column widths now via classes, not inline */
+th.col-fn{ width:18% } th.col-desc{ width:34% } th.col-syn{ width:18% } th.col-ex{ width:20% } th.col-more{ width:10% }
+
+tbody td{ border-bottom:1px solid #eef2f7; padding:10px; vertical-align:top }
+
+/* Inline code styling (keep generic size; function cell overrides to 12px) */
+code{ background:#f6f8fa; padding:2px 6px; border-radius:6px; font-family:Consolas,Menlo,monospace }
+
+/* Compact “More Info” details */
+details.mini{ border:0; margin:0; padding:0; background:none }
+details.mini > summary{ padding:0; margin:0; border:none; color:#0b5cab; font-weight:600; font-size:12px; display:inline-flex; align-items:center }
+details.mini > summary::before{ content:'▸'; margin-right:6px }
+details.mini[open] > summary::before{ transform:rotate(90deg) }
+ul.mini-list{ margin:6px 0 0 18px; padding:0; font-size:12px; color:#374151 }
+ul.mini-list li{ margin:0 0 4px 0 }
+
+/* NEW: Font size control (12px) for Function + Description columns */
+td.fn, td.fn code, td.desc{ font-size:12px }
+
+/* Footer */
+.footer{ margin-top:24px; text-align:right; font-size:12px; color:#888 }
