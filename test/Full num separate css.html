@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NITRO Reference — All Functions (First Full Pass)</title>
+  <link rel="stylesheet" href="https://amalinpf.github.io/postfalls-nitro-reference/css/nitro.css">
+</head>
+<body>
+  <header>
+    <h1>NITRO Reference — All Functions (First Full Pass)</h1>
+    <div class="controls">
+      <button class="btn primary" onclick="expandAll()">Expand All</button>
+      <button class="btn" onclick="collapseAll()">Collapse All</button>
+    </div>
+  </header>
+
+  <div class="card">
+    <h2 class="section-title" id="categories">Categories</h2>
+
+    <!-- Top-level: Functions -->
+    <details id="cat-functions" open>
+      <summary>🛠️ Functions</summary>
+
+      <!-- 🔤 String Functions -->
+      <details class="group" id="grp-string">
+        <summary>🔤 String Functions</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$Left</code></td>
+              <td class="desc">Get the specified number of characters from the <strong>left</strong> of a string.</td>
+              <td><code>$Left([ColumnDisplayName|ColumnInternalName], number)</code></td>
+              <td><code>$Left([Type of Request|TypeofRequest], 3) ⟶ "INC"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Left" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Right</code></td>
+              <td class="desc">Get the specified number of characters from the <strong>right</strong> of a string.</td>
+              <td><code>$Right([ColumnDisplayName|ColumnInternalName], number)</code></td>
+              <td><code>$Right([Type of Request|TypeofRequest], 3) ⟶ "ENT"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Right" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Substring</code></td>
+              <td class="desc">Return a substring starting at a 0-based index for the desired length.</td>
+              <td><code>$Substring([ColumnDisplayName|ColumnInternalName], start, length)</code></td>
+              <td><code>$Substring([Type of Request|TypeofRequest], 3, 5) ⟶ "IDENT"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#Substring" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ToLowerCase</code></td>
+              <td class="desc">Convert text to lower case.</td>
+              <td><code>$ToLowerCase([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$ToLowerCase([Title|Title]) ⟶ "incident"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#ToLowerCase" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ToUpperCase</code></td>
+              <td class="desc">Convert text to UPPER CASE.</td>
+              <td><code>$ToUpperCase([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$ToUpperCase([Title|Title]) ⟶ "INCIDENT"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#ToUpperCase" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Strcat</code></td>
+              <td class="desc">Concatenate (join) values into one string. Accepts more than two parameters.</td>
+              <td><code>$Strcat(value1, value2, ...)</code></td>
+              <td><code>$Strcat("Crow Canyon ", "rocks") ⟶ "Crow Canyon rocks"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#strcat" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Strlen</code></td>
+              <td class="desc">Return the length of the specified value.</td>
+              <td><code>$Strlen([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$Strlen([Title|Title]) ⟶ 9</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#strlen" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Regextract</code></td>
+              <td class="desc">Extract a value using a regular expression pattern.</td>
+              <td><code>$Regextract([ColumnDisplayName|ColumnInternalName], @pattern)</code></td>
+              <td><code>$Regextract([Subject|Subject], @.*\[CaseId: (.+)\].*) ⟶ "2"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html#regextract" target="_blank" rel="noopener">Comprehensive list of Functions in NITRO Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Regexreplace</code></td>
+              <td class="desc">Replace portions of a string using a regular expression.</td>
+              <td><code>$Regexreplace([ColumnDisplayName|ColumnInternalName], @pattern, replacement, type)</code></td>
+              <td><code>$Regexreplace([Title|Title], @[0-9]+, "###", "global")</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Split</code></td>
+              <td class="desc">Split a string into an array by a separator (WF Variable friendly).</td>
+              <td><code>$Split(separator, [ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$Split(:, [Title|Title]) ⟶ ["Re","Custom Actions NITRO Studio"]</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Pad</code></td>
+              <td class="desc">Pad text on the left or right using a specific character up to a given length.</td>
+              <td><code>$Pad([ColumnDisplayName|ColumnInternalName], length, padchar, left/right)</code></td>
+              <td><code>$Pad([ID|ID], 6, 0, left) ⟶ 000006</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- 🔢 Math & Calculation -->
+      <details class="group" id="grp-math">
+        <summary>🔢 Math & Calculation</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$Add</code></td>
+              <td class="desc">Add numeric values or a time span to a date/time.</td>
+              <td><code>$Add(value1, value2) or $Add([Date|Date], Days:Hours:Minutes:Seconds)</code></td>
+              <td><code>$Add(97, 3) ⟶ 100 | $Add([Due Date|DueDate], 2:0:0:0)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Subtract</code></td>
+              <td class="desc">Subtract numeric values or a time span from a date/time.</td>
+              <td><code>$Subtract(value1, value2) or $Subtract([Date|Date], Days:Hours:Minutes:Seconds)</code></td>
+              <td><code>$Subtract(103,3) ⟶ 100 | $Subtract([Due Date|DueDate], 2:0:0:0)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Divide</code></td>
+              <td class="desc">Divide one numeric value by another.</td>
+              <td><code>$Divide(value1, value2)</code></td>
+              <td><code>$Divide([Total Cost|TotalCost], 3) ⟶ 10</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Product</code></td>
+              <td class="desc">Multiply two numeric values.</td>
+              <td><code>$Product(value1, value2)</code></td>
+              <td><code>$Product([Price|Price], [Quantity|Quantity]) ⟶ $4800</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>QueryList##$sum</code></td>
+              <td class="desc">Sum values over a Query List item collection.</td>
+              <td><code>QueryListName##$sum([FieldDisplayName|FieldInternalName])</code></td>
+              <td><code>GetPurchaseItem##$sum([Cost|Cost])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>QueryList##$count</code></td>
+              <td class="desc">Count items in a Query List item collection.</td>
+              <td><code>QueryListName##$count([FieldDisplayName|FieldInternalName])</code></td>
+              <td><code>GetPurchaseItem##$count([Cost|Cost])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>QueryList##$firstitem / ##$lastitem</code></td>
+              <td class="desc">Capture the first/last item ID from a Query List collection for iteration.</td>
+              <td><code>QueryListName##$firstitem([ID|ID]) / QueryListName##$lastitem([ID|ID])</code></td>
+              <td><code>Orders##$firstitem([ID|ID])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- 📅 Date & Time Functions -->
+      <details class="group" id="grp-date">
+        <summary>📅 Date & Time Functions</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$AddMonths</code></td>
+              <td class="desc">Add a number of months to a date/time.</td>
+              <td><code>$AddMonths([ColumnDisplayName|ColumnInternalName], number)</code></td>
+              <td><code>$AddMonths([Due Date|DueDate], 5)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$CalcDate</code></td>
+              <td class="desc">Add a specified period (Days/Weeks/Months/Years) to a date/time.</td>
+              <td><code>$CalcDate([ColumnDisplayName|ColumnInternalName], number, Days/Weeks/Months/Years)</code></td>
+              <td><code>$CalcDate([Due Date|DueDate], 5, Months)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$CalcBusinessTime</code></td>
+              <td class="desc">Add business time to a date/time based on site Regional Settings.</td>
+              <td><code>$CalcBusinessTime([ColumnDisplayName|ColumnInternalName], Days:Hours:Minutes:Seconds)</code></td>
+              <td><code>$CalcBusinessTime([Created|Created], 2:0:0:0)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$DateFormat</code></td>
+              <td class="desc">Format a date using .NET custom format strings.</td>
+              <td><code>$DateFormat(Format, [ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$DateFormat(dd MMMM yyyy HH:mm:ss, [Due Date|DueDate]) ⟶ "30 May 2023 05:00:00"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Day / $Month / $Year</code></td>
+              <td class="desc">Extract the day, month, or year number from a date (column optional).</td>
+              <td><code>$Day([Date]) | $Month([Date]) | $Year([Date])</code></td>
+              <td><code>$Day([Due Date|DueDate]) ⟶ 30</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Weekday / $WeekdayNumber / $WeekNumber / $DayOfTheYear</code></td>
+              <td class="desc">Extract day-of-week name/number, ISO week number, or day-of-year.</td>
+              <td><code>$Weekday([Date]) | $WeekdayNumber([Date]) | $WeekNumber([Date]) | $DayOfTheYear([Date])</code></td>
+              <td><code>$Weekday([Due Date|DueDate]) ⟶ Tuesday</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Hour / $Minute</code></td>
+              <td class="desc">Extract hour or minute from a date/time (column optional).</td>
+              <td><code>$Hour([Date]) | $Minute([Date])</code></td>
+              <td><code>$Hour([Due Date|DueDate]) ⟶ 19</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Days / $Hours / $Minutes / $Seconds</code></td>
+              <td class="desc">Get the difference between two dates in the specified unit.</td>
+              <td><code>$Days([End],[Start]) | $Hours([End],[Start]) | $Minutes([End],[Start]) | $Seconds([End],[Start])</code></td>
+              <td><code>$Seconds([End Date|EndDate],[Start Date|StartDate]) ⟶ 104400</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/710/" target="_blank" rel="noopener">710</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$DateDiffBusinessHours / $DateDiffHours</code></td>
+              <td class="desc">Difference between two dates in business hours or total hours (Workflows only).</td>
+              <td><code>$DateDiffBusinessHours([Start],[End]) | $DateDiffHours([Start],[End])</code></td>
+              <td><code>$DateDiffBusinessHours([Start Time|StartTime],[End Time|EndTime]) ⟶ 12</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>Today</code></td>
+              <td class="desc">Insert/update the destination column with today’s date.</td>
+              <td><code>Today</code></td>
+              <td><code>Map to a Date/Time field to stamp current date.</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- 📊 Lookup & JSON -->
+      <details class="group" id="grp-lookup">
+        <summary>📊 Lookup & JSON</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$LookupId</code></td>
+              <td class="desc">Return the ID for a lookup or person/group value.</td>
+              <td><code>$LookupId([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$LookupId([Requester|Requester]) ⟶ 22</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ParseLookupValue</code></td>
+              <td class="desc">Resolve display text to a lookup item and set that value in mappings.</td>
+              <td><code>$ParseLookupValue([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>Set lookup based on $ParseLookupValue([Title|Title])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ParseMetadataValue</code></td>
+              <td class="desc">Set a Managed Metadata column by providing the term text.</td>
+              <td><code>$ParseMetadataValue([ColumnDisplayName|ColumnInternalName])</code></td>
+              <td><code>$ParseMetadataValue(Calendar)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ParseFieldValue</code></td>
+              <td class="desc">Return a field’s Id/Value/Email/Dateonly/url/string/object portion.</td>
+              <td><code>$ParseFieldValue([Column], Id|Value|Email|Dateonly|url|string|object, [separator])</code></td>
+              <td><code>$ParseFieldValue([Requester|Requester], Email, ;) ⟶ james@contoso.com</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$JsonPath</code></td>
+              <td class="desc">Extract data from a JSON object/array using JsonPath.</td>
+              <td><code>$JsonPath([placeholder or JSON], @jsonpath)</code></td>
+              <td><code>$JsonPath(TicketItem##Movies, @$.MovieDatabase..Facebook_like) ⟶ [252,472]</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions_1.html" target="_blank" rel="noopener">functions_1</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$JsonPath2</code></td>
+              <td class="desc">Like $JsonPath but returns the element(s) directly instead of an array of objects.</td>
+              <td><code>$JsonPath2([placeholder or JSON], @jsonpath)</code></td>
+              <td><code>$JsonPath2(JSON, @$.MovieDatabase.movie[*].director) ⟶ David Dobkin,Rupert Wyatt</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Xpath</code></td>
+              <td class="desc">Navigate elements/attributes in XML using an XPath expression.</td>
+              <td><code>$Xpath([value/placeholder], xpath)</code></td>
+              <td><code>$Xpath([xmlvalue|xmlvalue], /birds/parrot)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions_1.html" target="_blank" rel="noopener">functions_1</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- 🔀 Conversion & Formatting -->
+      <details class="group" id="grp-conversion">
+        <summary>🔀 Conversion & Formatting</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$FormatValue</code></td>
+              <td class="desc">Return a display string for lookup/user values (strip SharePoint prefix like <code>22;#</code>).</td>
+              <td><code>$FormatValue([Placeholder])</code></td>
+              <td><code>$FormatValue([Requester|Requester]) ⟶ 'James Restivo'</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$FormatValue2</code></td>
+              <td class="desc">Format a Date/Number/Currency as string using format specifier and culture.</td>
+              <td><code>$FormatValue2(Currency|DateTime|Number, [Placeholder], FormatSpecifier, CultureInfo)</code></td>
+              <td><code>$FormatValue2(DateTime, [Due Date|DueDate], "MMM dd, yyyy", "en-US") ⟶ "May 30, 2023"</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/713/" target="_blank" rel="noopener">713</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- 👥 People Field Handling (functions) -->
+      <details class="group" id="grp-people-funcs">
+        <summary>👥 People Field Handling</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$ParseUserValue</code></td>
+              <td class="desc">Resolve a display name/alias/email to a Person/Group value in mappings.</td>
+              <td><code>$ParseUserValue(User Display Name/Alias/Email Address)</code></td>
+              <td><code>$ParseUserValue(james@contoso.com) ⟶ James Restivo</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$GetGroupMembers</code></td>
+              <td class="desc">Get members of a SharePoint or AD group from a Person/Group column containing groups.</td>
+              <td><code>$GetGroupMembers(displayValue, joinchar, [UserColumn], output=array|string)</code></td>
+              <td><code>$GetGroupMembers(email, ;, [Assigned Team|AssignedTeam], string)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/706/" target="_blank" rel="noopener">706</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Join (array → string)</code></td>
+              <td class="desc">Join an array (e.g., user emails) into a single separated string.</td>
+              <td><code>$Join(separator, [VariableOrPlaceholder])</code></td>
+              <td><code>$Join(;#, VarUsers##Value)</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/706/" target="_blank" rel="noopener">706</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$UserCollection</code></td>
+              <td class="desc">Collect users from Person/Group columns (multi) for mapping or iteration.</td>
+              <td><code>$UserCollection([Column1],[Column2],...)</code></td>
+              <td><code>$UserCollection([Level1Tech|Level1Tech],[Level2Tech|Level2Tech])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$ItemSharedWith</code></td>
+              <td class="desc">Return users with whom the current item is shared.</td>
+              <td><code>$ItemSharedWith([ID|ID])</code></td>
+              <td><code>$ItemSharedWith([ID|ID]) ⟶ Pavan Kumar;James Restivo;Scott Restivo</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$GetUserAttr</code></td>
+              <td class="desc">Return Email/DisplayName for a user by ID, {Me}, or Person/Group column (Custom Actions only).</td>
+              <td><code>$GetUserAttr(UserId|{Me}|[UserColumn], Email|DisplayName)</code></td>
+              <td><code>$GetUserAttr([Created By|Author], Email) ⟶ jamesr@contoso.com</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <!-- ⚙️ Utility & Misc -->
+      <details class="group" id="grp-utility">
+        <summary>⚙️ Utility & Misc</summary>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%;">Function</th>
+              <th style="width:34%;">Description</th>
+              <th style="width:18%;">Syntax</th>
+              <th style="width:20%;">Example</th>
+              <th style="width:10%;">More Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>$ExtractHeaders</code></td>
+              <td class="desc">Parse name:value pairs from text using a custom separator into a key/value collection.</td>
+              <td><code>$ExtractHeaders(separator, [Column], firstupper|upper|lower)</code></td>
+              <td><code>$ExtractHeaders(:, [E-Mail Headers|EmailHeaders], firstupper) → WFVar##Importance</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$VariableCollection</code></td>
+              <td class="desc">Build a collection from parameters or Query List results; join with a separator.</td>
+              <td><code>$VariableCollection(separator, [Col1], [Col2], ...)</code></td>
+              <td><code>$VariableCollection(;#, [Requester|Requester], [AssignedTo|AssignedTo])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.info/nitro/appmanual_v2/functions.html" target="_blank" rel="noopener">functions</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$VariableCollection2</code></td>
+              <td class="desc">Like $VariableCollection with extended options; supports QueryListName##$variablecollection2.</td>
+              <td><code>$VariableCollection2(separator, unique, [value/placeholder], ...)</code></td>
+              <td><code>$VariableCollection2(;#, [Requester|Requester], [AssignedTo|AssignedTo])</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">Comprehensive List Of Functions In Nitro Studio</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td><code>$Append</code></td>
+              <td class="desc">Append values to multi-lookup/multi-user/multi-choice or text/variables.</td>
+              <td><code>$Append(Lookup|LookupId|LookupValue|User|UserId|UserValue|MultiChoice|String, separator, [input...])</code></td>
+              <td><code>$Append(UserValue, ;, [UserAndGroupMulti], "James Restivo")</code></td>
+              <td>
+                <details class="mini"><summary>More Info</summary>
+                  <ul class="mini-list">
+                    <li><a href="https://www.crowcanyon.help/article/712/" target="_blank" rel="noopener">712</a></li>
+                  </ul>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+    </details>
+
+    <!-- Other top-level categories (single icon each) with one nested level -->
+    <details id="cat-javascript">
+      <summary>🧠 JavaScript Examples</summary>
+      <details id="cat-javascript-nested" class="group">
+        <summary>Examples</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 🧠 JavaScript Examples — Examples.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-placeholders">
+      <summary>📎 Placeholders</summary>
+      <details id="cat-placeholders-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 📎 Placeholders — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-email">
+      <summary>📬 Email Syntax</summary>
+      <details id="cat-email-nested" class="group">
+        <summary>Headers</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 📬 Email Syntax — Headers.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-advanced">
+      <summary>🧩 Advanced Conditions</summary>
+      <details id="cat-advanced-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 🧩 Advanced Conditions — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-people">
+      <summary>👥 People Field Handling</summary>
+      <details id="cat-people-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 👥 People Field Handling — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-workflows">
+      <summary>🛠 Workflows</summary>
+      <details id="cat-workflows-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 🛠 Workflows — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-custom-actions">
+      <summary>⚡ Custom Actions</summary>
+      <details id="cat-custom-actions-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for ⚡ Custom Actions — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-tips">
+      <summary>💡 Tips & Tricks</summary>
+      <details id="cat-tips-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 💡 Tips & Tricks — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-known">
+      <summary>🗂 Known Issues & Fixes</summary>
+      <details id="cat-known-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 🗂 Known Issues & Fixes — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-admin">
+      <summary>🔐 Admin / Advanced</summary>
+      <details id="cat-admin-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for 🔐 Admin / Advanced — Overview.
+        </div>
+      </details>
+    </details>
+
+    <details id="cat-other">
+      <summary>➕ Other Categories (to be added as identified)</summary>
+      <details id="cat-other-nested" class="group">
+        <summary>Overview</summary>
+        <div class="meta" style="padding:12px 14px;color:#6b7280;font-size:12px;">
+          Demo content for ➕ Other Categories — Overview.
+        </div>
+      </details>
+    </details>
+
+  </div>
+
+  <div class="footer"><em>Generated for Post Falls NITRO Reference — sources included per row</em></div>
+  <script>
+    function expandAll(){ document.querySelectorAll('details').forEach(d=>d.open=true); }
+    function collapseAll(){ document.querySelectorAll('details').forEach(d=>d.open=false); }
+  </script>
+</body>
+</html>
