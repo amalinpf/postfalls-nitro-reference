@@ -1,0 +1,10 @@
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background:#f7f9fc; color:#111827; margin:2em; }
+h1 { font-size:26px; color:#0b5cab; margin-bottom:0.2em; }
+.controls button { margin:0.2em; padding:0.5em 1em; border:none; background:#0b5cab; color:#fff; border-radius:6px; cursor:pointer; }
+.section { margin-top:1em; }
+.row { display:grid; grid-template-columns:18% 34% 18% 20% 10%; padding:0.3em 0; border-bottom:1px solid #ddd; }
+.col-fn, .col-desc, .col-syn, .col-ex, .col-info { font-size:12px; }
+.col-fn code { font-size:12px; }
+.col-desc { line-height:1.2; }
+code { background:#eef2f5; padding:2px 4px; border-radius:4px; }
+section h2 { margin-top:2em; color:#0b5cab; font-size:20px; }
