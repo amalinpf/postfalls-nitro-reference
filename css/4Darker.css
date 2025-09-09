@@ -1,0 +1,76 @@
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 14px;
+  margin: 2em;
+  background-color: #f6f7fb;
+  color: #333;
+}
+
+h1 {
+  color: #0078d4;
+}
+
+button {
+  margin: 0.5em 0.5em 1em 0;
+  padding: 0.3em 1em;
+  border-radius: 4px;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  cursor: pointer;
+}
+
+.category {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+.group-title {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0.5em 0;
+  margin-left: 24px;
+}
+
+summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 6px;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+table.func-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: 24px;
+  margin-top: 0.5em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th.col-fn { width: 18%; }
+th.col-desc { width: 34%; }
+th.col-syn { width: 18%; }
+th.col-ex { width: 20%; }
+th.col-more { width: 10%; }
+
+td.fn, td.fn code, td.desc {
+  font-size: 12px;
+}
+
+details.mini summary {
+  font-size: 11px;
+  cursor: pointer;
+  display: inline;
+}

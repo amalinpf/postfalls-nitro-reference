@@ -32,3 +32,6 @@ out/
 *.tmp
 *.bak
 ~$*
+
+# Windows system files
+desktop.ini
