@@ -1,2 +1,18 @@
-/* Optional: move your growing <style> here and link from index.html */
-/* Keep typography and table rules as in your baseline. */
+/* Double-size radio button */
+#ccs_control_Site input[type="radio"] {
+    transform: scale(2);
+    margin-right: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Label aligned with the button */
+#ccs_control_Site label {
+    font-size: 1.5em;
+    vertical-align: middle;
+    padding-left: 1em;       /* about 1 character shift */
+    display: inline-block;
+    position: relative;
+    top: -2px;               /* nudge upward; adjust -1px to -3px as needed */
+    cursor: pointer;
+}
