@@ -33,7 +33,7 @@
     .title a { color:#0a0a0a; text-decoration:none; }
     .title a:hover { text-decoration:underline; }
     .kbnum { color:var(--pf-accent); font-family:ui-monospace,Menlo,Consolas,monospace; margin-right:.35rem; }
-    .actions a { margin-left:10px; font-size:12px; text-decoration:none; color:var(--pf-blue); }
+    .actions a { margin-left:10px; font-size:12px; text-decoration:none; color:#pf-blue; }
     footer { margin-top:18px; padding:12px; background:var(--pf-blue); color:#fff; text-align:center; }
     .small { font-size:12px; }
   </style>
@@ -81,22 +81,20 @@
 
   <footer>
     <div>© City of Post Falls · NITRO Reference</div>
-    <div class="small">Formatting assistance by ChatGPT</div>
+    <div class="small">A cooperative production with ChatGPT</div>
   </footer>
 
 <script>
   (async () => {
-    // --- Config you can tweak ---
     const owner = "amalinpf";
     const repo  = "postfalls-nitro-reference";
     const path  = "kb-html";
-    // -----------------------------
 
     const list = document.getElementById("list");
     const subtitle = document.getElementById("subtitle");
-    const q = document.getElementById("q");
+    const q = document.getElementById("q") || document.querySelector('input[type="search"]');
 
-    // Sticky shadow/fade toggler (unchanged)
+    // Sticky shadow/fade
     const stickyCard = document.querySelector(".card.sticky");
     const sentinel = document.getElementById("stickysentinel");
     if (stickyCard && sentinel) {
@@ -106,11 +104,10 @@
       io.observe(sentinel);
     }
 
-    // ---------- helpers ----------
     function pad3(n){ return String(n).padStart(3,"0"); }
-    function extractKB(name){ const m = name.match(/(\d{1,6})/); return m ? parseInt(m[1],10) : null; }
+    function extractKB(name){ const m = name?.match?.(/(\d{1,6})/); return m ? parseInt(m[1],10) : null; }
     function cleanTitle(name){
-      const base = name.replace(/\.html?$/i,"");
+      const base = (name || "").replace(/\.html?$/i,"");
       let t = base.replace(/[-_]+/g," ").replace(/\s*-\s*Crow\s*Canyon.*$/i,"").replace(/^\d+\s*(?:-\s*)?/,"");
       return t.replace(/\b\w/g,c=>c.toUpperCase()).trim();
     }
@@ -120,20 +117,17 @@
       return kb !== null ? `<span class="kbnum">${pad3(kb)}</span>${t}` : t;
     }
 
-    // Build robust absolute URLs regardless of / or /test/ placement
-    const ORIGIN = location.origin;                        // https://amalinpf.github.io
-    const REPO_BASE = `/${repo}/`;                         // /postfalls-nitro-reference/
-    const PAGES_BASE = `${ORIGIN}${REPO_BASE}`;            // https://.../postfalls-nitro-reference/
-    const INDEX_URL = `${PAGES_BASE}${path}/kb-index.json`;
+    // Always use the published GitHub Pages base (works from local file, localhost, or Pages)
+    const PAGES_BASE = `https://${owner}.github.io/${repo}/`;       // https://amalinpf.github.io/postfalls-nitro-reference/
+    const INDEX_URL  = `${PAGES_BASE}${path}/kb-index.json`;        // https://.../kb-html/kb-index.json
 
-    // Visual status helper
     function setStatus(baseCount, matches, extra="") {
       const now = new Date().toLocaleString();
       const matchLabel = (typeof matches === "number") ? ` • ${matches} match${matches === 1 ? "" : "es"}` : "";
       subtitle.textContent = `City of Post Falls – ${baseCount} pages discovered${matchLabel}${extra ? " • " + extra : ""} • ${now}`;
     }
 
-    // Load MiniSearch with CDN fallback
+    // Ensure MiniSearch is available (fallback CDN if needed)
     async function ensureMiniSearch() {
       if (window.MiniSearch) return true;
       const cdns = [
@@ -144,9 +138,9 @@
         try {
           await new Promise((res, rej) => {
             const s = document.createElement("script");
-            s.src = src;
+            s.src = src; s.async = true;
             s.onload = () => res();
-            s.onerror = () => rej(new Error("load error"));
+            s.onerror = () => rej();
             document.head.appendChild(s);
           });
           if (window.MiniSearch) return true;
@@ -155,14 +149,16 @@
       return !!window.MiniSearch;
     }
 
-    // Load the file list (API → Static Links)
     async function loadFromGitHub(){
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
       const resp = await fetch(url, { headers: { "Accept": "application/vnd.github+json" }});
       if (!resp.ok) throw new Error("github_api_error_" + resp.status);
       const data = await resp.json();
-      return data.filter(it => it.type === "file" && /\.html?$/i.test(it.name)).map(it => ({ name: it.name }));
+      return data
+        .filter(it => it.type === "file" && /\.html?$/i.test(it.name))
+        .map(it => ({ name: it.name }));
     }
+
     async function loadFromStaticLinks(){
       const staticUrl = `${PAGES_BASE}test/nitro_static_links.html`;
       const html = await (await fetch(staticUrl, { cache: "no-store" })).text();
@@ -184,7 +180,6 @@
       console.warn("Primary load failed, using Static Links fallback:", e);
       try {
         fileList = await loadFromStaticLinks();
-        // leave a breadcrumb in the subtitle
         setStatus(fileList.length, null, "fallback (Static Links)");
       } catch (e2) {
         subtitle.textContent = "City of Post Falls – error loading pages";
@@ -200,31 +195,12 @@
 
     async function tryEnableFullText() {
       const okLib = await ensureMiniSearch();
-      if (!okLib) {
-        ftLabel = "full-text OFF — minisearch not loaded";
-        return false;
-      }
-      // cache-buster to avoid stale JSON
-      const url = INDEX_URL + `?v=${Date.now().toString().slice(0,10)}`;
+      if (!okLib) { ftLabel = "full-text OFF — minisearch not loaded"; return; }
       try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) {
-          console.warn("kb-index.json fetch failed", res.status, url);
-          ftLabel = `full-text OFF — ${res.status} kb-index.json`;
-          return false;
-        }
-        let docList;
-        try {
-          docList = await res.json();
-        } catch (jx) {
-          console.error("kb-index.json JSON parse error", jx);
-          ftLabel = "full-text OFF — JSON parse error";
-          return false;
-        }
-        if (!Array.isArray(docList) || docList.length === 0) {
-          ftLabel = "full-text OFF — empty index";
-          return false;
-        }
+        const res = await fetch(INDEX_URL + `?v=${Date.now().toString().slice(0,10)}`, { cache: "no-store" });
+        if (!res.ok) { ftLabel = `full-text OFF — ${res.status} kb-index.json`; return; }
+        const docList = await res.json();
+        if (!Array.isArray(docList) || !docList.length) { ftLabel = "full-text OFF — empty index"; return; }
         fullTextDocs = docList.length;
         mini = new window.MiniSearch({
           fields: ['title','text'],
@@ -233,15 +209,14 @@
         });
         mini.addAll(docList);
         ftLabel = `full-text ON (${fullTextDocs})`;
-        return true;
       } catch (e) {
-        console.error("kb-index.json fetch error", e);
-        ftLabel = "full-text OFF — fetch error";
-        return false;
+        console.error("kb-index.json error", e);
+        ftLabel = "full-text OFF — fetch/parse error";
       }
     }
 
-    function render(files, filter=""){
+    function render(files, filter="") {
+      if (!list) return;
       list.innerHTML = "";
       const needle = filter.trim();
 
@@ -254,9 +229,8 @@
           name: r.store.name || r.store.title || r.id,
           url:  r.store.url,
           _rank: r.score
-        }))
-        .filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
-        .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
+        })).filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
+          .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
       } else {
         // Title-only path
         const n = needle.toLowerCase();
@@ -271,30 +245,44 @@
           });
       }
 
-      for (const f of filtered){
-        const name = f.name || "";
-        const display = displayHTML(name);
-        const pagesUrl = f.url || `${PAGES_BASE}${path}/${name}`;
-        const kb = extractKB(name);
-        const nitro = kb!==null ? nitroUrlFromKB(kb) : null;
-
+      if (!filtered.length) {
         const div = document.createElement("div");
         div.className = "item";
-        div.innerHTML = `<div class="title"><a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></div>
-          <div class="actions">${ nitro ? `<a href="${nitro}" target="_blank" rel="noopener">NITRO</a>` : "" }</div>`;
+        div.style.opacity = .7;
+        div.innerHTML = `<div class="title">No results found</div><div class="actions"></div>`;
         list.appendChild(div);
+      } else {
+        for (const f of filtered){
+          const name = f.name || "";
+          const display = displayHTML(name);
+          const pagesUrl = f.url || `${PAGES_BASE}${path}/${encodeURIComponent(name)}`;
+          const kb = extractKB(name);
+          const nitro = kb!==null ? nitroUrlFromKB(kb) : null;
+
+          const div = document.createElement("div");
+          div.className = "item";
+          div.innerHTML = `<div class="title"><a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></div>
+            <div class="actions">${ nitro ? `<a href="${nitro}" target="_blank" rel="noopener">NITRO</a>` : "" }</div>`;
+          list.appendChild(div);
+        }
       }
 
-      const matches = filtered.length;
-      setStatus(files.length, matches, ftLabel);
+      setStatus(files.length, filtered.length, ftLabel);
     }
 
     await tryEnableFullText();
     render(fileList);
-    q?.addEventListener("input", () => render(fileList, q.value));
+
+    // Attach BOTH input and keyup to ensure re-render fires everywhere
+    if (q) {
+      const onFilter = () => render(fileList, q.value || "");
+      q.addEventListener("input", onFilter);
+      q.addEventListener("keyup", onFilter);
+    } else {
+      console.warn("Search input not found; live filtering disabled.");
+    }
   })();
 </script>
-
 
 </body>
 </html>
