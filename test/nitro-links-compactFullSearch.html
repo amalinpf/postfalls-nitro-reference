@@ -84,17 +84,19 @@
     <div class="small">Formatting assistance by ChatGPT</div>
   </footer>
 
-  <script>
+<script>
   (async () => {
+    // --- Config you can tweak ---
     const owner = "amalinpf";
     const repo  = "postfalls-nitro-reference";
     const path  = "kb-html";
+    // -----------------------------
 
     const list = document.getElementById("list");
     const subtitle = document.getElementById("subtitle");
     const q = document.getElementById("q");
 
-    // Sticky shadow/fade toggler
+    // Sticky shadow/fade toggler (unchanged)
     const stickyCard = document.querySelector(".card.sticky");
     const sentinel = document.getElementById("stickysentinel");
     if (stickyCard && sentinel) {
@@ -104,6 +106,7 @@
       io.observe(sentinel);
     }
 
+    // ---------- helpers ----------
     function pad3(n){ return String(n).padStart(3,"0"); }
     function extractKB(name){ const m = name.match(/(\d{1,6})/); return m ? parseInt(m[1],10) : null; }
     function cleanTitle(name){
@@ -112,22 +115,47 @@
       return t.replace(/\b\w/g,c=>c.toUpperCase()).trim();
     }
     function nitroUrlFromKB(kb){ return `https://www.crowcanyon.help/article/${kb}/`; }
-
     function displayHTML(name){
       const kb = extractKB(name); const t = cleanTitle(name);
       return kb !== null ? `<span class="kbnum">${pad3(kb)}</span>${t}` : t;
     }
 
-    // --- Data holders
-    let fileList = [];     // [{name}]
-    let mini = null;       // MiniSearch instance when kb-index.json is present
-    let fullTextDocs = 0;  // number of docs in the loaded index
+    // Build robust absolute URLs regardless of / or /test/ placement
+    const ORIGIN = location.origin;                        // https://amalinpf.github.io
+    const REPO_BASE = `/${repo}/`;                         // /postfalls-nitro-reference/
+    const PAGES_BASE = `${ORIGIN}${REPO_BASE}`;            // https://.../postfalls-nitro-reference/
+    const INDEX_URL = `${PAGES_BASE}${path}/kb-index.json`;
 
-    // Build robust, absolute URLs regardless of where this page lives (/, /test/, etc.)
-    const ORIGIN = location.origin;                   // https://amalinpf.github.io
-    const REPO_BASE = `/${repo}/`;                    // /postfalls-nitro-reference/
-    const INDEX_URL = `${ORIGIN}${REPO_BASE}${path}/kb-index.json`;
+    // Visual status helper
+    function setStatus(baseCount, matches, extra="") {
+      const now = new Date().toLocaleString();
+      const matchLabel = (typeof matches === "number") ? ` • ${matches} match${matches === 1 ? "" : "es"}` : "";
+      subtitle.textContent = `City of Post Falls – ${baseCount} pages discovered${matchLabel}${extra ? " • " + extra : ""} • ${now}`;
+    }
 
+    // Load MiniSearch with CDN fallback
+    async function ensureMiniSearch() {
+      if (window.MiniSearch) return true;
+      const cdns = [
+        "https://cdn.jsdelivr.net/npm/minisearch@7.1.0/dist/umd/index.min.js",
+        "https://unpkg.com/minisearch@7.1.0/dist/umd/index.min.js"
+      ];
+      for (const src of cdns) {
+        try {
+          await new Promise((res, rej) => {
+            const s = document.createElement("script");
+            s.src = src;
+            s.onload = () => res();
+            s.onerror = () => rej(new Error("load error"));
+            document.head.appendChild(s);
+          });
+          if (window.MiniSearch) return true;
+        } catch {}
+      }
+      return !!window.MiniSearch;
+    }
+
+    // Load the file list (API → Static Links)
     async function loadFromGitHub(){
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
       const resp = await fetch(url, { headers: { "Accept": "application/vnd.github+json" }});
@@ -136,7 +164,7 @@
       return data.filter(it => it.type === "file" && /\.html?$/i.test(it.name)).map(it => ({ name: it.name }));
     }
     async function loadFromStaticLinks(){
-      const staticUrl = `${ORIGIN}${REPO_BASE}test/nitro_static_links.html`;
+      const staticUrl = `${PAGES_BASE}test/nitro_static_links.html`;
       const html = await (await fetch(staticUrl, { cache: "no-store" })).text();
       const doc = new DOMParser().parseFromString(html, "text/html");
       const anchors = [...doc.querySelectorAll('a[href*="/kb-html/"]')];
@@ -149,31 +177,66 @@
       return files.filter(f => (seen.has(f.name) ? false : seen.add(f.name)));
     }
 
-    async function tryLoadIndexJson() {
-      // Add a cache-buster to avoid stale CDN cache; keep it tiny to be friendly
-      const url = INDEX_URL + `?v=${new Date().getUTCMinutes()}`;
+    let fileList = [];
+    try {
+      fileList = await loadFromGitHub();
+    } catch (e) {
+      console.warn("Primary load failed, using Static Links fallback:", e);
       try {
-        const res = await fetch(url, { cache: 'no-store' });
+        fileList = await loadFromStaticLinks();
+        // leave a breadcrumb in the subtitle
+        setStatus(fileList.length, null, "fallback (Static Links)");
+      } catch (e2) {
+        subtitle.textContent = "City of Post Falls – error loading pages";
+        console.error(e2);
+        return;
+      }
+    }
+
+    // Try to enable full-text
+    let mini = null;
+    let ftLabel = "full-text OFF";
+    let fullTextDocs = 0;
+
+    async function tryEnableFullText() {
+      const okLib = await ensureMiniSearch();
+      if (!okLib) {
+        ftLabel = "full-text OFF — minisearch not loaded";
+        return false;
+      }
+      // cache-buster to avoid stale JSON
+      const url = INDEX_URL + `?v=${Date.now().toString().slice(0,10)}`;
+      try {
+        const res = await fetch(url, { cache: "no-store" });
         if (!res.ok) {
-          console.warn("kb-index.json not found/ok:", res.status, url);
+          console.warn("kb-index.json fetch failed", res.status, url);
+          ftLabel = `full-text OFF — ${res.status} kb-index.json`;
           return false;
         }
-        const docList = await res.json();
-        fullTextDocs = Array.isArray(docList) ? docList.length : 0;
-        if (!Array.isArray(docList) || fullTextDocs === 0) {
-          console.warn("kb-index.json parsed but contains no items.");
+        let docList;
+        try {
+          docList = await res.json();
+        } catch (jx) {
+          console.error("kb-index.json JSON parse error", jx);
+          ftLabel = "full-text OFF — JSON parse error";
           return false;
         }
-        // Global MiniSearch provided by UMD build
-        mini = new MiniSearch({
+        if (!Array.isArray(docList) || docList.length === 0) {
+          ftLabel = "full-text OFF — empty index";
+          return false;
+        }
+        fullTextDocs = docList.length;
+        mini = new window.MiniSearch({
           fields: ['title','text'],
-          storeFields: ['name','url','title'], // don't store full 'text' (saves memory)
+          storeFields: ['name','url','title'],
           searchOptions: { boost: { title: 3 }, fuzzy: 0.2, prefix: true }
         });
         mini.addAll(docList);
+        ftLabel = `full-text ON (${fullTextDocs})`;
         return true;
       } catch (e) {
-        console.error("Failed to load/parse kb-index.json", e, url);
+        console.error("kb-index.json fetch error", e);
+        ftLabel = "full-text OFF — fetch error";
         return false;
       }
     }
@@ -184,17 +247,18 @@
 
       let filtered;
       if (mini && needle) {
-        // Full-text path (ranked)
+        // Full-text path
         const results = mini.search(needle, { prefix: true });
         const seen = new Set();
         filtered = results.map(r => ({
           name: r.store.name || r.store.title || r.id,
           url:  r.store.url,
           _rank: r.score
-        })).filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
-          .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
+        }))
+        .filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
+        .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
       } else {
-        // Title-only path (sorted like before)
+        // Title-only path
         const n = needle.toLowerCase();
         filtered = files
           .filter(f => !n || f.name.toLowerCase().includes(n))
@@ -210,7 +274,7 @@
       for (const f of filtered){
         const name = f.name || "";
         const display = displayHTML(name);
-        const pagesUrl = f.url || `${ORIGIN}${REPO_BASE}${path}/${name}`;
+        const pagesUrl = f.url || `${PAGES_BASE}${path}/${name}`;
         const kb = extractKB(name);
         const nitro = kb!==null ? nitroUrlFromKB(kb) : null;
 
@@ -221,36 +285,16 @@
         list.appendChild(div);
       }
 
-      const now = new Date();
-      const total = files.length;
       const matches = filtered.length;
-      const matchLabel = needle ? ` • ${matches} match${matches === 1 ? "" : "es"}` : "";
-      const ftLabel = mini ? ` • full-text ON (${fullTextDocs})` : ` • full-text OFF`;
-      subtitle.textContent = `City of Post Falls – ${total} pages discovered${matchLabel}${ftLabel} • ${now.toLocaleString()}`;
+      setStatus(files.length, matches, ftLabel);
     }
 
-    // Load lists
-    try {
-      fileList = await loadFromGitHub();
-    } catch (e) {
-      console.warn("Primary load failed, using Static Links fallback:", e);
-      try {
-        fileList = await loadFromStaticLinks();
-        subtitle.textContent += " • fallback (Static Links)";
-      } catch (e2) {
-        subtitle.textContent = "City of Post Falls – error loading pages";
-        console.error(e2);
-      }
-    }
-
-    // Enable full-text if index exists
-    await tryLoadIndexJson();
-
-    // Initial render + live filter
+    await tryEnableFullText();
     render(fileList);
     q?.addEventListener("input", () => render(fileList, q.value));
   })();
 </script>
+
 
 </body>
 </html>
