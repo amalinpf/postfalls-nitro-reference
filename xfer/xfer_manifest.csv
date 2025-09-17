@@ -1,8 +1,0 @@
-File,Purpose
-4o NITRO_Functions_Extracted.csv,Old legacy
-50 nitro_functions_catalog.csv,Old legacy
-index.html,Published Reference Guide
-layout.yaml,Format of reference guide
-NITRO_Functions_Indented_Example.md, md compare to yaml
-NITRO_Functions_Indented_Example.yaml,yaml compare to md
-Xfer_Workflow.ps1,To generate this manifest
