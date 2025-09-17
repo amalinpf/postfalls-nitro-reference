@@ -1,13 +1,14 @@
 # XFER Links
 
-- Generated: 2025-09-17 11:33
+- Generated: 2025-09-17 11:40
 - Base (Pages): https://amalinpf.github.io/postfalls-nitro-reference
 - Base (Raw): https://github.com/amalinpf/postfalls-nitro-reference/raw/main
 
 | File | Size | Purpose | Pages URL | Raw URL |
 |---|---:|---|---|---|
-| `4o NITRO_Functions_Extracted.csv` | 175.7 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/4o NITRO_Functions_Extracted.csv](https://amalinpf.github.io/postfalls-nitro-reference/xfer/4o NITRO_Functions_Extracted.csv) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/4o NITRO_Functions_Extracted.csv](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/4o NITRO_Functions_Extracted.csv) |
-| `50 nitro_functions_catalog.csv` | 5.6 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/50 nitro_functions_catalog.csv](https://amalinpf.github.io/postfalls-nitro-reference/xfer/50 nitro_functions_catalog.csv) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/50 nitro_functions_catalog.csv](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/50 nitro_functions_catalog.csv) |
+| `_xfer_links.md` | 2.7 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/_xfer_links.md](https://amalinpf.github.io/postfalls-nitro-reference/xfer/_xfer_links.md) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/_xfer_links.md](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/_xfer_links.md) |
+| `4o NITRO_Functions_Extracted.csv` | 175.7 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/4o%20NITRO_Functions_Extracted.csv](https://amalinpf.github.io/postfalls-nitro-reference/xfer/4o%20NITRO_Functions_Extracted.csv) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/4o%20NITRO_Functions_Extracted.csv](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/4o%20NITRO_Functions_Extracted.csv) |
+| `50 nitro_functions_catalog.csv` | 5.6 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/50%20nitro_functions_catalog.csv](https://amalinpf.github.io/postfalls-nitro-reference/xfer/50%20nitro_functions_catalog.csv) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/50%20nitro_functions_catalog.csv](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/50%20nitro_functions_catalog.csv) |
 | `index.html` | 12.6 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/index.html](https://amalinpf.github.io/postfalls-nitro-reference/xfer/index.html) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/index.html](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/index.html) |
 | `layout.yaml` | 4.6 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/layout.yaml](https://amalinpf.github.io/postfalls-nitro-reference/xfer/layout.yaml) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/layout.yaml](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/layout.yaml) |
 | `NITRO_Functions_Indented_Example.md` | 3.3 KB |  | [https://amalinpf.github.io/postfalls-nitro-reference/xfer/NITRO_Functions_Indented_Example.md](https://amalinpf.github.io/postfalls-nitro-reference/xfer/NITRO_Functions_Indented_Example.md) | [https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/NITRO_Functions_Indented_Example.md](https://github.com/amalinpf/postfalls-nitro-reference/raw/main/xfer/NITRO_Functions_Indented_Example.md) |
