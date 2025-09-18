@@ -1,51 +1,72 @@
-<#
-.SYNOPSIS
-  Builds a simple full-text index (JSON) from kb-html/*.html for client-side search.
-#>
+# build_kb_index.ps1
+# Builds a lean JSON index from HTML files for full-text search. Strips common Crow Canyon boilerplate and limits main text content length.
+
+# Version History
+# v1.1.0 Updated 9/18/25 - Added regex cleanup for Crow Canyon headers/footers and updated naming conventions.
+
 param(
-  [string]$KbFolder = ".\kb-html",
-  [string]$OutFile  = ".\kb-html\kb-index.json",
-  [int]$MaxChars    = 40000,     # cap content per file
-  [string]$BaseUrl  = "https://amalinpf.github.io/postfalls-nitro-reference/kb-html/"
+  [string]$KbFolder = "..\kb-html",
+  [string]$OutFile = "$KbFolder\kb-index-lean.json",
+  [int]$CharsPerDoc = 5000,
+  [ValidateSet("TitleOnly", "TitleAndMain")]
+  [string]$IndexMode = "TitleAndMain"
 )
 
-function Strip-Html {
-  param([string]$Html)
-  $noScripts = [regex]::Replace($Html, "<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>", "", "Singleline,IgnoreCase")
-  $noStyles  = [regex]::Replace($noScripts, "<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>", "", "Singleline,IgnoreCase")
-  $text      = [regex]::Replace($noStyles, "<[^>]+>", " ")
-  $text      = [regex]::Replace($text, "\s+", " ")
-  return $text.Trim()
-}
+Write-Host "Building index from $KbFolder..."
+$docs = Get-ChildItem $KbFolder -Filter "*.html" -Recurse | Sort-Object Name
 
-$items = @()
-Get-ChildItem -Path $KbFolder -Filter *.html -File | ForEach-Object {
-  $name = $_.Name
-  $html = Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8
-  $text = Strip-Html $html
-  if ($text.Length -gt $MaxChars) { $text = $text.Substring(0, $MaxChars) }
+$results = @()
+foreach ($f in $docs) {
+  $html = Get-Content $f.FullName -Raw
+  $html2 = $html -replace "(?s)<script.*?</script>", "" -replace "(?s)<style.*?</style>", ""
+  $id = $f.Name
+  $title = [System.IO.Path]::GetFileNameWithoutExtension($f.Name)
+  $url = "https://amalinpf.github.io/postfalls-nitro-reference/kb-html/$($f.Name)"
 
-  $idMatch = [regex]::Match($name, "(\d{1,6})")
-  $id = if ($idMatch.Success) { $idMatch.Groups[1].Value } else { $name }
+  $text = ""
+  if ($IndexMode -eq "TitleAndMain") {
+    # Prefer extracting only the .entry-content block
+    $main = ""
+    if ($html2 -match '(?is)<div[^>]*class="[^"]*entry-content[^"]*"[^>]*itemprop="articleBody"[^>]*>(.*?)</div>') {
+      $main = $Matches[1]
+    }
+    elseif ($html2 -match "(?is)<body[^>]*>(.*?)</body>") {
+      $main = $Matches[1]
+    }
+    else {
+      $main = $html2
+    }
 
-  $urlName = [System.Uri]::EscapeDataString($name)
-  $url = $BaseUrl + $urlName
+    # Strip tags, decode entities, clean whitespace
+    $text = ($main -replace "(?s)<[^>]+>", " ") -replace "\s+", " "
+    $text = [System.Net.WebUtility]::HtmlDecode($text).Trim()
 
-  $base = [regex]::Replace($name, "\.html?$", "", "IgnoreCase")
-  $t = $base -replace "[-_]+"," "
-  $t = [regex]::Replace($t, "\s*-\s*Crow\s*Canyon.*$", "", "IgnoreCase")
-  $t = [regex]::Replace($t, "^\d+\s*(?:-\s*)?", "")
-  $ti = ($t -split " ") | ForEach-Object { if ($_){ $_[0].ToString().ToUpper()+$_.Substring(1) } }
-  $title = ($ti -join " ").Trim()
+    # Remove common Crow Canyon boilerplate (header/footer)
+    $text = $text -replace "(?i)^.*?Support Homepage Community Forum Submit a Support Ticket CrowCanyon.com Website Version Release Notes Home /", ""
+    $text = $text -replace "(?i)About supportTeam View all posts by supportTeam → Leave a Reply Cancel reply You must be logged in to post a comment\..*$", ""
 
-  $items += [pscustomobject]@{
+    # Cap content
+    $origLen = $text.Length
+    if ($text.Length -gt $CharsPerDoc) {
+      $text = $text.Substring(0, $CharsPerDoc)
+      Write-Host "CLIPPED: $($f.Name) ($origLen characters)"
+    }
+  }
+
+  $obj = [PSCustomObject]@{
     id    = $id
-    name  = $name
-    url   = $url
     title = $title
+    url   = $url
     text  = $text
   }
+  $results += $obj
 }
 
-$items | ConvertTo-Json -Depth 3 | Out-File -LiteralPath $OutFile -Encoding UTF8
-Write-Host "Wrote $($items.Count) records to $OutFile"
+# Save JSON
+$json = $results | ConvertTo-Json -Depth 5
+$destFolder = Split-Path -Parent $OutFile
+if (-not (Test-Path $destFolder)) {
+  New-Item -ItemType Directory -Path $destFolder | Out-Null
+}
+Set-Content -Path $OutFile -Value $json -Encoding UTF8
+Write-Host "DONE: $($results.Count) docs written to $OutFile"
