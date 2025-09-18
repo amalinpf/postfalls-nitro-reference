@@ -33,8 +33,8 @@
     .title a { color:#0a0a0a; text-decoration:none; }
     .title a:hover { text-decoration:underline; }
     .kbnum { color:var(--pf-accent); font-family:ui-monospace,Menlo,Consolas,monospace; margin-right:.35rem; }
-   .actions a { margin-left:10px; font-size:12px; text-decoration:none; color:var(--pf-blue); }
- footer { margin-top:18px; padding:12px; background:var(--pf-blue); color:#fff; text-align:center; }
+    .actions a { margin-left:10px; font-size:12px; text-decoration:none; color:#pf-blue; }
+    footer { margin-top:18px; padding:12px; background:var(--pf-blue); color:#fff; text-align:center; }
     .small { font-size:12px; }
   </style>
   <!-- MiniSearch for client-side full-text search -->
@@ -219,87 +219,65 @@
         ftLabel = "full-text OFF — fetch/parse error";
       }
     }
-function generateSnippet(text = "", terms = []) {
-  if (!text || !terms?.length) return "";
-  const safeText = text.replace(/\s+/g, " ").trim();
-  for (const t of terms) {
-    const rx = new RegExp(`(.{0,60})(${t})(.{0,60})`, "i");
-    const match = safeText.match(rx);
-    if (match) {
-      return `${match[1]}<mark>${match[2]}</mark>${match[3]}`.replace(/\s+/g, " ");
+
+    function render(files, filter="") {
+      if (!list) return;
+      list.innerHTML = "";
+      const needle = filter.trim();
+
+      let filtered;
+      const useFullText = document.getElementById("fulltext-toggle")?.checked;
+      if (mini && needle && useFullText) {
+        // Full-text path
+        const results = mini.search(needle, { prefix: true });
+        const seen = new Set();
+        filtered = results.map(r => {
+          const doc = r.store ?? r;
+          return {
+            name: doc.name || doc.title || doc.id || '(untitled)',
+          url:  doc.url || '',
+          _rank: r.score
+          }; }).filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
+          .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
+      } else {
+        // Title-only path
+        const n = needle.toLowerCase();
+        filtered = files
+          .filter(f => !n || f.name.toLowerCase().includes(n))
+          .sort((a,b)=>{
+            const ka = extractKB(a.name), kb = extractKB(b.name);
+            if (ka!==null && kb!==null) return ka-kb;
+            if (ka!==null) return -1;
+            if (kb!==null) return 1;
+            return a.name.localeCompare(b.name);
+          });
+      }
+
+      if (!filtered.length) {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.opacity = .7;
+        div.innerHTML = `<div class="title">No results found</div><div class="actions"></div>`;
+        list.appendChild(div);
+      } else {
+        for (const f of filtered){
+          const name = f.name || "";
+          const display = displayHTML(name);
+          const pagesUrl = f.url || `${PAGES_BASE}${path}/${encodeURIComponent(name)}`;
+          const kb = extractKB(name);
+          const nitro = kb!==null ? nitroUrlFromKB(kb) : null;
+
+          const div = document.createElement("div");
+          div.className = "item";
+          div.innerHTML = `<div class="title"><a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></div>
+            <div class="actions">${ nitro ? `<a href="${nitro}" target="_blank" rel="noopener">NITRO</a>` : "" }</div>`;
+          list.appendChild(div);
+        }
+      }
+
+      const modeLabel = (useFullText && mini) ? ftLabel : "title-only";
+      setStatus(files.length, filtered.length, modeLabel);
     }
-  }
-  return "";
-}
-
-    function render(files, filter = "") {
-  if (!list) return;
-  list.innerHTML = "";
-  const needle = filter.trim();
-
-  let filtered;
-  const useFullText = document.getElementById("fulltext-toggle")?.checked;
-  if (mini && needle && useFullText) {
-    // Full-text search
-    const results = mini.search(needle, { prefix: true });
-    const seen = new Set();
-
-    filtered = results.map(r => {
-      const doc = r.store ?? r;
-      const snippet = generateSnippet(doc.text, r.terms);
-      return {
-        name: doc.name || doc.title || doc.id || "(untitled)",
-        url: doc.url || "",
-        _rank: r.score,
-        _snippet: snippet
-      };
-    }).filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
-      .sort((a, b) => (b._rank || 0) - (a._rank || 0) || a.name.localeCompare(b.name));
-  } else {
-    // Title-only search
-    const n = needle.toLowerCase();
-    filtered = files
-      .filter(f => !n || f.name.toLowerCase().includes(n))
-      .sort((a, b) => {
-        const ka = extractKB(a.name), kb = extractKB(b.name);
-        if (ka !== null && kb !== null) return ka - kb;
-        if (ka !== null) return -1;
-        if (kb !== null) return 1;
-        return a.name.localeCompare(b.name);
-      });
-  }
-
-  if (!filtered.length) {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.style.opacity = 0.7;
-    div.innerHTML = `<div class="title">No results found</div><div class="actions"></div>`;
-    list.appendChild(div);
-  } else {
-    for (const f of filtered) {
-      const name = f.name || "";
-      const display = displayHTML(name);
-      const pagesUrl = f.url || `${PAGES_BASE}${path}/${encodeURIComponent(name)}`;
-      const kb = extractKB(name);
-      const nitro = kb !== null ? nitroUrlFromKB(kb) : null;
-
-      const div = document.createElement("div");
-      div.className = "item";
-      div.innerHTML = `
-        <div class="title">
-          <a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a>
-          ${f._snippet ? `<div class="small" style="color:#555;margin-top:2px;">… ${f._snippet} …</div>` : ""}
-        </div>
-        <div class="actions">
-          ${nitro ? `<a href="${nitro}" target="_blank" rel="noopener">NITRO</a>` : ""}
-        </div>`;
-      list.appendChild(div);
-    }
-  }
-
-  const modeLabel = (useFullText && mini) ? ftLabel : "title-only";
-  setStatus(files.length, filtered.length, modeLabel);
-}
 
     await tryEnableFullText();
     render(fileList);
