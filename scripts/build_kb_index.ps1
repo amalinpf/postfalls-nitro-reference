@@ -3,6 +3,8 @@
 
 # Version History
 # v1.1.0 Updated 9/18/25 - Added regex cleanup for Crow Canyon headers/footers and updated naming conventions.
+# v1.2.0 Updated 9/18/25 - Added 3rd footer boilerplate pattern (117 matches) and changed output file name to kb-index.json
+# v1.2.1 Updated 9/18/25 - Appended to version history; added missing file handling for Get-Content errors.
 
 param(
   [string]$KbFolder = "..\kb-html",
@@ -17,7 +19,14 @@ $docs = Get-ChildItem $KbFolder -Filter "*.html" -Recurse | Sort-Object Name
 
 $results = @()
 foreach ($f in $docs) {
-  $html = Get-Content $f.FullName -Raw
+  try {
+    $html = Get-Content ("$($f.FullName)") -Raw
+
+  } catch {
+    Write-Warning "SKIPPED: $($f.Name) - $($_.Exception.Message)"
+    continue
+  }
+
   $html2 = $html -replace "(?s)<script.*?</script>", "" -replace "(?s)<style.*?</style>", ""
   $id = $f.Name
   $title = [System.IO.Path]::GetFileNameWithoutExtension($f.Name)
@@ -44,6 +53,7 @@ foreach ($f in $docs) {
     # Remove common Crow Canyon boilerplate (header/footer)
     $text = $text -replace "(?i)^.*?Support Homepage Community Forum Submit a Support Ticket CrowCanyon.com Website Version Release Notes Home /", ""
     $text = $text -replace "(?i)About supportTeam View all posts by supportTeam → Leave a Reply Cancel reply You must be logged in to post a comment\..*$", ""
+    $text = $text -replace "(?i)About supportTeam View all posts by supportTeam → © 2025 Crow Canyon Systems, Inc\..*$", ""
 
     # Cap content
     $origLen = $text.Length
