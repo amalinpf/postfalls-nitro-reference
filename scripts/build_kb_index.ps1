@@ -6,7 +6,7 @@
 
 param(
   [string]$KbFolder = "..\kb-html",
-  [string]$OutFile = "$KbFolder\kb-index-lean.json",
+  [string]$OutFile = "$KbFolder\kb-index.json",
   [int]$CharsPerDoc = 5000,
   [ValidateSet("TitleOnly", "TitleAndMain")]
   [string]$IndexMode = "TitleAndMain"
