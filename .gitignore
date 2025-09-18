@@ -22,6 +22,8 @@ node_modules/
 dist/
 build/
 out/
+**/Archive/
+
 
 # Allow ZIPs inside /xfer despite global ignore
 !xfer/
