@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Crow Canyon NITRO – Compact KB Index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="referrer" content="no-referrer" />
+  <style>
+    :root { --pf-blue:#1c5995; --pf-accent:#0078d4; --bg:#f5f7fb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Segoe UI, Tahoma, sans-serif; background:var(--bg); color:#222; }
+    header { background:var(--pf-blue); color:#fff; padding:12px 10px; text-align:center; }
+    header h1 { margin:0; font-weight:700; font-size:18px; }
+    header h2 { margin:4px 0 0; font-weight:500; font-size:12px; color:#e5ecff; opacity:.95; }
+    main { max-width:900px; margin:12px auto; padding:0 12px 20px; }
+    .card { position:relative; background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); padding:10px 12px; }
+    .card.sticky { position:sticky; top:0; z-index:100; transition:box-shadow .25s ease; }
+    .card.sticky.is-stuck { box-shadow:0 12px 28px rgba(0,0,0,.14), 0 2px 6px rgba(0,0,0,.08); }
+    .card.sticky::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:18px; pointer-events:none; background:linear-gradient(to bottom, rgba(245,247,251,0), var(--bg)); opacity:0; transition:opacity .25s ease; }
+    .card.sticky.is-stuck::after { opacity:1; }
+    h2.section { color:var(--pf-blue); font-size:14px; margin:6px 0 8px; font-weight:700; }
+    .linksline { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; line-height:1.25; font-size:13px; }
+    .linksline a { color:#0f172a; text-decoration:none; }
+    .linksline a:hover { text-decoration:underline; }
+    .sep { color:#94a3b8; }
+    .controls { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:6px 0 8px; }
+    .controls input[type="search"] { flex:1; min-width:240px; padding:7px 9px; border:1px solid #cbd5e1; border-radius:10px; font-size:13px; }
+    .controls .note { font-size:12px; color:#555; }
+    .kbd { font-family:ui-monospace,Menlo,Consolas,monospace; background:#eef2f7; border-radius:6px; padding:1px 5px; border:1px solid #dbe3f0; font-size:12px; }
+    .list { margin-top:10px; }
+    .item { display:flex; flex-direction:column; padding:6px 0; border-bottom:1px solid #e6e9ef; font-size:14px; }
+    .item:last-child { border-bottom:none; }
+    .title a { color:#0a0a0a; text-decoration:none; font-weight:600; }
+    .title a:hover { text-decoration:underline; }
+    .kbnum { color:var(--pf-accent); font-family:ui-monospace,Menlo,Consolas,monospace; margin-right:.35rem; }
+    .snippet { font-size:13px; color:#333; padding-top:4px; line-height:1.4; }
+    .snippet mark { background:#fffb91; font-weight:bold; padding:0 1px; border-radius:2px; }
+    .actions { font-size:12px; margin-top:4px; }
+    .actions a { text-decoration:none; color:#0078d4; margin-right:12px; }
+    footer { margin-top:18px; padding:12px; background:var(--pf-blue); color:#fff; text-align:center; }
+    .small { font-size:12px; }
+  </style>
+  <script src="https://unpkg.com/minisearch@7.1.0/dist/umd/index.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1 id="title">Crow Canyon NITRO – Compact KB Index</h1>
+    <h2 id="subtitle" aria-live="polite">City of Post Falls – …</h2>
+  </header>
+  <main>
+    <div id="stickysentinel" style="height:1px;" aria-hidden="true"></div>
+    <section class="card sticky">
+      <h2 class="section">Quick Links</h2>
+      <p class="linksline">
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/" target="_blank">Full Reference</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html&utm_source=chatgpt.com" target="_blank">Crow Canyon Manual</a>
+        <span class="sep">•</span>
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html" target="_blank">Advanced Functions</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.help/forum/" target="_blank">Forum</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.help/supportticket/" target="_blank">Support Ticket</a>
+        <span class="sep">•</span>
+        <a href="https://duckduckgo.com/?q=crow+canyon+NITRO" target="_blank">Search for NITRO</a>
+        <span class="sep">•</span>
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/nitro-links-compact.html">Compact Index</a>
+      </p>
+      <h2 class="section">NITRO Knowledge Base Articles</h2>
+      <div class="controls">
+        <input id="q" type="search" placeholder="Filter pages by name or content…" autocomplete="off" />
+        <label style="font-size:12px; display:flex; align-items:center; gap:4px;">
+          <input type="checkbox" id="fulltext-toggle" style="margin:0;" />
+          Full-text search
+        </label>
+        <div class="note">Tip: try <span class="kbd">lookup</span>, <span class="kbd">people field</span>, <span class="kbd">$split</span></div>
+      </div>
+    </section>
+    <section class="card" style="margin-top:10px">
+      <div id="list" class="list" role="list"></div>
+    </section>
+  </main>
+  <footer>
+    <div>© City of Post Falls · NITRO Reference</div>
+    <div class="small">A cooperative production with ChatGPT</div>
+  </footer>
+  <script src="https://amalinpf.github.io/postfalls-nitro-reference/test/js/search-fulltext-snippets.js"></script>
+</body>
+</html>

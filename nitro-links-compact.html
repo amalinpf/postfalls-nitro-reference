@@ -1,176 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Crow Canyon NITRO – Compact KB Index</title>
-<style>
-  :root{ --pf-blue:#1c5995; --pf-accent:#0078d4; --bg:#f5f7fb; --card:#ffffff; }
-  *{ box-sizing:border-box; }
-  body{ margin:0; font-family:Segoe UI,Tahoma,sans-serif; background:var(--bg); color:#222; }
-  header{ background: var(--pf-blue); color:#fff; padding:16px 12px; text-align:center; }
-  header h1{ margin:0; font-weight:700; font-size:22px; }
-  header h2{ margin:4px 0 0; font-weight:500; font-size:13px; color:#e5ecff; opacity:.95; }
-  main{ max-width:1100px; margin:16px auto; padding:0 14px 32px; }
-  .card{ background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); padding:12px 14px; }
-  h2.section{ color:var(--pf-blue); font-size:16px; margin:10px 0 8px; font-weight:700; }
-
-  /* Quick links */
-  .linksline{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; line-height:1.3; font-size:14px; }
-  .linksline a{ color:#0f172a; text-decoration:none; }
-  .linksline a:hover{ text-decoration:underline; }
-  .sep{ color:#94a3b8; }
-
-  /* Filter line */
-  .controls{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 8px 0 12px; }
-  .controls input[type="search"]{ flex:1; min-width:260px; padding:8px 10px; border:1px solid #cbd5e1; border-radius:10px; font-size:14px; }
-  .controls .note{ font-size:12px; color:#555; }
-  .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#eef2f7; border-radius:6px; padding: 1px 5px; border:1px solid #dbe3f0; font-size:12px; }
-
-  /* Table */
-  table{ width:100%; border-collapse:collapse; table-layout:fixed; }
-  thead th{ text-align:left; font-size:11px; color:#444; padding:6px 8px; border-bottom:1px solid #e3e8ef; }
-  tbody td{ font-size:12px; padding:6px 8px; vertical-align:top; }
-
-  /* Zebra + hover */
-  tbody tr:nth-child(odd)  { background: #ffffff; }
-  tbody tr:nth-child(even) { background: #f2f6fb; }
-  tbody tr:hover { background: #e8f0fe; }
-
-  /* Title link */
-  a.page{ color:#0a0a0a; text-decoration:none; border-bottom:1px dotted #bbb; white-space:normal; word-break:break-word; }
-
-  /* Arrow */
-  td.nitrocell{ text-align:center; }
-  td.nitrocell a.arrow{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:2px 8px;
-    border-radius:6px;
-    text-decoration:none;
-    font-size:14px;
-    line-height:1;
-    color:var(--pf-accent);
-  }
-  tr:hover td.nitrocell a.arrow{
-    background:#e6f0ff;
-    outline:1px solid #cfe2ff;
-  }
-  td.nitrocell a.arrow:focus-visible{
-    outline:2px solid #1c59ff;
-    outline-offset:2px;
-  }
-
-  footer{ margin-top: 22px; padding: 16px; background: var(--pf-blue); color:#fff; text-align:center; }
-  .small{ font-size:12px; }
-</style>
+  <meta charset="utf-8" />
+  <title>Crow Canyon NITRO – Compact KB Index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="referrer" content="no-referrer" />
+  <style>
+    :root { --pf-blue:#1c5995; --pf-accent:#0078d4; --bg:#f5f7fb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Segoe UI, Tahoma, sans-serif; background:var(--bg); color:#222; }
+    header { background:var(--pf-blue); color:#fff; padding:12px 10px; text-align:center; }
+    header h1 { margin:0; font-weight:700; font-size:18px; }
+    header h2 { margin:4px 0 0; font-weight:500; font-size:12px; color:#e5ecff; opacity:.95; }
+    main { max-width:900px; margin:12px auto; padding:0 12px 20px; }
+    .card { position:relative; background:#fff; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); padding:10px 12px; }
+    .card.sticky { position:sticky; top:0; z-index:100; transition:box-shadow .25s ease; }
+    .card.sticky.is-stuck { box-shadow:0 12px 28px rgba(0,0,0,.14), 0 2px 6px rgba(0,0,0,.08); }
+    .card.sticky::after { content:""; position:absolute; left:0; right:0; bottom:-1px; height:18px; pointer-events:none; background:linear-gradient(to bottom, rgba(245,247,251,0), var(--bg)); opacity:0; transition:opacity .25s ease; }
+    .card.sticky.is-stuck::after { opacity:1; }
+    h2.section { color:var(--pf-blue); font-size:14px; margin:6px 0 8px; font-weight:700; }
+    .linksline { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; line-height:1.25; font-size:13px; }
+    .linksline a { color:#0f172a; text-decoration:none; }
+    .linksline a:hover { text-decoration:underline; }
+    .sep { color:#94a3b8; }
+    .controls { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:6px 0 8px; }
+    .controls input[type="search"] { flex:1; min-width:240px; padding:7px 9px; border:1px solid #cbd5e1; border-radius:10px; font-size:13px; }
+    .controls .note { font-size:12px; color:#555; }
+    .kbd { font-family:ui-monospace,Menlo,Consolas,monospace; background:#eef2f7; border-radius:6px; padding:1px 5px; border:1px solid #dbe3f0; font-size:12px; }
+    .list { margin-top:10px; }
+    .item { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #e6e9ef; font-size:14px; }
+    .item:last-child { border-bottom:none; }
+    .title a { color:#0a0a0a; text-decoration:none; }
+    .title a:hover { text-decoration:underline; }
+    .kbnum { color:var(--pf-accent); font-family:ui-monospace,Menlo,Consolas,monospace; margin-right:.35rem; }
+    .actions a { margin-left:10px; font-size:12px; text-decoration:none; color:#pf-blue; }
+    footer { margin-top:18px; padding:12px; background:var(--pf-blue); color:#fff; text-align:center; }
+    .small { font-size:12px; }
+  </style>
+  <!-- MiniSearch for client-side full-text search -->
+  <script src="https://unpkg.com/minisearch@7.1.0/dist/umd/index.min.js"></script>
 </head>
 <body>
   <header>
     <h1 id="title">Crow Canyon NITRO – Compact KB Index</h1>
-    <h2 id="subtitle">City of Post Falls – …</h2>
+    <h2 id="subtitle" aria-live="polite">City of Post Falls – …</h2>
   </header>
 
   <main>
-    <section class="card">
+    <div id="stickysentinel" aria-hidden="true" style="height:1px;"></div>
+
+    <section class="card sticky">
       <h2 class="section">Quick Links</h2>
       <p class="linksline">
-        <a href="https://amalinpf.github.io/postfalls-nitro-reference/" target="_blank" rel="noopener">Full Reference</a> <span class="sep">•</span>
-        <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html&utm_source=chatgpt.com" target="_blank" rel="noopener">Crow Canyon Manual</a> <span class="sep">•</span>
-        <a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html" target="_blank" rel="noopener">Advanced Functions</a> <span class="sep">•</span>
-        <a href="https://www.crowcanyon.help/forum/" target="_blank" rel="noopener">Forum</a> <span class="sep">•</span>
-        <a href="https://www.crowcanyon.help/supportticket/" target="_blank" rel="noopener">Support Ticket</a> <span class="sep">•</span>
-        <a href="https://duckduckgo.com/?q=crow+canyon+NITRO" target="_blank" rel="noopener">Search for NITRO on the web</a> <span class="sep">•</span>
-        <a href="https://amalinpf.github.io/postfalls-nitro-reference/nitro-links.html">Index</a>
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/" target="_blank" rel="noopener">Full Reference</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.info/nitro/appmanual_v2/index.html?nitro-studio.html&utm_source=chatgpt.com" target="_blank" rel="noopener">Crow Canyon Manual</a>
+        <span class="sep">•</span>
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/kb-html/Comprehensive%20list%20of%20Functions%20in%20NITRO%20Studio.html" target="_blank" rel="noopener">Advanced Functions</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.help/forum/" target="_blank" rel="noopener">Forum</a>
+        <span class="sep">•</span>
+        <a href="https://www.crowcanyon.help/supportticket/" target="_blank" rel="noopener">Support Ticket</a>
+        <span class="sep">•</span>
+        <a href="https://duckduckgo.com/?q=crow+canyon+NITRO" target="_blank" rel="noopener">Search for NITRO on the web</a>
+        <span class="sep">•</span>
+        <a href="https://amalinpf.github.io/postfalls-nitro-reference/nitro-links-compact.html">Compact Index</a>
       </p>
 
       <h2 class="section">NITRO Knowledge Base Articles</h2>
       <div class="controls">
-        <input id="q" type="search" placeholder="Filter pages by name…" autocomplete="off">
-        <div class="note">Tip: type part of a filename, e.g. <span class="kbd">parse</span> or <span class="kbd">lookup</span></div>
+        <input id="q" type="search" placeholder="Filter pages by name or content…" autocomplete="off" />
+<label style="font-size:12px; display:flex; align-items:center; gap:4px;">
+  <input type="checkbox" id="fulltext-toggle" style="margin:0;" />
+  Full-text search
+</label>
+        <div class="note">Tip: try <span class="kbd">lookup</span>, <span class="kbd">people field</span>, <span class="kbd">$split</span></div>
       </div>
+    </section>
 
-      <table aria-label="NITRO page index">
-        <thead><tr><th>Page</th><th style="width:60px; text-align:center;">NITRO</th></tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
+    <section class="card" style="margin-top:10px">
+      <div id="list" class="list" role="list"></div>
     </section>
   </main>
 
   <footer>
     <div>© City of Post Falls · NITRO Reference</div>
-    <div class="small">Formatting assistance by ChatGPT — Your friendly neighborhood AI</div>
+    <div class="small">A cooperative production with ChatGPT</div>
   </footer>
 
 <script>
-(async () => {
-  const owner = "amalinpf";
-  const repo = "postfalls-nitro-reference";
-  const path = "kb-html";
+  (async () => {
+    const owner = "amalinpf";
+    const repo  = "postfalls-nitro-reference";
+    const path  = "kb-html";
 
-  const rows = document.getElementById("rows");
-  const subtitle = document.getElementById("subtitle");
-  const q = document.getElementById("q");
+    const list = document.getElementById("list");
+    const subtitle = document.getElementById("subtitle");
+    const q = document.getElementById("q") || document.querySelector('input[type="search"]');
 
-  function extractKB(name){ const m = name.match(/(\\d{1,6})/); return m ? parseInt(m[1], 10) : null; }
-  function pad3(n){ return String(n).padStart(3, "0"); }
-  function cleanTitle(name){
-    const base = name.replace(/\\.html?$/i, "");
-    let t = base.replace(/[\\-_]+/g, " ");
-    t = t.replace(/\\s*-\\s*Crow\\s*Canyon.*$/i, "");
-    t = t.replace(/^\\d+\\s*(?:-\\s*)?/, "");
-    t = t.replace(/\\b\\w/g, c => c.toUpperCase());
-    return t.trim();
-  }
-  function nitroUrlFromKB(kb){ return `https://www.crowcanyon.help/article/${kb}/`; }
-
-  function render(files, filter=""){
-    rows.innerHTML = "";
-    const needle = filter.trim().toLowerCase();
-    const filtered = files.filter(f => !needle || f.name.toLowerCase().includes(needle));
-    filtered.sort((a,b) => {
-      const ka = extractKB(a.name), kb = extractKB(b.name);
-      if (ka !== null && kb !== null) return ka - kb;
-      if (ka !== null) return -1;
-      if (kb !== null) return 1;
-      return a.name.localeCompare(b.name);
-    });
-
-    for (const f of filtered) {
-      const title = cleanTitle(f.name);
-      const kb = extractKB(f.name);
-      const display = kb !== null ? `${pad3(kb)} - ${title}` : title;
-      const pagesUrl = `https://amalinpf.github.io/postfalls-nitro-reference/kb-html/${f.name}`;
-      const nitro = kb !== null ? nitroUrlFromKB(kb) : null;
-
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td class="title"><a class="page" href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></td>
-        <td class="nitrocell">
-          ${nitro ? `<a class="arrow" href="${nitro}" target="_blank" rel="noopener"
-              title="Open NITRO original for ${display}"
-              aria-label="Open NITRO original for ${display}">↗</a>` : ``}
-        </td>
-      `;
-      rows.appendChild(tr);
+    // Sticky shadow/fade
+    const stickyCard = document.querySelector(".card.sticky");
+    const sentinel = document.getElementById("stickysentinel");
+    if (stickyCard && sentinel) {
+      const io = new IntersectionObserver(([e]) => {
+        stickyCard.classList.toggle("is-stuck", e.intersectionRatio === 0);
+      }, { threshold: [0, 1] });
+      io.observe(sentinel);
     }
-    const now = new Date();
-    subtitle.textContent = \`City of Post Falls – \${files.length} pages discovered • \${now.toLocaleString()}\`;
-  }
 
-  try {
-    const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
-    if (!resp.ok) throw new Error("GitHub API error: " + resp.status);
-    const data = await resp.json();
-    const htmlFiles = data.filter(it => it.type === "file" && /\\.html?$/i.test(it.name));
-    render(htmlFiles);
-    q.addEventListener("input", () => render(htmlFiles, q.value));
-  } catch (err) {
-    subtitle.textContent = "City of Post Falls – error loading pages";
-    console.error(err);
-  }
-})();
+    function pad3(n){ return String(n).padStart(3,"0"); }
+    function extractKB(name){ const m = name?.match?.(/(\d{1,6})/); return m ? parseInt(m[1],10) : null; }
+    function cleanTitle(name){
+      const base = (name || "").replace(/\.html?$/i,"");
+      let t = base.replace(/[-_]+/g," ").replace(/\s*-\s*Crow\s*Canyon.*$/i,"").replace(/^\d+\s*(?:-\s*)?/,"");
+      return t.replace(/\b\w/g,c=>c.toUpperCase()).trim();
+    }
+    function nitroUrlFromKB(kb){ return `https://www.crowcanyon.help/article/${kb}/`; }
+    function displayHTML(name){
+      const kb = extractKB(name); const t = cleanTitle(name);
+      return kb !== null ? `<span class="kbnum">${pad3(kb)}</span>${t}` : t;
+    }
+
+    // Always use the published GitHub Pages base (works from local file, localhost, or Pages)
+    const PAGES_BASE = `https://${owner}.github.io/${repo}/`;       // https://amalinpf.github.io/postfalls-nitro-reference/
+    const INDEX_URL  = `${PAGES_BASE}${path}/kb-index.json`;        // https://.../kb-html/kb-index.json
+
+    function setStatus(baseCount, matches, extra="") {
+      const now = new Date().toLocaleString();
+      const matchLabel = (typeof matches === "number") ? ` • ${matches} match${matches === 1 ? "" : "es"}` : "";
+      subtitle.textContent = `City of Post Falls – ${baseCount} pages discovered${matchLabel}${extra ? " • " + extra : ""} • ${now}`;
+    }
+
+    // Ensure MiniSearch is available (fallback CDN if needed)
+    async function ensureMiniSearch() {
+      if (window.MiniSearch) return true;
+      const cdns = [
+        "https://cdn.jsdelivr.net/npm/minisearch@7.1.0/dist/umd/index.min.js",
+        "https://unpkg.com/minisearch@7.1.0/dist/umd/index.min.js"
+      ];
+      for (const src of cdns) {
+        try {
+          await new Promise((res, rej) => {
+            const s = document.createElement("script");
+            s.src = src; s.async = true;
+            s.onload = () => res();
+            s.onerror = () => rej();
+            document.head.appendChild(s);
+          });
+          if (window.MiniSearch) return true;
+        } catch {}
+      }
+      return !!window.MiniSearch;
+    }
+
+    async function loadFromGitHub(){
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+      const resp = await fetch(url, { headers: { "Accept": "application/vnd.github+json" }});
+      if (!resp.ok) throw new Error("github_api_error_" + resp.status);
+      const data = await resp.json();
+      return data
+        .filter(it => it.type === "file" && /\.html?$/i.test(it.name))
+        .map(it => ({ name: it.name }));
+    }
+
+    async function loadFromStaticLinks(){
+      const staticUrl = `${PAGES_BASE}test/nitro_static_links.html`;
+      const html = await (await fetch(staticUrl, { cache: "no-store" })).text();
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const anchors = [...doc.querySelectorAll('a[href*="/kb-html/"]')];
+      const files = anchors.map(a => {
+        const href = a.getAttribute("href");
+        const name = decodeURIComponent((href.split("/kb-html/")[1] || "").replace(/\/+$/,""));
+        return name ? { name } : null;
+      }).filter(Boolean);
+      const seen = new Set();
+      return files.filter(f => (seen.has(f.name) ? false : seen.add(f.name)));
+    }
+
+    let fileList = [];
+    try {
+      fileList = await loadFromGitHub();
+    } catch (e) {
+      console.warn("Primary load failed, using Static Links fallback:", e);
+      try {
+        fileList = await loadFromStaticLinks();
+        setStatus(fileList.length, null, "fallback (Static Links)");
+      } catch (e2) {
+        subtitle.textContent = "City of Post Falls – error loading pages";
+        console.error(e2);
+        return;
+      }
+    }
+
+    // Try to enable full-text
+    let mini = null;
+    let ftLabel = "full-text OFF";
+    let fullTextDocs = 0;
+
+    async function tryEnableFullText() {
+      const okLib = await ensureMiniSearch();
+      if (!okLib) { ftLabel = "full-text OFF — minisearch not loaded"; return; }
+      try {
+        const res = await fetch(INDEX_URL + `?v=${Date.now().toString().slice(0,10)}`, { cache: "no-store" });
+        if (!res.ok) { ftLabel = `full-text OFF — ${res.status} kb-index.json`; return; }
+        const docList = await res.json();
+        if (!Array.isArray(docList) || !docList.length) { ftLabel = "full-text OFF — empty index"; return; }
+        fullTextDocs = docList.length;
+        mini = new window.MiniSearch({
+          fields: ['title','text'],
+          storeFields: ['name','url','title'],
+          storeDocuments: true,
+          searchOptions: { boost: { title: 3 }, fuzzy: 0.2, prefix: true }
+        });
+        mini.addAll(docList);
+        ftLabel = `full-text ON (${fullTextDocs})`;
+      } catch (e) {
+        console.error("kb-index.json error", e);
+        ftLabel = "full-text OFF — fetch/parse error";
+      }
+    }
+
+    function render(files, filter="") {
+      if (!list) return;
+      list.innerHTML = "";
+      const needle = filter.trim();
+
+      let filtered;
+      const useFullText = document.getElementById("fulltext-toggle")?.checked;
+      if (mini && needle && useFullText) {
+        // Full-text path
+        const results = mini.search(needle, { prefix: true });
+        const seen = new Set();
+        filtered = results.map(r => {
+          const doc = r.store ?? r;
+          return {
+            name: doc.name || doc.title || doc.id || '(untitled)',
+          url:  doc.url || '',
+          _rank: r.score
+          }; }).filter(x => (seen.has(x.name) ? false : seen.add(x.name)))
+          .sort((a,b) => (b._rank||0)-(a._rank||0) || a.name.localeCompare(b.name));
+      } else {
+        // Title-only path
+        const n = needle.toLowerCase();
+        filtered = files
+          .filter(f => !n || f.name.toLowerCase().includes(n))
+          .sort((a,b)=>{
+            const ka = extractKB(a.name), kb = extractKB(b.name);
+            if (ka!==null && kb!==null) return ka-kb;
+            if (ka!==null) return -1;
+            if (kb!==null) return 1;
+            return a.name.localeCompare(b.name);
+          });
+      }
+
+      if (!filtered.length) {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.opacity = .7;
+        div.innerHTML = `<div class="title">No results found</div><div class="actions"></div>`;
+        list.appendChild(div);
+      } else {
+        for (const f of filtered){
+          const name = f.name || "";
+          const display = displayHTML(name);
+          const pagesUrl = f.url || `${PAGES_BASE}${path}/${encodeURIComponent(name)}`;
+          const kb = extractKB(name);
+          const nitro = kb!==null ? nitroUrlFromKB(kb) : null;
+
+          const div = document.createElement("div");
+          div.className = "item";
+          div.innerHTML = `<div class="title"><a href="${pagesUrl}" target="_blank" rel="noopener">${display}</a></div>
+            <div class="actions">${ nitro ? `<a href="${nitro}" target="_blank" rel="noopener">NITRO</a>` : "" }</div>`;
+          list.appendChild(div);
+        }
+      }
+
+      const modeLabel = (useFullText && mini) ? ftLabel : "title-only";
+      setStatus(files.length, filtered.length, modeLabel);
+    }
+
+    await tryEnableFullText();
+    render(fileList);
+
+    // Attach BOTH input and keyup to ensure re-render fires everywhere
+    if (q) {
+      const onFilter = () => render(fileList, q.value || "");
+      q.addEventListener("input", onFilter);
+      q.addEventListener("keyup", onFilter);
+      document.getElementById("fulltext-toggle")?.addEventListener("change", onFilter);
+    } else {
+      console.warn("Search input not found; live filtering disabled.");
+    }
+  })();
 </script>
+
 </body>
 </html>

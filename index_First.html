@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NITRO Reference Guide (Internal)</title>
+  <style>
+    /* Base layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f9fc;
+      color: #333;
+    }
+    header, footer {
+      background: #0b61d8;
+      color: #fff;
+      text-align: center;
+      padding: 16px 20px;
+    }
+    header h1 { color: #fff; margin: 0 0 6px 0; }
+
+    /* Dynamic main container */
+    main {
+      width: calc(100% - 32px);
+      margin: 16px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+    }
+
+    /* Controls */
+    .top-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 12px 0 20px 0;
+    }
+    #searchBox {
+      width: min(100%, 54ch);
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .btn {
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    .source-note {
+      font-size: 12px;
+      color: #333;
+      margin: 8px 0 0 0;
+      text-align: center;
+    }
+
+    /* SECTION HEADERS */
+    details.section { margin-top: 1.25rem; }
+    details.section > summary {
+      cursor: pointer;
+      color: #0078d4;
+      font-weight: bold;
+      font-size: 16pt;
+      border-bottom: 2px solid #0078d4;
+      padding: 6px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    details.section > summary::before { content: "▶"; }
+    details.section[open] > summary::before { content: "▼"; }
+
+    /* Subsection headers */
+    details.subsection { margin-top: 1rem; margin-left: 20px; }
+    details.subsection > summary {
+      cursor: pointer;
+      color: #444;
+      font-weight: bold;
+      font-size: 14pt;
+      border-bottom: 1px solid #ccc;
+      padding: 4px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    details.subsection > summary::before { content: "▶"; margin-right: 6px; }
+    details.subsection[open] > summary::before { content: "▼"; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background-color: #0078d4;
+      color: #fff;
+    }
+    tr:nth-child(even) td { background-color: #f4f9fc; }
+
+    /* Monospace cells */
+    td.col-syntax, td.col-example {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 10pt;
+    }
+    td.col-example pre { margin: 0; white-space: pre-wrap; }
+    code { background-color: transparent; font-size: 10pt; }
+
+    /* More Info expanders */
+    table td details > summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #0078d4;
+      font-size: 14px;
+      display: inline;
+      list-style: none;
+    }
+    table td details > summary::-webkit-details-marker { display: none; }
+    table td details > summary::before { content: "▶"; margin-right: 6px; }
+    table td details[open] > summary::before { content: "▼"; }
+
+    .moreinfo-content { font-size: 14pt; line-height: 1.4; margin-top: 4px; }
+    .moreinfo-content a { font-size: 14pt; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>NITRO Reference Guide (Internal)</h1>
+  <div style="opacity:.85">Baseline skeleton for GitHub Pages</div>
+</header>
+
+<main>
+  <div class="top-controls">
+    <input id="searchBox" type="text" placeholder="🔍 Search for functions, syntax, or keywords..." />
+    <button class="btn" id="expandAllBtn" type="button">Expand All</button>
+    <button class="btn" id="collapseAllBtn" type="button">Collapse All</button>
+  </div>
+
+  <div class="source-note">
+    Search Everything: <a href="https://amalinpf.github.io/postfalls-nitro-reference/nitro-links-compact.html" target="_blank">NITRO KB Index</a>
+  </div>
+
+  <!-- 📚 FUNCTIONS -->
+  <details class="section" open>
+    <summary>📚 Functions</summary>
+
+    <!-- 👥 People Functions -->
+<details class="subsection" open>
+  <summary>👥 People Functions</summary>
+  <table>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Syntax</th>
+      <th>Example</th>
+      <th>More Info</th>
+    </tr>
+
+    <!-- $getSPuserproperty (anchored) -->
+    <tr>
+      <td>$getSPuserproperty</td>
+      <td>Gets a user’s attribute (e.g., Manager, Email) from a Person/Group column.</td>
+      <td class="col-syntax"><code>$getSPuserproperty(userField, propertyName)</code></td>
+      <td class="col-example"><pre><code>$getSPuserproperty([Requester|Requester], "Manager")
+$getSPuserproperty([AssignedTo|Assigned To], "Email")</code></pre></td>
+      <td>
+        <details>
+          <summary>PF</summary>
+          <div class="moreinfo-content">
+            <div>Use on Person/Group fields; returns attributes like <code>Email</code>, <code>Name</code>, <code>Manager</code>, or <code>Department</code>.</div>
+            <div>Property names must match known AD/SharePoint attributes.</div>
+            <br/>
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#getspuserproperty-displayvalue-joinchar-userfield" target="_blank" rel="noopener">
+              Comprehensive list – $getSPuserproperty
+            </a><br/>
+            <a href="sources/function-definitions-orig.docx">Function Definitions Orig.docx</a><br/>
+            <a href="sources/get-group-members.docx">Get group members.docx</a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $getaduserproperty (anchored) -->
+    <tr>
+      <td>$getaduserproperty</td>
+      <td>Returns a specified Active Directory attribute for a user.</td>
+      <td class="col-syntax"><code>$getaduserproperty(user, propertyName)</code></td>
+      <td class="col-example"><pre><code>$getaduserproperty([Requester|Requester], "Department")</code></pre></td>
+      <td>
+        <details>
+          <summary>PF</summary>
+          <div class="moreinfo-content">
+            <div>Accepts a Person/Group value or a username/email; returns the requested AD attribute.</div>
+            <br/>
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#getaduserproperty" target="_blank" rel="noopener">
+              Comprehensive list – $getaduserproperty
+            </a><br/>
+            <a href="sources/function-definitions-orig.docx">Function Definitions Orig.docx</a>
+          </div>
+        </details>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<!-- 🔤 String Functions -->
+<details class="subsection" open>
+  <summary>🔤 String Functions</summary>
+  <table>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Syntax</th>
+      <th>Example</th>
+      <th>More Info</th>
+    </tr>
+
+    <!-- $strcat (anchored) -->
+    <tr>
+      <td>$strcat</td>
+      <td>Concatenates values</td>
+      <td class="col-syntax"><code>$strcat(value1, value2, ...)</code></td>
+      <td class="col-example"><pre><code>$strcat("Hello ", [Requester|Title])</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <div>Joins static and dynamic text. No quotes needed around placeholders.</div>
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#strcat-textfield-textfieldsorvalues" target="_blank" rel="noopener">
+              Comprehensive list – $strcat
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $substring (no anchor found in your export) -->
+    <tr>
+      <td>$substring</td>
+      <td>Returns a portion of a string</td>
+      <td class="col-syntax"><code>$substring(source, startIndex, length)</code></td>
+      <td class="col-example"><pre><code>$substring([Title|Title], 0, 10)</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <div>Start index is zero-based; length is number of characters to return.</div>
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">
+              Comprehensive list – (root)
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $tolower (no anchor found) -->
+    <tr>
+      <td>$tolower</td>
+      <td>Converts text to lowercase</td>
+      <td class="col-syntax"><code>$tolower(source)</code></td>
+      <td class="col-example"><pre><code>$tolower([Requester|Title])</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">
+              Comprehensive list – (root)
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $toupper (no anchor found) -->
+    <tr>
+      <td>$toupper</td>
+      <td>Converts text to uppercase</td>
+      <td class="col-syntax"><code>$toupper(source)</code></td>
+      <td class="col-example"><pre><code>$toupper([Requester|Title])</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">
+              Comprehensive list – (root)
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $replace (no anchor found) -->
+    <tr>
+      <td>$replace</td>
+      <td>Replaces text in a string</td>
+      <td class="col-syntax"><code>$replace(source, oldValue, newValue)</code></td>
+      <td class="col-example"><pre><code>$replace([Title|Title], "Issue", "Request")</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">
+              Comprehensive list – (root)
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $regextract (anchored) -->
+    <tr>
+      <td>$regextract</td>
+      <td>Extracts substring by regex</td>
+      <td class="col-syntax"><code>$regextract(source, pattern, [modifier])</code></td>
+      <td class="col-example"><pre><code>$regextract([Body|Body], @.*(Bob).*)</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <div>Supports modifiers like <code>HTMLDecode</code>, <code>HTMLStrip</code>.</div>
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/#regextract-value-placeholder-expression" target="_blank" rel="noopener">
+              Comprehensive list – $regextract
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+
+    <!-- $length (no anchor found) -->
+    <tr>
+      <td>$length</td>
+      <td>Returns the length of a string</td>
+      <td class="col-syntax"><code>$length(source)</code></td>
+      <td class="col-example"><pre><code>$length([Title|Title])</code></pre></td>
+      <td>
+        <details>
+          <summary>WF</summary>
+          <div class="moreinfo-content">
+            <a href="https://www.crowcanyon.help/article/comprehensive-list-of-functions-in-nitro-studio/" target="_blank" rel="noopener">
+              Comprehensive list – (root)
+            </a>
+          </div>
+        </details>
+      </td>
+    </tr>
+  </table>
+</details>
+
+
+</main>
+
+<footer>
+  NITRO Manual | Created with the assistance of Skynet
+</footer>
+
+<script>
+  // Search filter
+  document.getElementById('searchBox').addEventListener('keyup', function () {
+    const search = this.value.toLowerCase();
+    document.querySelectorAll('table tr').forEach(row => {
+      if (row.querySelector('th')) { row.style.display = ''; return; }
+      row.style.display = row.innerText.toLowerCase().includes(search) ? '' : 'none';
+    });
+  });
+  // Expand/Collapse all
+  document.getElementById('expandAllBtn').addEventListener('click', () => {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+  });
+  document.getElementById('collapseAllBtn').addEventListener('click', () => {
+    document.querySelectorAll('details').forEach(d => d.open = false);
+  });
+</script>
+
+</body>
+</html>
+

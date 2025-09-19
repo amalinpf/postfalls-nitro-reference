@@ -50,6 +50,42 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
         padding: 12px 14px;
       }
+      /* Make the Quick Links/Search card sticky */
+      .card.sticky {
+        position: sticky;
+        top: 0;
+        z-index: 100; /* sit above tiles */
+        transition: box-shadow 0.25s ease;
+      }
+
+      /* When stuck, give it a stronger shadow */
+      .card.sticky.is-stuck {
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14),
+          0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Subtle fade into the page content */
+      .card.sticky::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 18px;
+        pointer-events: none;
+        background: linear-gradient(
+          to bottom,
+          rgba(245, 247, 251, 0),
+          var(--bg)
+        );
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      /* Show the fade only when the card is stuck */
+      .card.sticky.is-stuck::after {
+        opacity: 1;
+      }
       h2.section {
         color: var(--pf-blue);
         font-size: 16px;
@@ -125,7 +161,8 @@
     </header>
 
     <main>
-      <section class="card">
+      <div id="stickysentinel" aria-hidden="true" style="height: 1px"></div>
+      <section class="card sticky">
         <h2 class="section">Quick Links</h2>
 
         <p class="linksline">
@@ -213,6 +250,23 @@
         const subtitle = document.getElementById("subtitle");
         const q = document.getElementById("q");
 
+        // Sticky state styling for the Quick Links/Search card
+        const stickyCard = document.querySelector(".card.sticky");
+        const sentinel = document.getElementById("stickysentinel");
+
+        if (stickyCard && sentinel) {
+          const io = new IntersectionObserver(
+            ([entry]) => {
+              // When the sentinel scrolls offscreen, the sticky card has reached the top
+              stickyCard.classList.toggle(
+                "is-stuck",
+                entry.intersectionRatio === 0
+              );
+            },
+            { threshold: [0, 1] }
+          );
+          io.observe(sentinel);
+        }
         function pad3(n) {
           return String(n).padStart(3, "0");
         }
